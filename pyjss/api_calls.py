@@ -1,7 +1,10 @@
-import requests
 import json
 import xml.etree.ElementTree as etree
+
+import requests
+
 from pyjss.settings import Credentials
+
 
 def get_call(url):
     base_url = Credentials.url
@@ -37,4 +40,3 @@ def delete_call(url, data=None):
         return response.json()
     else:
         return 'Error {0}'.format(response.status_code)
-
