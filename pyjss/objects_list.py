@@ -1,18 +1,28 @@
-from pyjss.api_calls import get_call,delete_call,push_call
-from pyjss.settings import Credentials
 import json
+
+from pyjss.api_calls import delete_call, get_call, push_call
+from pyjss.settings import Credentials
+
 
 class Accounts:
     
     @staticmethod
-    def get(item=None):
+    def get(item=None, group=None):
         if item == None:
             data = get_call('JSSResource/accounts')
         else:
-            if type(item) is str:
-                data = get_call('JSSResource/accounts/username/{0}'.format(item))
-            if type(item) is int:
-                data = get_call('JSSResource/accounts/userid/{0}'.format(item))
+            if group == None:
+                if type(item) is str:
+                    data = get_call('JSSResource/accounts/username/{0}'.format(item))
+                if type(item) is int:
+                    data = get_call('JSSResource/accounts/userid/{0}'.format(item))
+            else:
+                if type(group) is str:
+                    data = get_call(
+                        'JSSResource/accounts/groupname/{0}'.format(item))
+                if type(group) is int:
+                    data = get_call(
+                        'JSSResource/accounts/groupid/{0}'.format(item))
         return(data)
 
 class ActivationCode:
@@ -471,7 +481,7 @@ class MacApplications:
         print(data)
 
 
-class ManagedPreferenceProfile:
+class ManagedPreferenceProfiles
 
     @staticmethod
     def get(item=None):

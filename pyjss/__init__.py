@@ -6,7 +6,7 @@ from pyjss.objects_list import (Accounts, ActivationCode, AdvancedComputerSearch
 								Departments, DirectoryBindings, DiskEncryptionConfigurations, DistributionPoints, DockItems,
 								Ebooks, FileUploads, GsxConnexion, HealthCareListener, HealthCareListenerRule,
 								Ibeacons, InfrastructureManager, JsonWebTokenConfigurations,LdapServers, LicencedSoftware,
-								LogFlush, MacApplications, ManagedPreferenceProfile, MobileDeviceApplications, MobileDeviceCommands,
+								LogFlush, MacApplications, ManagedPreferenceProfiles, MobileDeviceApplications, MobileDeviceCommands,
 								MobileDeviceConfigurationProfiles, MobileDeviceEnrollementProfiles, MobileDeviceExtensionAttributes, MobileDeviceExtensionGroups, MobileDeviceHistory,
 								MobileDeviceInvitations, MobileDeviceProvisionningProfiles, MobileDevices, NetbootServers, NetworkSegments,
 								OsxConfigurationProfiles, Packages, Patches, PatchExternalSources, PatchInternalSources,
