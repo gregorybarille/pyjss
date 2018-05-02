@@ -1,131 +1,149 @@
 import json
+import inspect
 
-from pyjss.api_calls import delete_call, get_call, push_call
+from pyjss.api_calls import delete_call, get_call, push_call, put_call
 from pyjss.settings import Credentials
 
 
 class Accounts:
-    
+
     @staticmethod
-    def get(item=None, group=None):
+    def get(item=None, group_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a group use the syntax get('group', ID OR NAME)'''
         if item == None:
             data = get_call('JSSResource/accounts')
         else:
-            if group == None:
+            if item != 'group':
                 if type(item) is str:
                     data = get_call('JSSResource/accounts/username/{0}'.format(item))
-                if type(item) is int:
+                elif type(item) is int:
                     data = get_call('JSSResource/accounts/userid/{0}'.format(item))
             else:
-                if type(group) is str:
+                if type(group_item) is str:
                     data = get_call(
-                        'JSSResource/accounts/groupname/{0}'.format(item))
-                if type(group) is int:
+                        'JSSResource/accounts/groupname/{0}'.format(group_item))
+                elif type(group_item) is int:
                     data = get_call(
                         'JSSResource/accounts/groupid/{0}'.format(item))
         return(data)
+
 
 class ActivationCode:
 
     @staticmethod
     def get():
+        '''No parameters. Return the Activation Code for your JAMF Pro instance.'''
         data = get_call('JSSResource/activationcode')
-        print(data)
+        return(data)
 
 
 class AdvancedComputerSearches:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/advancedcomputersearches')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/advancedcomputersearches/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/advancedcomputersearches/id/{0}'.format(item))
-        print(data) 
+        return(data)
 
 
 class AdvancedMobileDeviceSearches:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/advancedmobiledevicesearches')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/advancedcomputersearches/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/advancedcomputersearches/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class AdvancedUserSearches:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/advancedusersearches')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/advancedusersearches/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/advancedusersearches/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 class AllowedFileExtension:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/allowedfileextensions')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/allowedfileextensions/extension/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/allowedfileextensions/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class Buildings:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/buildings')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/buildings/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/buildings/id/{0}'.format(item))
-        print(data)
+        return(data)
         
 
 class ByoProfiles:
 
     @staticmethod
-    def get(item=None):
+    def get(item=None, site_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a site use the syntax get('site', ID OR NAME)'''
         if item == None:
             data = get_call('JSSResource/byoprofiles')
         else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/byoprofiles/name/{0}'.format(item))
-            if type(item) is int:
-                data = get_call(
-                    'JSSResource/byoprofiles/id/{0}'.format(item))
-        print(data)
+            if item != 'site':
+                if type(item) is str:
+                    data = get_call(
+                        'JSSResource/byoprofiles/name/{0}'.format(item))
+                elif type(item) is int:
+                    data = get_call(
+                        'JSSResource/byoprofiles/id/{0}'.format(item))
+            else:
+                if type(site_item) is str:
+                    data = get_call(
+                        'JSSResource/byoprofiles/site/name/{0}'.format(site_item))
+                elif type(site_item) is int:
+                    data = get_call(
+                        'JSSResource/byoprofiles/site/id/{0}'.format(site_item))
+        return(data)
 
 
 class Categories:
@@ -138,10 +156,10 @@ class Categories:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/categories/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/categories/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class Classes:
@@ -154,13 +172,14 @@ class Classes:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/classes/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/classes/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class CommandFlush:
+    '''no get'''
     pass
 
 
@@ -169,19 +188,54 @@ class ComputerApplications:
 
 
 class ComputerApplicationsUsage:
-    pass
+
+    @staticmethod
+    def get(item_type=None, item=None, start_date=None, end_date=None):
+        '''Item type could be id,name,udid,serialnumber or macaddress. All parameters are required.'''
+        if item_type == 'id':
+             data = get_call(
+                 'JSSResource/computerapplicationusage/id/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'name':
+             data = get_call(
+                 'JSSResource/computerapplicationusage/name/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'udid':
+             data = get_call(
+                 'JSSResource/computerapplicationusage/udid/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'serialnumber':
+             data = get_call(
+                 'JSSResource/computerapplicationusage/serialnumber/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'macaddress':
+             data = get_call(
+                 'JSSResource/computerapplicationusage/macaddress/{0}/{1}_{2}'.format(item, start_date, end_date))
+        return(data)
 
 
 class ComputerCheckin:
 
     @staticmethod
     def get():
+        '''No parameters. Return the computer checking settings for your JAMF Pro instance. '''
         data = get_call('JSSResource/computercheckin')
-        print(data)
+        return(data)
 
 
 class ComputerCommands:
-    pass
+    
+    @staticmethod
+    def get(item_type=None, item=None):
+        '''Item type could be id, uuid. statusuuid, name. If empty returns all computer commands.'''
+        if item_type == None:
+            data = get_call('JSSResource/computercommands')
+        else:
+            if item_type == 'id':
+                data = get_call('JSSResource/computercommands/id/{0}'.format(item))
+            elif item_type == 'uuid':
+                data = get_call('JSSResource/computercommands/uuid/{0}'.format(item))
+            elif item_type == 'statusuuid':
+                data = get_call('JSSResource/computercommands/status/{0}'.format(item))
+            elif item_type == 'name':
+                data = get_call('JSSResource/computercommands/name/{0}'.format(item))
+        return(data)
 
 
 class ComputerConfigurations:
@@ -194,10 +248,10 @@ class ComputerConfigurations:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/computerconfigurations/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/computerconfigurations/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class ComputerExtensionAttributes:
@@ -210,10 +264,10 @@ class ComputerExtensionAttributes:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/computerextensionattributes/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/computerextensionattributes/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class ComputerGroups:
@@ -226,41 +280,89 @@ class ComputerGroups:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/computergroups/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/computergroups/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 class ComputerHardwareSoftwareReports:
-    pass
+    
+    @staticmethod
+    def get(item_type=None, item=None, start_date=None, end_date=None):
+        '''Item type could be id,name,udid,serialnumber or macaddress. All parameters are required.'''
+        if item_type == 'id':
+             data = get_call(
+                 'JSSResource/computerhardwaresoftwarereports/id/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'name':
+             data = get_call(
+                 'JSSResource/computerhardwaresoftwarereports/name/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'udid':
+             data = get_call(
+                 'JSSResource/computerhardwaresoftwarereports/udid/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'serialnumber':
+             data = get_call(
+                 'JSSResource/computerhardwaresoftwarereports/serialnumber/{0}/{1}_{2}'.format(item, start_date, end_date))
+        elif item_type == 'macaddress':
+             data = get_call(
+                 'JSSResource/computerhardwaresoftwarereports/macaddress/{0}/{1}_{2}'.format(item, start_date, end_date))
+        return(data)
 
 
 class ComputerHistory:
-    pass
+    
+    @staticmethod
+    def get(item_type=None, item=None, subset_item=None):
+        '''Item type could be id,name,udid,serialnumber or macaddress. Subset is only available when use with id'''
+        if item_type == 'id':
+            if subset_item == None:
+                data = get_call(
+                    'JSSResource/computerhistory/id/{0}'.format(item))
+            else:
+                data = get_call(
+                    'JSSResource/computerhistory/id/{0}/subset/{1}'.format(item,subset_item))
+        elif item_type == 'name':
+             data = get_call(
+                 'JSSResource/computerhistory/name/{0}'.format(item))
+        elif item_type == 'udid':
+             data = get_call(
+                 'JSSResource/computerhistory/udid/{0}'.format(item))
+        elif item_type == 'serialnumber':
+             data = get_call(
+                 'JSSResource/computerhistory/serialnumber/{0}'.format(item))
+        elif item_type == 'macaddress':
+             data = get_call(
+                 'JSSResource/computerhistory/macaddress/{0}'.format(item))
+        return(data)
 
 
 class ComputerInventoryCollection:
 
     @staticmethod
     def get():
+        '''No parameters. Return the Computer inventory collection for your JAMF Pro instance.'''
         data = get_call('JSSResource/computerinventorycollection')
-        print(data)
+        return(data)
 
 
 class ComputerInvitations:
 
     @staticmethod
-    def get(item=None):
+    def get(item=None, invitation_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a invitation number use the syntax get('invitation', invitationnumber) '''
         if item == None:
             data = get_call('JSSResource/computerinvitations')
         else:
-            if type(item) is str:
+            if item != 'invitation':
+                if type(item) is str:
+                    data = get_call(
+                        'JSSResource/computerinvitations/name/{0}'.format(item))
+                elif type(item) is int:
+                    data = get_call(
+                        'JSSResource/computerinvitations/id/{0}'.format(item))
+            else:
                 data = get_call(
-                    'JSSResource/computerinvitations/name/{0}'.format(item))
-            if type(item) is int:
-                data = get_call(
-                    'JSSResource/computerinvitations/id/{0}'.format(item))
-        print(data)
+                    'JSSResource/computerinvitations/invitation/{0}'.format(item))
+        return(data)
 
 
 class ComputerManagement:
@@ -271,118 +373,164 @@ class ComputerReports:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/computerreports')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/computerreports/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/computerreports/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 class Computers:
-    pass
+    
+    @staticmethod
+    def get(item_type=None, item=None, subset_item=None):
+        '''Item type could be None, subset, id,name, match, matchname,udid,serialnumber or macaddress. subset_item is only available when use with id'''
+        if item_type == None:
+            data = get_call('JSSResource/computers')
+        else:
+            if item_type == 'subset':
+                data = get_call('JSSResource/computers/subset/basic')
+            elif item_type == 'id':
+                if subset_item == None:
+                    data = get_call(
+                        'JSSResource/computers/id/{0}'.format(item))
+                else:
+                    data = get_call(
+                        'JSSResource/computers/id/{0}/subset/{1}'.format(item, subset_item))
+            elif item_type == 'name':
+                data = get_call(
+                    'JSSResource/computers/name/{0}'.format(item))
+            elif item_type == 'udid':
+                data = get_call(
+                    'JSSResource/computers/udid/{0}'.format(item))
+            elif item_type == 'serialnumber':
+                data = get_call(
+                    'JSSResource/computers/serialnumber/{0}'.format(item))
+            elif item_type == 'macaddress':
+                data = get_call(
+                    'JSSResource/computers/macaddress/{0}'.format(item))
+            elif item_type == 'match':
+                data = get_call(
+                    'JSSResource/computers/match/{0}'.format(item))
+            elif item_type == 'matchname':
+                data = get_call(
+                    'JSSResource/computers/match/name/{0}'.format(item))
+        return(data)
 
 
 class Departments:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/departments')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/departments/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/departments/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class DirectoryBindings:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/directorybindings')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/directorybindings/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/directorybindings/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class DiskEncryptionConfigurations:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/diskencryptionconfigurations')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/diskencryptionconfigurations/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/diskencryptionconfigurations/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class DistributionPoints:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/distributionpoints')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/distributionpoints/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/distributionpoints/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class DockItems:
 
     @staticmethod
     def get(item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
             data = get_call('JSSResource/dockitems')
         else:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/dockitems/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/dockitems/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class Ebooks:
 
     @staticmethod
-    def get(item=None):
+    def get(item=None, subset_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
         if item == None:
             data = get_call('JSSResource/ebooks')
         else:
-            if type(item) is str:
+            if subset_item != None:
                 data = get_call(
-                    'JSSResource/ebooks/name/{0}'.format(item))
-            if type(item) is int:
-                data = get_call(
-                    'JSSResource/ebooks/id/{0}'.format(item))
-        print(data)
+                    'JSSResource/ebooks/id/{0}/subset/{1}'.format(item, subset_item))
+            else:
+                if type(item) is str:
+                    data = get_call(
+                        'JSSResource/ebooks/name/{0}'.format(item))
+                if type(item) is int:
+                    data = get_call(
+                        'JSSResource/ebooks/id/{0}'.format(item))
+        return(data)
 
 
 class FileUploads:
+    ''' Only post method '''
     pass
 
 
@@ -391,15 +539,37 @@ class GsxConnexion:
     @staticmethod
     def get():
         data = get_call('JSSResource/gsxconnection')
-        print(data)
+        return(data)
 
 
 class HealthCareListener:
-    pass
+    '''Get,Put'''
+    @staticmethod
+    def get(item_id=None):
+        '''Specity id for the item. If no item has been specified return the full list.'''
+        if item_id == None:
+            data = get_call('JSSResource/healthcarelistener')
+        else:
+            if type(item_id) is int:
+                data = get_call(
+                    'JSSResource/healthcarelistener/id/{0}'.format(item_id))
+            else:
+                print('item_id should be an integer.')
+
 
 class HealthCareListenerRule:
-    pass
-
+    '''Get, Put, Post'''
+    @staticmethod
+    def get(item_id=None):
+        '''Specity id for the item. If no item has been specified return the full list.'''
+        if item_id == None:
+            data = get_call('JSSResource/healthcarelistenerrule')
+        else:
+            if type(item_id) is int:
+                data = get_call(
+                    'JSSResource/healthcarelistenerrule/id/{0}'.format(item_id))
+            else:
+                print('item_id should be an integer.')
 
 class Ibeacons:
 
@@ -411,10 +581,10 @@ class Ibeacons:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/ibeacons/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/ibeacons/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class InfrastructureManager:
@@ -422,7 +592,7 @@ class InfrastructureManager:
     @staticmethod
     def get():
         data = get_call('JSSResource/infrastructuremanager')
-        print(data)
+        return(data)
 
 
 class JsonWebTokenConfigurations:
@@ -437,11 +607,12 @@ class JsonWebTokenConfigurations:
                     'JSSResource/jsonwebtokenconfigurations/id/{0}'.format(db_id))
             else:
                 print('Wrong type of data have been passed. The ID should be passed as integer')
-        print(data)
+        return(data)
 
 
 
 class LdapServers:
+    '''Get, Put, Post, Delete'''
     pass
 
 
@@ -455,10 +626,10 @@ class LicencedSoftware:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/licensedsoftware/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/licensedsoftware/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class LogFlush:
@@ -468,37 +639,66 @@ class LogFlush:
 class MacApplications:
 
     @staticmethod
-    def get(item=None):
+    def get(item=None, subset_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
         if item == None:
             data = get_call('JSSResource/macapplications')
         else:
-            if type(item) is str:
+            if subset_item != None:
                 data = get_call(
-                    'JSSResource/macapplications/name/{0}'.format(item))
-            if type(item) is int:
-                data = get_call(
-                    'JSSResource/macapplications/id/{0}'.format(item))
-        print(data)
+                    'JSSResource/macapplications/id/{0}/subset/{1}'.format(item, subset_item))
+            else:
+                if type(item) is str:
+                    data = get_call(
+                        'JSSResource/macapplications/name/{0}'.format(item))
+                elif type(item) is int:
+                    data = get_call(
+                        'JSSResource/macapplications/id/{0}'.format(item))
+        return(data)
 
 
-class ManagedPreferenceProfiles
+class ManagedPreferenceProfiles:
 
     @staticmethod
-    def get(item=None):
+    def get(item=None, subset_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
         if item == None:
             data = get_call('JSSResource/managedpreferenceprofiles')
         else:
-            if type(item) is str:
+            if subset_item != None:
                 data = get_call(
-                    'JSSResource/managedpreferenceprofiles/name/{0}'.format(item))
-            if type(item) is int:
-                data = get_call(
-                    'JSSResource/managedpreferenceprofiles/id/{0}'.format(item))
-        print(data)
+                    'JSSResource/managedpreferenceprofiles/id/{0}/subset/{1}'.format(item, subset_item))
+            else:
+                if type(item) is str:
+                    data = get_call(
+                        'JSSResource/managedpreferenceprofiles/name/{0}'.format(item))
+                elif type(item) is int:
+                    data = get_call(
+                        'JSSResource/managedpreferenceprofiles/id/{0}'.format(item))
+        return(data)
 
 
 class MobileDeviceApplications:
-    pass
+    
+    @staticmethod
+    def get(item_type=None, item=None, extra_item=None):
+        '''Item could be id, bundleid, name. If no item has been specified return the full list. extra_item is only available when use with id and bundleid'''
+        if item_type == None:
+            data = get_call('JSSResource/mobiledeviceapplications')
+        elif item_type == 'id':
+            if extra_item != None:
+                data = get_call(
+                    'JSSResource/mobiledeviceapplications/id/{0}'.format(item))
+            else:
+                data = get_call(
+                    'JSSResource/mobiledeviceapplications/id/{0}/subset/{1}'.format(item,extra_item))
+        elif item_type == 'bundleid':
+            if extra_item == None:
+                data = get_call(
+                    'JSSResource/mobiledeviceapplications/bundleid/{0}'.format(item))
+            else:
+                data = get_call('JSSResource/mobiledeviceapplications/bundleid/{0}/version/{1}'.format(item,extra_item))
+        return(data)
 
 
 class MobileDeviceCommands:
@@ -515,10 +715,10 @@ class MobileDeviceConfigurationProfiles:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/managedpreferenceprofiles/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/managedpreferenceprofiles/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 class MobileDeviceEnrollementProfiles:
     pass
@@ -534,10 +734,10 @@ class MobileDeviceExtensionAttributes:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/mobiledeviceextensionattributes/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/mobiledeviceextensionattributes/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class MobileDeviceExtensionGroups:
@@ -550,10 +750,10 @@ class MobileDeviceExtensionGroups:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/mobiledevicegroups/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/mobiledevicegroups/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class MobileDeviceHistory:
@@ -581,10 +781,10 @@ class NetbootServers:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/netbootservers/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/netbootservers/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class NetworkSegments:
@@ -600,9 +800,9 @@ class NetworkSegments:
         else:
             if type(item) is str:
                 data = get_call('JSSResource/networksegments/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call('JSSResource/networksegments/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class OsxConfigurationProfiles:
@@ -615,10 +815,10 @@ class OsxConfigurationProfiles:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/osxconfigurationprofiles/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/osxconfigurationprofiles/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class Packages:
@@ -631,10 +831,10 @@ class Packages:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/packages/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/packages/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class Patches:
@@ -647,10 +847,10 @@ class Patches:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/patches/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/patches/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class PatchExternalSources:
@@ -663,10 +863,10 @@ class PatchExternalSources:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/patchexternalsources/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/patchexternalsources/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class PatchInternalSources:
@@ -679,10 +879,10 @@ class PatchInternalSources:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/patchinternalsources/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/patchinternalsources/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class PatchPolicies:
@@ -701,7 +901,7 @@ class Peripherals:
                     'JSSResource/peripherals/id/{0}'.format(item_id))
             else:
                 print('Item_ID should be an integer.')
-        print(data)
+        return(data)
 
 
 class PeripheralsTypes:
@@ -716,7 +916,7 @@ class PeripheralsTypes:
                     'JSSResource/peripheraltypes/id/{0}'.format(item_id))
             else:
                 print('Item_ID should be an integer.')
-        print(data)
+        return(data)
 
 class Policies:
     pass
@@ -732,10 +932,10 @@ class Printers:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/printers/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/printers/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class RemovableMacAddresses:
@@ -748,10 +948,10 @@ class RemovableMacAddresses:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/removablemacaddresses/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/removablemacaddresses/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class RestrictedSoftware:
@@ -767,7 +967,7 @@ class RestrictedSoftware:
             if type(item) is int:
                 data = get_call(
                     'JSSResource/restrictedsoftware/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class SavedSearches:
@@ -784,10 +984,10 @@ class Stripts:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/scripts/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/scripts/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class Sites:
@@ -800,10 +1000,10 @@ class Sites:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/sites/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/sites/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class SmtpServer:
@@ -811,7 +1011,7 @@ class SmtpServer:
     @staticmethod
     def get():
         data = get_call('JSSResource/smtpserver')
-        print(data)
+        return(data)
 
 
 class SoftwareUpdateServers:
@@ -824,10 +1024,10 @@ class SoftwareUpdateServers:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/sitsoftwareupdateserverses/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/softwareupdateservers/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class UserExtensionAttributes:
@@ -840,10 +1040,10 @@ class UserExtensionAttributes:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/userextensionattributes/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/userextensionattributes/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class UserGroups:
@@ -856,10 +1056,10 @@ class UserGroups:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/usergroups/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/usergroups/id/{0}'.format(item))
-        print(data)
+        return(data)
 
 
 class Users:
@@ -878,7 +1078,7 @@ class VppAccounts:
                     'JSSResource/vppaccounts/id/{0}'.format(item_id))
             else:
                 print('Item_ID should be an integer.')
-        print(data)
+        return(data)
 
 
 class VppAssignments:
@@ -893,7 +1093,7 @@ class VppAssignments:
                     'JSSResource/vppassignments/id/{0}'.format(item_id))
             else:
                 print('Item_ID should be an integer.')
-        print(data)
+        return(data)
 
 
 class VppInvitations:
@@ -907,8 +1107,8 @@ class VppInvitations:
                 data = get_call(
                     'JSSResource/vppinvitations/id/{0}'.format(item_id))
             else:
-                print('Item_ID should be an integer.')
-        print(data)
+                print('item_id should be an integer.')
+        return(data)
 
 
 class Webhooks:
@@ -921,7 +1121,7 @@ class Webhooks:
             if type(item) is str:
                 data = get_call(
                     'JSSResource/webhooks/name/{0}'.format(item))
-            if type(item) is int:
+            elif type(item) is int:
                 data = get_call(
                     'JSSResource/webhooks/id/{0}'.format(item))
-        print(data)
+        return(data)
