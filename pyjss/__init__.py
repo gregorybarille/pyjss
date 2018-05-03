@@ -13,7 +13,7 @@ from pyjss.objects_list import (Accounts, ActivationCode, AdvancedComputerSearch
 								PatchPolicies, Peripherals, PeripheralsTypes, Policies, Printers,
 								RemovableMacAddresses, RestrictedSoftware, SavedSearches, Stripts, Sites,
 								SmtpServer, SoftwareUpdateServers, UserExtensionAttributes, UserGroups, Users,
-								VppAccounts, VppAssignments, VppInvitations, Webhooks)
+								VppAccounts, VppAssignments, VppInvitations, Webhooks, ParentObject)
 
 from pyjss.settings import Credentials, get_credentials, set_credentials
 

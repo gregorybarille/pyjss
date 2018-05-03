@@ -4,9 +4,23 @@ import inspect
 from pyjss.api_calls import delete_call, get_call, push_call, put_call
 from pyjss.settings import Credentials
 
+class ParentObject():
+    endpoints = ['1,2,3']
+    @classmethod
+    def getparent(cls,endpoints=endpoints):
+        print(endpoints)
 
-class Accounts:
+    @staticmethod
+    def getparentbis(endpoints=endpoints):
+        print(endpoints)
 
+class Parser(ParentObject):
+    
+    pass
+
+class Accounts():
+    endpoints = ['4,5,6']
+    get_method = ParentObject.getparent
     @staticmethod
     def get(item=None, group_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a group use the syntax get('group', ID OR NAME)'''
@@ -28,7 +42,7 @@ class Accounts:
         return(data)
 
 
-class ActivationCode:
+class ActivationCode(ParentObject):
 
     @staticmethod
     def get():
@@ -37,7 +51,7 @@ class ActivationCode:
         return(data)
 
 
-class AdvancedComputerSearches:
+class AdvancedComputerSearches(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -54,7 +68,7 @@ class AdvancedComputerSearches:
         return(data)
 
 
-class AdvancedMobileDeviceSearches:
+class AdvancedMobileDeviceSearches(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -71,7 +85,7 @@ class AdvancedMobileDeviceSearches:
         return(data)
 
 
-class AdvancedUserSearches:
+class AdvancedUserSearches(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -87,7 +101,7 @@ class AdvancedUserSearches:
                     'JSSResource/advancedusersearches/id/{0}'.format(item))
         return(data)
 
-class AllowedFileExtension:
+class AllowedFileExtension(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -104,7 +118,7 @@ class AllowedFileExtension:
         return(data)
 
 
-class Buildings:
+class Buildings(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -121,7 +135,7 @@ class Buildings:
         return(data)
         
 
-class ByoProfiles:
+class ByoProfiles(ParentObject):
 
     @staticmethod
     def get(item=None, site_item=None):
@@ -146,7 +160,7 @@ class ByoProfiles:
         return(data)
 
 
-class Categories:
+class Categories(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -162,7 +176,7 @@ class Categories:
         return(data)
 
 
-class Classes:
+class Classes(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -178,16 +192,16 @@ class Classes:
         return(data)
 
 
-class CommandFlush:
+class CommandFlush(ParentObject):
     '''no get'''
     pass
 
 
-class ComputerApplications:
+class ComputerApplications(ParentObject):
     pass
 
 
-class ComputerApplicationsUsage:
+class ComputerApplicationsUsage(ParentObject):
 
     @staticmethod
     def get(item_type=None, item=None, start_date=None, end_date=None):
@@ -210,7 +224,7 @@ class ComputerApplicationsUsage:
         return(data)
 
 
-class ComputerCheckin:
+class ComputerCheckin(ParentObject):
 
     @staticmethod
     def get():
@@ -219,7 +233,7 @@ class ComputerCheckin:
         return(data)
 
 
-class ComputerCommands:
+class ComputerCommands(ParentObject):
     
     @staticmethod
     def get(item_type=None, item=None):
@@ -238,7 +252,7 @@ class ComputerCommands:
         return(data)
 
 
-class ComputerConfigurations:
+class ComputerConfigurations(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -254,7 +268,7 @@ class ComputerConfigurations:
         return(data)
 
 
-class ComputerExtensionAttributes:
+class ComputerExtensionAttributes(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -270,7 +284,7 @@ class ComputerExtensionAttributes:
         return(data)
 
 
-class ComputerGroups:
+class ComputerGroups(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -285,7 +299,7 @@ class ComputerGroups:
                     'JSSResource/computergroups/id/{0}'.format(item))
         return(data)
 
-class ComputerHardwareSoftwareReports:
+class ComputerHardwareSoftwareReports(ParentObject):
     
     @staticmethod
     def get(item_type=None, item=None, start_date=None, end_date=None):
@@ -308,7 +322,7 @@ class ComputerHardwareSoftwareReports:
         return(data)
 
 
-class ComputerHistory:
+class ComputerHistory(ParentObject):
     
     @staticmethod
     def get(item_type=None, item=None, subset_item=None):
@@ -335,7 +349,7 @@ class ComputerHistory:
         return(data)
 
 
-class ComputerInventoryCollection:
+class ComputerInventoryCollection(ParentObject):
 
     @staticmethod
     def get():
@@ -344,7 +358,7 @@ class ComputerInventoryCollection:
         return(data)
 
 
-class ComputerInvitations:
+class ComputerInvitations(ParentObject):
 
     @staticmethod
     def get(item=None, invitation_item=None):
@@ -365,11 +379,11 @@ class ComputerInvitations:
         return(data)
 
 
-class ComputerManagement:
+class ComputerManagement(ParentObject):
     pass
 
 
-class ComputerReports:
+class ComputerReports(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -385,7 +399,7 @@ class ComputerReports:
                     'JSSResource/computerreports/id/{0}'.format(item))
         return(data)
 
-class Computers:
+class Computers(ParentObject):
     
     @staticmethod
     def get(item_type=None, item=None, subset_item=None):
@@ -423,7 +437,7 @@ class Computers:
         return(data)
 
 
-class Departments:
+class Departments(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -440,7 +454,7 @@ class Departments:
         return(data)
 
 
-class DirectoryBindings:
+class DirectoryBindings(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -457,7 +471,7 @@ class DirectoryBindings:
         return(data)
 
 
-class DiskEncryptionConfigurations:
+class DiskEncryptionConfigurations(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -474,7 +488,7 @@ class DiskEncryptionConfigurations:
         return(data)
 
 
-class DistributionPoints:
+class DistributionPoints(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -491,7 +505,7 @@ class DistributionPoints:
         return(data)
 
 
-class DockItems:
+class DockItems(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -508,7 +522,7 @@ class DockItems:
         return(data)
 
 
-class Ebooks:
+class Ebooks(ParentObject):
 
     @staticmethod
     def get(item=None, subset_item=None):
@@ -529,12 +543,12 @@ class Ebooks:
         return(data)
 
 
-class FileUploads:
+class FileUploads(ParentObject):
     ''' Only post method '''
     pass
 
 
-class GsxConnexion:
+class GsxConnexion(ParentObject):
 
     @staticmethod
     def get():
@@ -542,7 +556,7 @@ class GsxConnexion:
         return(data)
 
 
-class HealthCareListener:
+class HealthCareListener(ParentObject):
     '''Get,Put'''
     @staticmethod
     def get(item_id=None):
@@ -557,7 +571,7 @@ class HealthCareListener:
                 print('item_id should be an integer.')
 
 
-class HealthCareListenerRule:
+class HealthCareListenerRule(ParentObject):
     '''Get, Put, Post'''
     @staticmethod
     def get(item_id=None):
@@ -571,7 +585,7 @@ class HealthCareListenerRule:
             else:
                 print('item_id should be an integer.')
 
-class Ibeacons:
+class Ibeacons(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -587,7 +601,7 @@ class Ibeacons:
         return(data)
 
 
-class InfrastructureManager:
+class InfrastructureManager(ParentObject):
 
     @staticmethod
     def get():
@@ -595,7 +609,7 @@ class InfrastructureManager:
         return(data)
 
 
-class JsonWebTokenConfigurations:
+class JsonWebTokenConfigurations(ParentObject):
 
     @staticmethod
     def get(db_id=None):
@@ -611,12 +625,12 @@ class JsonWebTokenConfigurations:
 
 
 
-class LdapServers:
+class LdapServers(ParentObject):
     '''Get, Put, Post, Delete'''
     pass
 
 
-class LicencedSoftware:
+class LicencedSoftware(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -632,11 +646,11 @@ class LicencedSoftware:
         return(data)
 
 
-class LogFlush:
+class LogFlush(ParentObject):
     pass
 
 
-class MacApplications:
+class MacApplications(ParentObject):
 
     @staticmethod
     def get(item=None, subset_item=None):
@@ -657,7 +671,7 @@ class MacApplications:
         return(data)
 
 
-class ManagedPreferenceProfiles:
+class ManagedPreferenceProfiles(ParentObject):
 
     @staticmethod
     def get(item=None, subset_item=None):
@@ -678,7 +692,7 @@ class ManagedPreferenceProfiles:
         return(data)
 
 
-class MobileDeviceApplications:
+class MobileDeviceApplications(ParentObject):
     
     @staticmethod
     def get(item_type=None, item=None, extra_item=None):
@@ -701,11 +715,11 @@ class MobileDeviceApplications:
         return(data)
 
 
-class MobileDeviceCommands:
+class MobileDeviceCommands(ParentObject):
     pass
 
 
-class MobileDeviceConfigurationProfiles:
+class MobileDeviceConfigurationProfiles(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -720,11 +734,11 @@ class MobileDeviceConfigurationProfiles:
                     'JSSResource/managedpreferenceprofiles/id/{0}'.format(item))
         return(data)
 
-class MobileDeviceEnrollementProfiles:
+class MobileDeviceEnrollementProfiles(ParentObject):
     pass
 
 
-class MobileDeviceExtensionAttributes:
+class MobileDeviceExtensionAttributes(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -740,7 +754,7 @@ class MobileDeviceExtensionAttributes:
         return(data)
 
 
-class MobileDeviceExtensionGroups:
+class MobileDeviceExtensionGroups(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -756,22 +770,22 @@ class MobileDeviceExtensionGroups:
         return(data)
 
 
-class MobileDeviceHistory:
+class MobileDeviceHistory(ParentObject):
     pass
 
 
-class MobileDeviceInvitations:
+class MobileDeviceInvitations(ParentObject):
     pass
 
 
-class MobileDeviceProvisionningProfiles:
+class MobileDeviceProvisionningProfiles(ParentObject):
     pass
 
-class MobileDevices:
+class MobileDevices(ParentObject):
     pass
 
 
-class NetbootServers:
+class NetbootServers(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -787,7 +801,7 @@ class NetbootServers:
         return(data)
 
 
-class NetworkSegments:
+class NetworkSegments(ParentObject):
     def __init__(self, name, starting_ip, ending_ip):
         self.name = name
         self.starting_ip = starting_ip
@@ -805,7 +819,7 @@ class NetworkSegments:
         return(data)
 
 
-class OsxConfigurationProfiles:
+class OsxConfigurationProfiles(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -821,7 +835,7 @@ class OsxConfigurationProfiles:
         return(data)
 
 
-class Packages:
+class Packages(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -837,7 +851,7 @@ class Packages:
         return(data)
 
 
-class Patches:
+class Patches(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -853,7 +867,7 @@ class Patches:
         return(data)
 
 
-class PatchExternalSources:
+class PatchExternalSources(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -869,7 +883,7 @@ class PatchExternalSources:
         return(data)
 
 
-class PatchInternalSources:
+class PatchInternalSources(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -885,11 +899,11 @@ class PatchInternalSources:
         return(data)
 
 
-class PatchPolicies:
+class PatchPolicies(ParentObject):
     pass
 
 
-class Peripherals:
+class Peripherals(ParentObject):
 
     @staticmethod
     def get(item_id=None):
@@ -904,7 +918,7 @@ class Peripherals:
         return(data)
 
 
-class PeripheralsTypes:
+class PeripheralsTypes(ParentObject):
 
     @staticmethod
     def get(item_id=None):
@@ -918,11 +932,11 @@ class PeripheralsTypes:
                 print('Item_ID should be an integer.')
         return(data)
 
-class Policies:
-    pass
+class Policies(ParentObject):
+    pass    
 
 
-class Printers:
+class Printers(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -938,7 +952,7 @@ class Printers:
         return(data)
 
 
-class RemovableMacAddresses:
+class RemovableMacAddresses(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -954,7 +968,7 @@ class RemovableMacAddresses:
         return(data)
 
 
-class RestrictedSoftware:
+class RestrictedSoftware(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -970,11 +984,11 @@ class RestrictedSoftware:
         return(data)
 
 
-class SavedSearches:
+class SavedSearches(ParentObject):
     pass
 
 
-class Stripts:
+class Stripts(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -990,7 +1004,7 @@ class Stripts:
         return(data)
 
 
-class Sites:
+class Sites(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -1006,7 +1020,7 @@ class Sites:
         return(data)
 
 
-class SmtpServer:
+class SmtpServer(ParentObject):
 
     @staticmethod
     def get():
@@ -1014,7 +1028,7 @@ class SmtpServer:
         return(data)
 
 
-class SoftwareUpdateServers:
+class SoftwareUpdateServers(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -1030,7 +1044,7 @@ class SoftwareUpdateServers:
         return(data)
 
 
-class UserExtensionAttributes:
+class UserExtensionAttributes(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -1046,7 +1060,7 @@ class UserExtensionAttributes:
         return(data)
 
 
-class UserGroups:
+class UserGroups(ParentObject):
 
     @staticmethod
     def get(item=None):
@@ -1062,11 +1076,11 @@ class UserGroups:
         return(data)
 
 
-class Users:
+class Users(ParentObject):
     pass
 
 
-class VppAccounts:
+class VppAccounts(ParentObject):
 
     @staticmethod
     def get(item_id=None):
@@ -1081,7 +1095,7 @@ class VppAccounts:
         return(data)
 
 
-class VppAssignments:
+class VppAssignments(ParentObject):
 
     @staticmethod
     def get(item_id=None):
@@ -1096,7 +1110,7 @@ class VppAssignments:
         return(data)
 
 
-class VppInvitations:
+class VppInvitations(ParentObject):
 
     @staticmethod
     def get(item_id=None):
@@ -1111,7 +1125,7 @@ class VppInvitations:
         return(data)
 
 
-class Webhooks:
+class Webhooks(ParentObject):
 
     @staticmethod
     def get(item=None):
