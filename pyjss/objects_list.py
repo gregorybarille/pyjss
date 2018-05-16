@@ -4,7 +4,8 @@ import inspect
 from pyjss.api_calls import delete_call, get_call, push_call, put_call
 from pyjss.settings import Credentials
 
-from pyjss.parse_engine import clean_args, retrieve_endpoint, process_data
+from pyjss.parse_engine import process_data
+
 
 def parser(*args,endpoints):
     print(args)
@@ -13,186 +14,74 @@ def parser(*args,endpoints):
 
 class Accounts():
 
-    description = {
-            0: {
-                'endpoint': 'accounts',
-                'methods': ['get']
-            },
-            1: {
-                'id': {
-                    'endpoint': 'accounts/userid/',
-                    'methods': ['get', 'put', 'post', 'delete']
-                },
-                'name':{
-                    'endpoint': 'accounts/username/',
-                    'methods': ['get', 'put', 'post', 'delete']
-                }
-            },
-            2: {
-                'groupid': {
-                    'endpoint': 'accounts/groupid/',
-                    'methods': ['get', 'put', 'post', 'delete']
-                    },
-                'groupname':{
-                    'endpoint': 'accounts/groupname/',
-                    'methods': ['get', 'put', 'post', 'delete']
-                    } 
-                }
-            }
-
     @classmethod
     def get(cls, item=None, group_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a group use the syntax get( id | name, groupname | groupid)'''
-        process_data(cls, item, group_item)
+        process_data(__class__.__name__, item, group_item)
 
 class ActivationCode():
 
-    @staticmethod
-    def get():
+    @classmethod
+    def get(cls):
         '''No parameters. Return the Activation Code for your JAMF Pro instance.'''
-        data = get_call('JSSResource/activationcode')
-        return(data)
+        process_data(__class__.__name__)
 
 
 class AdvancedComputerSearches():
 
-    @staticmethod
-    def get(item=None):
+    @classmethod
+    def get(cls, item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/advancedcomputersearches')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/advancedcomputersearches/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/advancedcomputersearches/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 
 class AdvancedMobileDeviceSearches():
 
-    @staticmethod
-    def get(item=None):
+    @classmethod
+    def get(cls, item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/advancedmobiledevicesearches')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/advancedcomputersearches/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/advancedcomputersearches/id/{0}'.format(item))
-        return(data)
-
-
+        process_data(__class__.__name__, item)
 class AdvancedUserSearches():
 
-    @staticmethod
-    def get(item=None):
+    @classmethod
+    def get(cls,item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/advancedusersearches')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/advancedusersearches/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/advancedusersearches/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 class AllowedFileExtension():
 
-    @staticmethod
-    def get(item=None):
+    @classmethod
+    def get(cls, item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/allowedfileextensions')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/allowedfileextensions/extension/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/allowedfileextensions/id/{0}'.format(item))
-        return(data)
-
+        process_data(__class__.__name__, item)
 
 class Buildings():
 
-    @staticmethod
-    def get(item=None):
+    @classmethod
+    def get(cls, item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/buildings')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/buildings/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/buildings/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
         
 
 class ByoProfiles():
 
-    @staticmethod
+    @classmethod
     def get(item=None, site_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a site use the syntax get('site', ID OR NAME)'''
-        if item == None:
-            data = get_call('JSSResource/byoprofiles')
-        else:
-            if item != 'site':
-                if type(item) is str:
-                    data = get_call(
-                        'JSSResource/byoprofiles/name/{0}'.format(item))
-                elif type(item) is int:
-                    data = get_call(
-                        'JSSResource/byoprofiles/id/{0}'.format(item))
-            else:
-                if type(site_item) is str:
-                    data = get_call(
-                        'JSSResource/byoprofiles/site/name/{0}'.format(site_item))
-                elif type(site_item) is int:
-                    data = get_call(
-                        'JSSResource/byoprofiles/site/id/{0}'.format(site_item))
-        return(data)
-
+        process_data(__class__.__name__, item, site_item)
 
 class Categories():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/categories')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/categories/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/categories/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 
 class Classes():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/classes')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/classes/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/classes/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 
 class CommandFlush():
@@ -201,12 +90,17 @@ class CommandFlush():
 
 
 class ComputerApplications():
-    pass
+    
+    @classmethod
+    def get(application, extra_item=None,):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a site use the syntax get('site', ID OR NAME)'''
+        process_data(__class__.__name__, application, extra_item)
+
 
 
 class ComputerApplicationsUsage():
 
-    @staticmethod
+    @classmethod
     def get(item_type=None, item=None, start_date=None, end_date=None):
         '''Item type could be id,name,udid,serialnumber or macaddress. All parameters are required.'''
         if item_type == 'id':
@@ -229,7 +123,7 @@ class ComputerApplicationsUsage():
 
 class ComputerCheckin():
 
-    @staticmethod
+    @classmethod
     def get():
         '''No parameters. Return the computer checking settings for your JAMF Pro instance. '''
         data = get_call('JSSResource/computercheckin')
@@ -238,7 +132,7 @@ class ComputerCheckin():
 
 class ComputerCommands():
     
-    @staticmethod
+    @classmethod
     def get(item_type=None, item=None):
         '''Item type could be id, uuid. statusuuid, name. If empty returns all computer commands.'''
         if item_type == None:
@@ -257,7 +151,7 @@ class ComputerCommands():
 
 class ComputerConfigurations():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/computerconfigurations')
@@ -273,7 +167,7 @@ class ComputerConfigurations():
 
 class ComputerExtensionAttributes():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/computerextensionattributes')
@@ -289,7 +183,7 @@ class ComputerExtensionAttributes():
 
 class ComputerGroups():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/computergroups')
@@ -304,7 +198,7 @@ class ComputerGroups():
 
 class ComputerHardwareSoftwareReports():
     
-    @staticmethod
+    @classmethod
     def get(item_type=None, item=None, start_date=None, end_date=None):
         '''Item type could be id,name,udid,serialnumber or macaddress. All parameters are required.'''
         if item_type == 'id':
@@ -327,7 +221,7 @@ class ComputerHardwareSoftwareReports():
 
 class ComputerHistory():
     
-    @staticmethod
+    @classmethod
     def get(item_type=None, item=None, subset_item=None):
         '''Item type could be id,name,udid,serialnumber or macaddress. Subset is only available when use with id'''
         if item_type == 'id':
@@ -354,7 +248,7 @@ class ComputerHistory():
 
 class ComputerInventoryCollection():
 
-    @staticmethod
+    @classmethod
     def get():
         '''No parameters. Return the Computer inventory collection for your JAMF Pro instance.'''
         data = get_call('JSSResource/computerinventorycollection')
@@ -363,7 +257,7 @@ class ComputerInventoryCollection():
 
 class ComputerInvitations():
 
-    @staticmethod
+    @classmethod
     def get(item=None, invitation_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a invitation number use the syntax get('invitation', invitationnumber) '''
         if item == None:
@@ -388,7 +282,7 @@ class ComputerManagement():
 
 class ComputerReports():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
@@ -404,7 +298,7 @@ class ComputerReports():
 
 class Computers():
     
-    @staticmethod
+    @classmethod
     def get(item_type=None, item=None, subset_item=None):
         '''Item type could be None, subset, id,name, match, matchname,udid,serialnumber or macaddress. subset_item is only available when use with id'''
         if item_type == None:
@@ -442,7 +336,7 @@ class Computers():
 
 class Departments():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
@@ -459,7 +353,7 @@ class Departments():
 
 class DirectoryBindings():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
@@ -476,7 +370,7 @@ class DirectoryBindings():
 
 class DiskEncryptionConfigurations():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
@@ -493,7 +387,7 @@ class DiskEncryptionConfigurations():
 
 class DistributionPoints():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
@@ -510,7 +404,7 @@ class DistributionPoints():
 
 class DockItems():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
         if item == None:
@@ -526,7 +420,7 @@ class DockItems():
 
 class Ebooks():
 
-    @staticmethod
+    @classmethod
     def get(item=None, subset_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
         if item == None:
@@ -552,7 +446,7 @@ class FileUploads():
 
 class GsxConnexion():
 
-    @staticmethod
+    @classmethod
     def get():
         data = get_call('JSSResource/gsxconnection')
         return(data)
@@ -560,7 +454,7 @@ class GsxConnexion():
 
 class HealthCareListener():
     '''Get,Put'''
-    @staticmethod
+    @classmethod
     def get(item_id=None):
         '''Specity id for the item. If no item has been specified return the full list.'''
         if item_id == None:
@@ -575,7 +469,7 @@ class HealthCareListener():
 
 class HealthCareListenerRule():
     '''Get, Put, Post'''
-    @staticmethod
+    @classmethod
     def get(item_id=None):
         '''Specity id for the item. If no item has been specified return the full list.'''
         if item_id == None:
@@ -589,7 +483,7 @@ class HealthCareListenerRule():
 
 class Ibeacons():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/ibeacons')
@@ -605,7 +499,7 @@ class Ibeacons():
 
 class InfrastructureManager():
 
-    @staticmethod
+    @classmethod
     def get():
         data = get_call('JSSResource/infrastructuremanager')
         return(data)
@@ -613,7 +507,7 @@ class InfrastructureManager():
 
 class JsonWebTokenConfigurations():
 
-    @staticmethod
+    @classmethod
     def get(db_id=None):
         if db_id == None:
             data = get_call('JSSResource/jsonwebtokenconfigurations')
@@ -634,7 +528,7 @@ class LdapServers():
 
 class LicencedSoftware():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/licensedsoftware')
@@ -654,7 +548,7 @@ class LogFlush():
 
 class MacApplications():
 
-    @staticmethod
+    @classmethod
     def get(item=None, subset_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
         if item == None:
@@ -675,7 +569,7 @@ class MacApplications():
 
 class ManagedPreferenceProfiles():
 
-    @staticmethod
+    @classmethod
     def get(item=None, subset_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
         if item == None:
@@ -696,7 +590,7 @@ class ManagedPreferenceProfiles():
 
 class MobileDeviceApplications():
     
-    @staticmethod
+    @classmethod
     def get(item_type=None, item=None, extra_item=None):
         '''Item could be id, bundleid, name. If no item has been specified return the full list. extra_item is only available when use with id and bundleid'''
         if item_type == None:
@@ -723,7 +617,7 @@ class MobileDeviceCommands():
 
 class MobileDeviceConfigurationProfiles():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/managedpreferenceprofiles')
@@ -742,7 +636,7 @@ class MobileDeviceEnrollementProfiles():
 
 class MobileDeviceExtensionAttributes():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/mobiledeviceextensionattributes')
@@ -758,7 +652,7 @@ class MobileDeviceExtensionAttributes():
 
 class MobileDeviceExtensionGroups():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/mobiledevicegroups')
@@ -789,7 +683,7 @@ class MobileDevices():
 
 class NetbootServers():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/netbootservers')
@@ -809,7 +703,7 @@ class NetworkSegments():
         self.starting_ip = starting_ip
         self.ending_ip = ending_ip
     
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/networksegments')
@@ -823,7 +717,7 @@ class NetworkSegments():
 
 class OsxConfigurationProfiles():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/osxconfigurationprofiles')
@@ -839,7 +733,7 @@ class OsxConfigurationProfiles():
 
 class Packages():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/packages')
@@ -855,7 +749,7 @@ class Packages():
 
 class Patches():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/patches')
@@ -871,7 +765,7 @@ class Patches():
 
 class PatchExternalSources():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/patchexternalsources')
@@ -887,7 +781,7 @@ class PatchExternalSources():
 
 class PatchInternalSources():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/patchinternalsources')
@@ -907,7 +801,7 @@ class PatchPolicies():
 
 class Peripherals():
 
-    @staticmethod
+    @classmethod
     def get(item_id=None):
         if item_id == None:
             data = get_call('JSSResource/peripherals')
@@ -922,7 +816,7 @@ class Peripherals():
 
 class PeripheralsTypes():
 
-    @staticmethod
+    @classmethod
     def get(item_id=None):
         if item_id == None:
             data = get_call('JSSResource/peripheraltypes')
@@ -940,7 +834,7 @@ class Policies():
 
 class Printers():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/printers')
@@ -956,7 +850,7 @@ class Printers():
 
 class RemovableMacAddresses():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/removablemacaddresses')
@@ -972,7 +866,7 @@ class RemovableMacAddresses():
 
 class RestrictedSoftware():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/restrictedsoftware')
@@ -992,7 +886,7 @@ class SavedSearches():
 
 class Stripts():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/scripts')
@@ -1008,7 +902,7 @@ class Stripts():
 
 class Sites():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/sites')
@@ -1024,7 +918,7 @@ class Sites():
 
 class SmtpServer():
 
-    @staticmethod
+    @classmethod
     def get():
         data = get_call('JSSResource/smtpserver')
         return(data)
@@ -1032,7 +926,7 @@ class SmtpServer():
 
 class SoftwareUpdateServers():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/softwareupdateservers')
@@ -1048,7 +942,7 @@ class SoftwareUpdateServers():
 
 class UserExtensionAttributes():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/userextensionattributes')
@@ -1064,7 +958,7 @@ class UserExtensionAttributes():
 
 class UserGroups():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/usergroups')
@@ -1084,7 +978,7 @@ class Users():
 
 class VppAccounts():
 
-    @staticmethod
+    @classmethod
     def get(item_id=None):
         if item_id == None:
             data = get_call('JSSResource/vppaccounts')
@@ -1099,7 +993,7 @@ class VppAccounts():
 
 class VppAssignments():
 
-    @staticmethod
+    @classmethod
     def get(item_id=None):
         if item_id == None:
             data = get_call('JSSResource/vppassignments')
@@ -1114,7 +1008,7 @@ class VppAssignments():
 
 class VppInvitations():
 
-    @staticmethod
+    @classmethod
     def get(item_id=None):
         if item_id == None:
             data = get_call('JSSResource/vppinvitations')
@@ -1129,7 +1023,7 @@ class VppInvitations():
 
 class Webhooks():
 
-    @staticmethod
+    @classmethod
     def get(item=None):
         if item == None:
             data = get_call('JSSResource/webhooks')
