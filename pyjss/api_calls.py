@@ -11,7 +11,7 @@ def get_call(url):
     username = Credentials.username
     password = Credentials.password
     response = requests.get(
-        '{0}{1}'.format(base_url, url), headers={'Accept': "application/json"}, auth= ( username, password ))
+        '{0}{1}{2}'.format(base_url, 'JSSResource/',url), headers={'Accept': "application/json"}, auth= ( username, password ))
     if response.status_code == 200:
         return response.json()
     else:
