@@ -30,6 +30,9 @@ def retrieve_endpoint(args_len, args_cleaned, class_name):
 			return
 		else:
 			methods = endpoints[class_name][2][args_cleaned[1]]['methods']
+	elif args_len == 3:
+			endpoint = endpoints[class_name][3]['name']['endpoint']
+			methods = endpoints[class_name][3][args_cleaned[1]]['methods']
 	if parent_function in methods:
 		return class_name.lower() + endpoint.format(*args_cleaned)
 	else:

@@ -66,21 +66,21 @@ class Buildings():
 class ByoProfiles():
 
     @classmethod
-    def get(item=None, site_item=None):
+    def get(cls,item=None, site_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a site use the syntax get('site', ID OR NAME)'''
         process_data(__class__.__name__, item, site_item)
 
 class Categories():
 
     @classmethod
-    def get(item=None):
+    def get(cls,item=None):
         process_data(__class__.__name__, item)
 
 
 class Classes():
 
     @classmethod
-    def get(item=None):
+    def get(cls, item=None):
         process_data(__class__.__name__, item)
 
 
@@ -92,351 +92,152 @@ class CommandFlush():
 class ComputerApplications():
     
     @classmethod
-    def get(application, extra_item=None,):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a site use the syntax get('site', ID OR NAME)'''
-        process_data(__class__.__name__, application, extra_item)
+    def get(cls, application, extra_item=None, extra_item2=None):
+        '''Specity Name of the Application.
+        The second argument could be  'version | inventory' with the data as a third argument.
+        To get inventory information on a specific version please provide the version the second argument and the inventory data as the third.'''
+        process_data(__class__.__name__, application, extra_item, extra_item2)
 
 
 
 class ComputerApplicationsUsage():
 
     @classmethod
-    def get(item_type=None, item=None, start_date=None, end_date=None):
-        '''Item type could be id,name,udid,serialnumber or macaddress. All parameters are required.'''
-        if item_type == 'id':
-             data = get_call(
-                 'JSSResource/computerapplicationusage/id/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'name':
-             data = get_call(
-                 'JSSResource/computerapplicationusage/name/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'udid':
-             data = get_call(
-                 'JSSResource/computerapplicationusage/udid/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'serialnumber':
-             data = get_call(
-                 'JSSResource/computerapplicationusage/serialnumber/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'macaddress':
-             data = get_call(
-                 'JSSResource/computerapplicationusage/macaddress/{0}/{1}_{2}'.format(item, start_date, end_date))
-        return(data)
+    def get(cls, item_type, item, date):
+        process_data(__class__.__name__, item_type, item, date)
+        
 
 
 class ComputerCheckin():
 
     @classmethod
-    def get():
+    def get(cls,):
         '''No parameters. Return the computer checking settings for your JAMF Pro instance. '''
-        data = get_call('JSSResource/computercheckin')
-        return(data)
+        process_data(__class__.__name__)
 
 
 class ComputerCommands():
     
     @classmethod
-    def get(item_type=None, item=None):
+    def get(cls, item=None, item_type=None, extra_item=None, extra_item2=None):
         '''Item type could be id, uuid. statusuuid, name. If empty returns all computer commands.'''
-        if item_type == None:
-            data = get_call('JSSResource/computercommands')
-        else:
-            if item_type == 'id':
-                data = get_call('JSSResource/computercommands/id/{0}'.format(item))
-            elif item_type == 'uuid':
-                data = get_call('JSSResource/computercommands/uuid/{0}'.format(item))
-            elif item_type == 'statusuuid':
-                data = get_call('JSSResource/computercommands/status/{0}'.format(item))
-            elif item_type == 'name':
-                data = get_call('JSSResource/computercommands/name/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item, item_type,extra_item, extra_item2)
 
 
 class ComputerConfigurations():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/computerconfigurations')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/computerconfigurations/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/computerconfigurations/id/{0}'.format(item))
-        return(data)
+    def get(cls,item=None):
+        process_data(__class__.__name__, item)
 
 
 class ComputerExtensionAttributes():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/computerextensionattributes')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/computerextensionattributes/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/computerextensionattributes/id/{0}'.format(item))
-        return(data)
-
+    def get(cls, item=None):
+        process_data(__class__.__name__, item)
 
 class ComputerGroups():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/computergroups')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/computergroups/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/computergroups/id/{0}'.format(item))
-        return(data)
+    def get(cls, item=None):
+        process_data(__class__.__name__, item)
 
 class ComputerHardwareSoftwareReports():
     
     @classmethod
-    def get(item_type=None, item=None, start_date=None, end_date=None):
-        '''Item type could be id,name,udid,serialnumber or macaddress. All parameters are required.'''
-        if item_type == 'id':
-             data = get_call(
-                 'JSSResource/computerhardwaresoftwarereports/id/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'name':
-             data = get_call(
-                 'JSSResource/computerhardwaresoftwarereports/name/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'udid':
-             data = get_call(
-                 'JSSResource/computerhardwaresoftwarereports/udid/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'serialnumber':
-             data = get_call(
-                 'JSSResource/computerhardwaresoftwarereports/serialnumber/{0}/{1}_{2}'.format(item, start_date, end_date))
-        elif item_type == 'macaddress':
-             data = get_call(
-                 'JSSResource/computerhardwaresoftwarereports/macaddress/{0}/{1}_{2}'.format(item, start_date, end_date))
-        return(data)
+    def get(item_type, item, date, subset=None):
+        process_data(__class__.__name__, item_type, item, date, subset)
 
 
 class ComputerHistory():
     
     @classmethod
-    def get(item_type=None, item=None, subset_item=None):
-        '''Item type could be id,name,udid,serialnumber or macaddress. Subset is only available when use with id'''
-        if item_type == 'id':
-            if subset_item == None:
-                data = get_call(
-                    'JSSResource/computerhistory/id/{0}'.format(item))
-            else:
-                data = get_call(
-                    'JSSResource/computerhistory/id/{0}/subset/{1}'.format(item,subset_item))
-        elif item_type == 'name':
-             data = get_call(
-                 'JSSResource/computerhistory/name/{0}'.format(item))
-        elif item_type == 'udid':
-             data = get_call(
-                 'JSSResource/computerhistory/udid/{0}'.format(item))
-        elif item_type == 'serialnumber':
-             data = get_call(
-                 'JSSResource/computerhistory/serialnumber/{0}'.format(item))
-        elif item_type == 'macaddress':
-             data = get_call(
-                 'JSSResource/computerhistory/macaddress/{0}'.format(item))
-        return(data)
-
+    def get(item_type, item, subset=None):
+        process_data(__class__.__name__, item_type, item, subset)
 
 class ComputerInventoryCollection():
 
     @classmethod
-    def get():
+    def get(cls):
         '''No parameters. Return the Computer inventory collection for your JAMF Pro instance.'''
-        data = get_call('JSSResource/computerinventorycollection')
-        return(data)
+        process_data(__class__.__name__)
 
 
 class ComputerInvitations():
 
     @classmethod
-    def get(item=None, invitation_item=None):
+    def get(cls,item_type, item):
         '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a invitation number use the syntax get('invitation', invitationnumber) '''
-        if item == None:
-            data = get_call('JSSResource/computerinvitations')
-        else:
-            if item != 'invitation':
-                if type(item) is str:
-                    data = get_call(
-                        'JSSResource/computerinvitations/name/{0}'.format(item))
-                elif type(item) is int:
-                    data = get_call(
-                        'JSSResource/computerinvitations/id/{0}'.format(item))
-            else:
-                data = get_call(
-                    'JSSResource/computerinvitations/invitation/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item_type, item)
 
 
 class ComputerManagement():
+    'get to be done'
     pass
 
 
 class ComputerReports():
 
     @classmethod
-    def get(item=None):
+    def get(cls,item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/computerreports')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/computerreports/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/computerreports/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 class Computers():
     
     @classmethod
     def get(item_type=None, item=None, subset_item=None):
         '''Item type could be None, subset, id,name, match, matchname,udid,serialnumber or macaddress. subset_item is only available when use with id'''
-        if item_type == None:
-            data = get_call('JSSResource/computers')
-        else:
-            if item_type == 'subset':
-                data = get_call('JSSResource/computers/subset/basic')
-            elif item_type == 'id':
-                if subset_item == None:
-                    data = get_call(
-                        'JSSResource/computers/id/{0}'.format(item))
-                else:
-                    data = get_call(
-                        'JSSResource/computers/id/{0}/subset/{1}'.format(item, subset_item))
-            elif item_type == 'name':
-                data = get_call(
-                    'JSSResource/computers/name/{0}'.format(item))
-            elif item_type == 'udid':
-                data = get_call(
-                    'JSSResource/computers/udid/{0}'.format(item))
-            elif item_type == 'serialnumber':
-                data = get_call(
-                    'JSSResource/computers/serialnumber/{0}'.format(item))
-            elif item_type == 'macaddress':
-                data = get_call(
-                    'JSSResource/computers/macaddress/{0}'.format(item))
-            elif item_type == 'match':
-                data = get_call(
-                    'JSSResource/computers/match/{0}'.format(item))
-            elif item_type == 'matchname':
-                data = get_call(
-                    'JSSResource/computers/match/name/{0}'.format(item))
-        return(data)
+        '''to be done'''
 
 
 class Departments():
 
     @classmethod
-    def get(item=None):
+    def get(cls,item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/departments')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/departments/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/departments/id/{0}'.format(item))
-        return(data)
-
+        process_data(__class__.__name__, item)
+    
 
 class DirectoryBindings():
 
     @classmethod
-    def get(item=None):
+    def get(cls, item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/directorybindings')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/directorybindings/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/directorybindings/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 
 class DiskEncryptionConfigurations():
 
     @classmethod
-    def get(item=None):
+    def get(cls,item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/diskencryptionconfigurations')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/diskencryptionconfigurations/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/diskencryptionconfigurations/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 
 class DistributionPoints():
 
     @classmethod
-    def get(item=None):
+    def get(cls, item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/distributionpoints')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/distributionpoints/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/distributionpoints/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
 
 
 class DockItems():
 
     @classmethod
-    def get(item=None):
+    def get(cls, item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        if item == None:
-            data = get_call('JSSResource/dockitems')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/dockitems/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/dockitems/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item)
+
 
 class Ebooks():
 
     @classmethod
-    def get(item=None, subset_item=None):
+    def get(cls, item=None, subset_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        if item == None:
-            data = get_call('JSSResource/ebooks')
-        else:
-            if subset_item != None:
-                data = get_call(
-                    'JSSResource/ebooks/id/{0}/subset/{1}'.format(item, subset_item))
-            else:
-                if type(item) is str:
-                    data = get_call(
-                        'JSSResource/ebooks/name/{0}'.format(item))
-                if type(item) is int:
-                    data = get_call(
-                        'JSSResource/ebooks/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item, subset_item)
 
 
 class FileUploads():
@@ -447,10 +248,8 @@ class FileUploads():
 class GsxConnexion():
 
     @classmethod
-    def get():
-        data = get_call('JSSResource/gsxconnection')
-        return(data)
-
+    def get(cls):
+        process_data(__class__.__name__)
 
 class HealthCareListener():
     '''Get,Put'''
