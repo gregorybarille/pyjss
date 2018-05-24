@@ -11,8 +11,8 @@ class Credentials:
 		Credentials.username = username
 		Credentials.password = password
 
-	@staticmethod
-	def get():
+	@classmethod
+	def get(cls):
 		return { 'url' : Credentials.url, 'username': Credentials.username, 'password': Credentials.password}
 
 def set_credentials(url, username, password):

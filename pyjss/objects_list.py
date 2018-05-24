@@ -1,87 +1,176 @@
 import json
 import inspect
 
+
 from pyjss.api_calls import delete_call, get_call, push_call, put_call
 from pyjss.settings import Credentials
 
-from pyjss.parse_engine import process_data
+from pyjss.parse_engine import (get_no_parameter, get_by_field)
 
-
-def parser(*args,endpoints):
-    print(args)
-    print(len(args))
-    print(endpoints)
 
 class Accounts():
 
     @classmethod
-    def get(cls, item=None, group_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a group use the syntax get( id | name, groupname | groupid)'''
-        process_data(__class__.__name__, item, group_item)
+    def get(cls):
+        '''Return list of accounts'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getByUserId(cls, useriD):
+        return get_by_field(__class__.__name__, 'id',useriD)
+
+    @classmethod
+    def getByUserName(cls, userName):
+        return get_by_field(__class__.__name__, 'username', userName)
+
+    @classmethod
+    def getByGroupId(cls, groupID):
+        return get_by_field(__class__.__name__, 'groupid', groupID)
+
+    @classmethod
+    def getByGroupName(cls, groupName):
+        return get_by_field(__class__.__name__, 'groupname', groupName)
 
 class ActivationCode():
 
     @classmethod
     def get(cls):
-        '''No parameters. Return the Activation Code for your JAMF Pro instance.'''
-        process_data(__class__.__name__)
+        '''Return Activation Code'''
+        return get_no_parameter(__class__.__name__)
+
 
 
 class AdvancedComputerSearches():
 
     @classmethod
-    def get(cls, item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_by_field(__class__.__name__, 'id', id_item)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_by_field(__class__.__name__, 'name', name_item)
 
 
 class AdvancedMobileDeviceSearches():
 
     @classmethod
-    def get(cls, item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_by_field(__class__.__name__, 'id', id_item)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_by_field(__class__.__name__, 'name', name_item)
+
+
 class AdvancedUserSearches():
 
     @classmethod
-    def get(cls,item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_by_field(__class__.__name__, 'id', id_item)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_by_field(__class__.__name__, 'name', name_item)
 
 class AllowedFileExtension():
 
     @classmethod
-    def get(cls, item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_by_field(__class__.__name__, 'id', id_item)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_by_field(__class__.__name__, 'extension', name_item)
+
 
 class Buildings():
 
     @classmethod
-    def get(cls, item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
-        
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_by_id(__class__.__name__, id_item)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_by_name(__class__.__name__, name_item)
 
 class ByoProfiles():
 
     @classmethod
-    def get(cls,item=None, site_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a site use the syntax get('site', ID OR NAME)'''
-        process_data(__class__.__name__, item, site_item)
+    def get(cls):
+        '''Return list of accounts'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getByUserId(cls, useriD):
+        return get_by_userid(__class__.__name__, useriD)
+
+    @classmethod
+    def getByUserName(cls, userName):
+        return get_by_username(__class__.__name__, userName)
+
+    @classmethod
+    def getBysiteId(cls, siteID):
+        return get_by_siteid(__class__.__name__, siteID)
+
+    @classmethod
+    def getBySitepName(cls, siteName):
+        return get_by_sitename(__class__.__name__, siteName)
 
 class Categories():
 
     @classmethod
-    def get(cls,item=None):
-        process_data(__class__.__name__, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_by_id(__class__.__name__, id_item)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_by_name(__class__.__name__, name_item)
 
 
 class Classes():
 
     @classmethod
-    def get(cls, item=None):
-        process_data(__class__.__name__, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_no_parameter(__class__.__name__)
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_by_id(__class__.__name__, id_item)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_by_name(__class__.__name__, name_item)
 
 
 class CommandFlush():
@@ -92,11 +181,22 @@ class CommandFlush():
 class ComputerApplications():
     
     @classmethod
-    def get(cls, application, extra_item=None, extra_item2=None):
-        '''Specity Name of the Application.
-        The second argument could be  'version | inventory' with the data as a third argument.
-        To get inventory information on a specific version please provide the version the second argument and the inventory data as the third.'''
-        process_data(__class__.__name__, application, extra_item, extra_item2)
+    def getApp(cls, application):
+        '''Return Advanced searches'''
+        return get_by_application(__class__.__name__)
+
+    @classmethod
+    def getAppInfo(cls, application, info_items):
+        '''Return Advanced searches'''
+        return get_by_application(__class__.__name__, application, info_items)
+
+    @classmethod
+    def getAppVersion(cls, application, version):
+        return get_by_application(__class__.__name__, application, version)
+
+    @classmethod
+    def getAppVersionInfo(cls, application, version, info_items):
+        return get_by_application(__class__.__name__, application, version, info_items)
 
 
 
@@ -248,144 +348,74 @@ class FileUploads():
 class GsxConnexion():
 
     @classmethod
-    def get(cls):
-        process_data(__class__.__name__)
+    def get(cls, item_id=None):
+        process_data(__class__.__name__,item_id)
 
 class HealthCareListener():
     '''Get,Put'''
     @classmethod
-    def get(item_id=None):
-        '''Specity id for the item. If no item has been specified return the full list.'''
-        if item_id == None:
-            data = get_call('JSSResource/healthcarelistener')
-        else:
-            if type(item_id) is int:
-                data = get_call(
-                    'JSSResource/healthcarelistener/id/{0}'.format(item_id))
-            else:
-                print('item_id should be an integer.')
-
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 class HealthCareListenerRule():
     '''Get, Put, Post'''
     @classmethod
-    def get(item_id=None):
-        '''Specity id for the item. If no item has been specified return the full list.'''
-        if item_id == None:
-            data = get_call('JSSResource/healthcarelistenerrule')
-        else:
-            if type(item_id) is int:
-                data = get_call(
-                    'JSSResource/healthcarelistenerrule/id/{0}'.format(item_id))
-            else:
-                print('item_id should be an integer.')
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 class Ibeacons():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/ibeacons')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/ibeacons/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/ibeacons/id/{0}'.format(item))
-        return(data)
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 
 class InfrastructureManager():
 
     @classmethod
-    def get():
-        data = get_call('JSSResource/infrastructuremanager')
-        return(data)
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 
 class JsonWebTokenConfigurations():
 
     @classmethod
-    def get(db_id=None):
-        if db_id == None:
-            data = get_call('JSSResource/jsonwebtokenconfigurations')
-        else:
-            if type(db_id) is int:
-                data = get_call(
-                    'JSSResource/jsonwebtokenconfigurations/id/{0}'.format(db_id))
-            else:
-                print('Wrong type of data have been passed. The ID should be passed as integer')
-        return(data)
-
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 
 class LdapServers():
     '''Get, Put, Post, Delete'''
-    pass
+    '''todo'''
+
 
 
 class LicencedSoftware():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/licensedsoftware')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/licensedsoftware/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/licensedsoftware/id/{0}'.format(item))
-        return(data)
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 
 class LogFlush():
+    ''' only delete'''
     pass
 
 
 class MacApplications():
 
     @classmethod
-    def get(item=None, subset_item=None):
+    def get(cls, item=None, subset_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        if item == None:
-            data = get_call('JSSResource/macapplications')
-        else:
-            if subset_item != None:
-                data = get_call(
-                    'JSSResource/macapplications/id/{0}/subset/{1}'.format(item, subset_item))
-            else:
-                if type(item) is str:
-                    data = get_call(
-                        'JSSResource/macapplications/name/{0}'.format(item))
-                elif type(item) is int:
-                    data = get_call(
-                        'JSSResource/macapplications/id/{0}'.format(item))
-        return(data)
+        process_data(__class__.__name__, item, subset_item)
 
 
 class ManagedPreferenceProfiles():
 
     @classmethod
-    def get(item=None, subset_item=None):
+    def get(cls, item=None, subset_item=None):
         '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        if item == None:
-            data = get_call('JSSResource/managedpreferenceprofiles')
-        else:
-            if subset_item != None:
-                data = get_call(
-                    'JSSResource/managedpreferenceprofiles/id/{0}/subset/{1}'.format(item, subset_item))
-            else:
-                if type(item) is str:
-                    data = get_call(
-                        'JSSResource/managedpreferenceprofiles/name/{0}'.format(item))
-                elif type(item) is int:
-                    data = get_call(
-                        'JSSResource/managedpreferenceprofiles/id/{0}'.format(item))
-        return(data)
-
+        process_data(__class__.__name__, item, subset_item)
 
 class MobileDeviceApplications():
     
@@ -417,17 +447,9 @@ class MobileDeviceCommands():
 class MobileDeviceConfigurationProfiles():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/managedpreferenceprofiles')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/managedpreferenceprofiles/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/managedpreferenceprofiles/id/{0}'.format(item))
-        return(data)
+    def get(cls, item=None, subset_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
+        process_data(__class__.__name__, item, subset_item)
 
 class MobileDeviceEnrollementProfiles():
     pass
@@ -436,45 +458,40 @@ class MobileDeviceEnrollementProfiles():
 class MobileDeviceExtensionAttributes():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/mobiledeviceextensionattributes')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/mobiledeviceextensionattributes/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/mobiledeviceextensionattributes/id/{0}'.format(item))
-        return(data)
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 
 class MobileDeviceExtensionGroups():
 
     @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/mobiledevicegroups')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/mobiledevicegroups/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/mobiledevicegroups/id/{0}'.format(item))
-        return(data)
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 
 class MobileDeviceHistory():
-    pass
+    
+    @classmethod
+    def get(cls, item_type,item, subset_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
+        process_data(__class__.__name__, item_type, item, subset_item)
+
 
 
 class MobileDeviceInvitations():
-    pass
+    
+    @classmethod
+    def get(cls, item_id=None):
+        process_data(__class__.__name__, item_id)
 
 
 class MobileDeviceProvisionningProfiles():
-    pass
+    
+    @classmethod
+    def get(cls, item_type,item, subset_item=None):
+        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
+        process_data(__class__.__name__, item_type, item, subset_item)
+
 
 class MobileDevices():
     pass
@@ -718,7 +735,7 @@ class Sites():
 class SmtpServer():
 
     @classmethod
-    def get():
+    def get(cls):
         data = get_call('JSSResource/smtpserver')
         return(data)
 

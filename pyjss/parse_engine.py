@@ -1,50 +1,34 @@
 import inspect
+import sys
 from pyjss.api_calls import delete_call, get_call, push_call, put_call
 from pyjss.endpoints import endpoints
 
+
+endpoints = {
+	'id': '/id/{0}',
+	'name': '/name/{0}',
+	'userid': '/userid/{0}',
+	'username': '/username/{0}',
+	'groupid': '/groupid/{0}',
+	'groupname': '/groupname/{0}',
+	'siteid': '/siteid/{0}',
+	'sitename': '/sitename/{0}',
+	'extension':'/extension/{0}'
+}
 #Get function caller name :inspect.stack()[1][3]
 def clean_args(args):
+	print(args)
 	args_list = []
 	for arg in args:
-		args_list.append(arg) if arg != None else 'false'
-	return len(args_list),args_list
+		args_list.append(str(arg)) if arg != None else 'false'
+	return args_list
 
-def retrieve_endpoint(args_len, args_cleaned, class_name):
-	parent_function = inspect.stack()[2][3]
-	if args_len == 0:
-		endpoint = ''
-		methods = endpoints[class_name][0]['methods']
-	elif args_len == 1:
-		if type(args_cleaned[0]) == int:
-			endpoint = endpoints[class_name][1]['id']['endpoint']
-			methods = endpoints[class_name][1]['id']['methods']
-		if type(args_cleaned[0]) == str:
-			endpoint = endpoints[class_name][1]['name']['endpoint']
-			methods = endpoints[class_name][1]['name']['methods']
-			print(endpoint, methods)
-	elif args_len == 2:
-		try:
-			endpoint = endpoints[class_name][2][args_cleaned[1]]['endpoint']
-		except KeyError:
-			print('The arguments {0} is not valid'.format(args_cleaned[1]))
-			return
-		else:
-			methods = endpoints[class_name][2][args_cleaned[1]]['methods']
-	elif args_len == 3:
-			endpoint = endpoints[class_name][3]['name']['endpoint']
-			methods = endpoints[class_name][3][args_cleaned[1]]['methods']
-	if parent_function in methods:
-		return class_name.lower() + endpoint.format(*args_cleaned)
-	else:
-		print('The method {0} is not available for this endpoint. Use one the following {1}'.format(parent_function, methods))
+def get_no_parameter(class_name):
+	return get_call('{0}'.format(str(class_name).lower()))
 
-
-def process_data(class_name, *args):
-	args_len,args_cleaned = clean_args(args)
-	url = retrieve_endpoint(
-		args_len, args_cleaned, class_name)
-	if url != None:
-		print(url)
-		data = get_call(url)
-		print(data)
+def get_by_field(class_name, field, *args):
+	args_cleaned = clean_args(args)
+	print(field)
+	url = str(class_name).lower() + endpoints[field].format(*args_cleaned)
+	return get_call(url)
 

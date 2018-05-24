@@ -3,17 +3,15 @@ endpoints = {
 		0: {
 			'methods': ['get']
 		},
-		1: {
-			'id': {
-				'endpoint': '/userid/{0}',
-				'methods': ['get', 'put', 'post', 'delete']
-			},
-			'name': {
-				'endpoint': '/username/{0}',
-				'methods': ['get', 'put', 'post', 'delete']
-			}
-		},
 		2: {
+            'id': {
+                'endpoint': '/userid/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/username/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
 			'groupid': {
 				'endpoint': '/groupid/{0}',
 				'methods': ['get', 'put', 'post', 'delete']
@@ -33,7 +31,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -48,7 +46,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -63,7 +61,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -78,12 +76,12 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
             },
-            'name': {
+            'extension': {
                 'endpoint': '/extension/{0}',
                 'methods': ['get']
             }
@@ -93,7 +91,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -108,7 +106,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+      	2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -116,9 +114,7 @@ endpoints = {
             'name': {
                 'endpoint': '/name/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
-            }
-        },
-      	2: {
+            },
             'siteid': {
 				'endpoint': '/groupid/{0}',
 				'methods': ['get', 'put', 'post', 'delete']
@@ -133,7 +129,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -148,7 +144,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -510,4 +506,293 @@ endpoints = {
             'methods': ['get', 'put']
         }
     },
+    'HealthCareListener': {
+        0: {
+            'methods': ['get']
+        },
+        1:{
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put']
+            }
+        }
+    },
+    'HealthCareListenerRule': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post']
+            }
+        }
+    },
+    'DockItems': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'Ibeacons': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'InfrastructureManager': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put']
+            }
+        }
+    },
+    'JsonWebTokenConfigurations': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'LdapServers':{
+
+    },
+    'LicencedSoftware': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'LogFlush':{
+    },
+    'MacApplications': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        },
+        2: {
+            'id': {
+                'endpoint': '/id/{0}/subset/{1}',
+                'methods': ['get']
+            }
+        }
+    },
+    'ManagedPreferenceProfiles': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        },
+        2: {
+            'id': {
+                'endpoint': '/id/{0}/subset/{1}',
+                'methods': ['get']
+            }
+        }
+    },
+    'MobileDeviceApplications':{
+
+    },
+    'MobileDeviceCommands':{
+
+    },
+    'MobileDeviceConfigurationProfiles': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        },
+        2: {
+            'id': {
+                'endpoint': '/id/{0}/subset/{1}',
+                'methods': ['get']
+            }
+        }
+    },
+    'MobileDeviceConfigurationProfiles':{
+
+    },
+    'MobileDeviceEnrollementProfiles': {
+
+    },
+    'MobileDeviceExtensionAttributes': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'MobileDeviceExtensionGroups': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'MobileDeviceHistory': {
+        2: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get']
+            },
+            'udid': {
+                'endpoint': '/udid/{0}',
+                'methods': ['get']
+            },
+            'serialnumber': {
+                'endpoint': '/serialnumber/{0}',
+                'methods': ['get']
+            },
+            'macaddress': {
+                'endpoint': '/macaddress/{0}',
+                'methods': ['get']
+            }
+        },
+        3: {
+            'id': {
+                'endpoint': '/id/{0}/subset/',
+                'methods': ['get']
+            }
+        }
+    },
+    'MobileDeviceInvitations': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/invitation/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'MobileDeviceExtensionGroups': {
+        0: {
+            'methods': ['get']
+        },
+        1: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'MobileDeviceProvisionningProfiles': {
+        2: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get']
+            },
+            'udid': {
+                'endpoint': '/udid/{0}',
+                'methods': ['get']
+            },
+            'serialnumber': {
+                'endpoint': '/serialnumber/{0}',
+                'methods': ['get']
+            },
+            'macaddress': {
+                'endpoint': '/macaddress/{0}',
+                'methods': ['get']
+            }
+        },
+        3: {
+            'id': {
+                'endpoint': '/id/{0}/subset/',
+                'methods': ['get']
+            }
+        }
+    }
 }
