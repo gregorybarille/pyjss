@@ -7,170 +7,87 @@ from pyjss.settings import Credentials
 
 from pyjss.parse_engine import (get_no_parameter, get_by_field)
 
+class Basic_object():
 
+    @classmethod
+    def get(cls):
+        '''Return list of accounts'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item)) 
+    
 class Accounts():
 
     @classmethod
     def get(cls):
         '''Return list of accounts'''
-        return get_no_parameter(__class__.__name__)
+        return get_call(__class__.__name__.lower())
 
     @classmethod
     def getByUserId(cls, useriD):
-        return get_by_field(__class__.__name__, 'id',useriD)
+        return get_call('{0}/userid/{1}'.format(__class__.__name__.lower(),useriD))
 
     @classmethod
     def getByUserName(cls, userName):
-        return get_by_field(__class__.__name__, 'username', userName)
+        return get_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
 
     @classmethod
     def getByGroupId(cls, groupID):
-        return get_by_field(__class__.__name__, 'groupid', groupID)
-
+        return get_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
     @classmethod
     def getByGroupName(cls, groupName):
-        return get_by_field(__class__.__name__, 'groupname', groupName)
+        return get_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName))
 
 class ActivationCode():
 
     @classmethod
     def get(cls):
         '''Return Activation Code'''
-        return get_no_parameter(__class__.__name__)
+        return get_call(__class__.__name__.lower())
 
 
-
-class AdvancedComputerSearches():
-
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_no_parameter(__class__.__name__)
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_by_field(__class__.__name__, 'id', id_item)
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_by_field(__class__.__name__, 'name', name_item)
+class AdvancedComputerSearches(Basic_object):
+    pass
 
 
-class AdvancedMobileDeviceSearches():
-
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_no_parameter(__class__.__name__)
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_by_field(__class__.__name__, 'id', id_item)
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_by_field(__class__.__name__, 'name', name_item)
+class AdvancedMobileDeviceSearches(Basic_object):
+    pass
 
 
-class AdvancedUserSearches():
+class AdvancedUserSearches(Basic_object):
+    pass
 
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_no_parameter(__class__.__name__)
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_by_field(__class__.__name__, 'id', id_item)
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_by_field(__class__.__name__, 'name', name_item)
-
-class AllowedFileExtension():
-
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_no_parameter(__class__.__name__)
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_by_field(__class__.__name__, 'id', id_item)
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_by_field(__class__.__name__, 'extension', name_item)
+class AllowedFileExtension(Basic_object):
+    pass
 
 
-class Buildings():
+class Buildings(Basic_object):
+    pass
 
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_no_parameter(__class__.__name__)
 
-    @classmethod
-    def getById(cls, id_item):
-        return get_by_id(__class__.__name__, id_item)
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_by_name(__class__.__name__, name_item)
-
-class ByoProfiles():
-
-    @classmethod
-    def get(cls):
-        '''Return list of accounts'''
-        return get_no_parameter(__class__.__name__)
-
-    @classmethod
-    def getByUserId(cls, useriD):
-        return get_by_userid(__class__.__name__, useriD)
-
-    @classmethod
-    def getByUserName(cls, userName):
-        return get_by_username(__class__.__name__, userName)
+class ByoProfiles(Basic_object):
 
     @classmethod
     def getBysiteId(cls, siteID):
-        return get_by_siteid(__class__.__name__, siteID)
+        return get_call('{0}/siteid/{1}'.format(__class__.__name__.lower(), siteID))
 
     @classmethod
-    def getBySitepName(cls, siteName):
-        return get_by_sitename(__class__.__name__, siteName)
-
-class Categories():
-
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_no_parameter(__class__.__name__)
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_by_id(__class__.__name__, id_item)
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_by_name(__class__.__name__, name_item)
+    def getBySiteName(cls, siteName):
+        return get_call('{0}/sitename/{1}'.format(__class__.__name__.lower(), siteName))
 
 
-class Classes():
+class Categories(Basic_object):
+    pass
 
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_no_parameter(__class__.__name__)
 
-    @classmethod
-    def getById(cls, id_item):
-        return get_by_id(__class__.__name__, id_item)
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_by_name(__class__.__name__, name_item)
+class Classes(Basic_object):
+    pass
 
 
 class CommandFlush():
@@ -183,161 +100,328 @@ class ComputerApplications():
     @classmethod
     def getApp(cls, application):
         '''Return Advanced searches'''
-        return get_by_application(__class__.__name__)
+        return get_call('{0}/application/{1}'.format(__class__.__name__.lower(), application))
 
     @classmethod
-    def getAppInfo(cls, application, info_items):
+    def getAppInfo(cls, application, inventory_items):
         '''Return Advanced searches'''
-        return get_by_application(__class__.__name__, application, info_items)
+        return get_call('{0}/application/{1}/inventory/{2}'.format(__class__.__name__.lower(), application, inventory_items))
 
     @classmethod
     def getAppVersion(cls, application, version):
-        return get_by_application(__class__.__name__, application, version)
+        return get_call('{0}/application/{1}/version/{2}'.format(__class__.__name__.lower(), application, version))
 
     @classmethod
     def getAppVersionInfo(cls, application, version, info_items):
-        return get_by_application(__class__.__name__, application, version, info_items)
+        return get_call('{0}/application/{1}/version/{2}/inventory/{3}'.format(__class__.__name__.lower(), application, version, info_items))
 
 
 
 class ComputerApplicationsUsage():
 
     @classmethod
-    def get(cls, item_type, item, date):
-        process_data(__class__.__name__, item_type, item, date)
-        
+    def getById(cls, id_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/{2}_{3}'.format(__class__.__name__.lower(), id_item, start_date, en_date))
 
+    @classmethod
+    def getByName(cls, name_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}/{2}_{3}'.format(__class__.__name__.lower(), name_item, start_date, en_date))
+
+    @classmethod
+    def getByUdid(cls, udid_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}/{2}_{3}'.format(__class__.__name__.lower(), udid_item, start_date, en_date))
+    
+    @classmethod
+    def getBySerial(cls, serial_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+
+    @classmethod
+    def getByMac(cls, mac_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
 
 class ComputerCheckin():
 
     @classmethod
-    def get(cls,):
-        '''No parameters. Return the computer checking settings for your JAMF Pro instance. '''
-        process_data(__class__.__name__)
-
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
 class ComputerCommands():
     
     @classmethod
-    def get(cls, item=None, item_type=None, extra_item=None, extra_item2=None):
-        '''Item type could be id, uuid. statusuuid, name. If empty returns all computer commands.'''
-        process_data(__class__.__name__, item, item_type,extra_item, extra_item2)
-
-
-class ComputerConfigurations():
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
     @classmethod
-    def get(cls,item=None):
-        process_data(__class__.__name__, item)
-
-
-class ComputerExtensionAttributes():
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
     @classmethod
-    def get(cls, item=None):
-        process_data(__class__.__name__, item)
-
-class ComputerGroups():
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
-    def get(cls, item=None):
-        process_data(__class__.__name__, item)
+    def getByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+    
+    @classmethod
+    def getByStatus(cls, status_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/status/{1}'.format(__class__.__name__.lower(), status_item))
+    
+
+class ComputerConfigurations(Basic_object):
+    pass
+
+
+class ComputerExtensionAttributes(Basic_object):
+    pass
+
+
+class ComputerGroups(Basic_object):
+    pass
 
 class ComputerHardwareSoftwareReports():
     
     @classmethod
-    def get(item_type, item, date, subset=None):
-        process_data(__class__.__name__, item_type, item, date, subset)
+    def getById(cls, id_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/{2}_{3}'.format(__class__.__name__.lower(), id_item, start_date, en_date))
 
+    @classmethod
+    def getByIdSubset(cls, id_item, start_date, en_date, subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/{2}_{3}/subset/{4}'.format(__class__.__name__.lower(), id_item, start_date, en_date, subset_items))
+
+    @classmethod
+    def getByName(cls, name_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}/{2}_{3}'.format(__class__.__name__.lower(), name_item, start_date, en_date))
+
+    @classmethod
+    def getByUdid(cls, udid_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}/{2}_{3}'.format(__class__.__name__.lower(), udid_item, start_date, en_date))
+    
+    @classmethod
+    def getBySerial(cls, serial_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+
+    @classmethod
+    def getByMac(cls, mac_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
 
 class ComputerHistory():
     
     @classmethod
-    def get(item_type, item, subset=None):
-        process_data(__class__.__name__, item_type, item, subset)
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByIdSubset(cls, id_item, subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), id_item, subset_items))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+    
+    @classmethod
+    def getBySerial(cls, serial):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial))
+    
+    @classmethod
+    def getByMac(cls, mac_address):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
 
 class ComputerInventoryCollection():
 
     @classmethod
     def get(cls):
-        '''No parameters. Return the Computer inventory collection for your JAMF Pro instance.'''
-        process_data(__class__.__name__)
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
 
 class ComputerInvitations():
 
     @classmethod
-    def get(cls,item_type, item):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. If the item is a invitation number use the syntax get('invitation', invitationnumber) '''
-        process_data(__class__.__name__, item_type, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByInvitation(cls, invitation_item):
+        return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
 
 
 class ComputerManagement():
-    'get to be done'
-    pass
-
-
-class ComputerReports():
+   
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
     @classmethod
-    def get(cls,item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
+    def getByIdSubset(cls, id_item, subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), id_item, subset_items))
+    
+    @classmethod
+    def getByIdUsername(cls, id_item, username):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/username/{2}'.format(__class__.__name__.lower(), id_item, username))
+
+    @classmethod
+    def getByIdPatchFilter(cls, id_item, filter_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/patchfilter/{2}/'.format(__class__.__name__.lower(), id_item, filter_item))
+    
+    @classmethod
+    def getByIdUsernameSubset(cls, id_item, username_item, subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/username/{2}/subset/{3}'.format(__class__.__name__.lower(), id_item, username_item, subset_items))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+    
+    @classmethod
+    def getBySerial(cls, serial):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial))
+    
+    @classmethod
+    def getByMac(cls, mac_address):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
+
+
+class ComputerReports(Basic_object):
+    pass
 
 class Computers():
     
     @classmethod
-    def get(item_type=None, item=None, subset_item=None):
-        '''Item type could be None, subset, id,name, match, matchname,udid,serialnumber or macaddress. subset_item is only available when use with id'''
-        '''to be done'''
-
-
-class Departments():
-
-    @classmethod
-    def get(cls,item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
     
-
-class DirectoryBindings():
+    @classmethod
+    def getMoreInfo(cls):
+        '''Return Advanced searches'''
+        return get_call('{}/subset/basic'.format(__class__.__name__.lower()))
 
     @classmethod
-    def get(cls, item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
-
-
-class DiskEncryptionConfigurations():
+    def getByMatch(cls, match_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/match/{1}'.format(__class__.__name__.lower(), match_item))
 
     @classmethod
-    def get(cls,item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
-
-
-class DistributionPoints():
+    def getByMatchName(cls, match_name):
+        '''Return Advanced searches'''
+        return get_call('{0}/match/name/{1}'.format(__class__.__name__.lower(), match_name))
 
     @classmethod
-    def get(cls, item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
-
-
-class DockItems():
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+    
+    @classmethod
+    def getByIdSubset(cls, id_item,  subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/subset/{4}'.format(__class__.__name__.lower(), id_item, subset_items))
 
     @classmethod
-    def get(cls, item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list.'''
-        process_data(__class__.__name__, item)
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
+    @classmethod
+    def getByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+    
+    @classmethod
+    def getBySerial(cls, serial_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+
+    @classmethod
+    def getByMac(cls, mac_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+
+
+class Departments(Basic_object):
+    pass
+
+
+class DirectoryBindings(Basic_object):
+    pass
+
+
+class DiskEncryptionConfigurations(Basic_object):
+    pass
+
+
+class DistributionPoints(Basic_object):
+    pass
+
+
+class DockItems(Basic_object):
+    pass
 
 class Ebooks():
 
     @classmethod
-    def get(cls, item=None, subset_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        process_data(__class__.__name__, item, subset_item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+    
+    @classmethod
+    def getByIdSubset(cls, id_item, subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), id_item, subset_items))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
 class FileUploads():
@@ -348,54 +432,103 @@ class FileUploads():
 class GsxConnexion():
 
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__,item_id)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
 class HealthCareListener():
-    '''Get,Put'''
+    
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 class HealthCareListenerRule():
-    '''Get, Put, Post'''
+    
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
-
-class Ibeacons():
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
+
+class Ibeacons(Basic_object):
+    pass
 
 class InfrastructureManager():
 
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
 class JsonWebTokenConfigurations():
 
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
 class LdapServers():
-    '''Get, Put, Post, Delete'''
-    '''todo'''
-
-
-
-class LicencedSoftware():
+    @classmethod
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
+    @classmethod
+    def getUser(cls, server_item, user_name):
+        '''Return Advanced searches'''
+        if type(server_item) == int:
+            return get_call('{0}/id/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
+        else:
+            return get_call('{0}/name/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
+
+    @classmethod
+    def getByGroup(cls, server_item, group_name):
+        '''Return Advanced searches'''
+        if type(server_item) == int:
+            return get_call('{0}/id/{1}/group/{2}'.format(__class__.__name__.lower(), server_item, group_name))
+        else:
+            return get_call('{0}/name/{1}/group/{2}'.format(__class__.__name__.lower(), server_item, group_name))
+
+    @classmethod
+    def getUserByGroup(cls, server_item, group_name, user_name):
+        '''Return Advanced searches'''
+        if type(server_item) == int:
+            return get_call('{0}/id/{1}/group/{2}/user/{3}'.format(__class__.__name__.lower(), server_item, group_name, user_name))
+        else:
+            return get_call('{0}/name/{1}/group/{2}/user/{3}'.format(__class__.__name__.lower(), server_item, group_name, user_name))
+
+
+
+class LicencedSoftware(Basic_object):
+    pass
 
 class LogFlush():
     ''' only delete'''
@@ -405,194 +538,274 @@ class LogFlush():
 class MacApplications():
 
     @classmethod
-    def get(cls, item=None, subset_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        process_data(__class__.__name__, item, subset_item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getSubset(cls, item,  subset_items):
+        '''Return Advanced searches'''
+        if type(item) == int:
+            return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
+        else:
+            return get_call('{0}/name/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
 
 
 class ManagedPreferenceProfiles():
 
     @classmethod
-    def get(cls, item=None, subset_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        process_data(__class__.__name__, item, subset_item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByIdSubset(cls, id_item,  subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/subset/{4}'.format(__class__.__name__.lower(), id_item, subset_items))
 
 class MobileDeviceApplications():
     
     @classmethod
-    def get(item_type=None, item=None, extra_item=None):
-        '''Item could be id, bundleid, name. If no item has been specified return the full list. extra_item is only available when use with id and bundleid'''
-        if item_type == None:
-            data = get_call('JSSResource/mobiledeviceapplications')
-        elif item_type == 'id':
-            if extra_item != None:
-                data = get_call(
-                    'JSSResource/mobiledeviceapplications/id/{0}'.format(item))
-            else:
-                data = get_call(
-                    'JSSResource/mobiledeviceapplications/id/{0}/subset/{1}'.format(item,extra_item))
-        elif item_type == 'bundleid':
-            if extra_item == None:
-                data = get_call(
-                    'JSSResource/mobiledeviceapplications/bundleid/{0}'.format(item))
-            else:
-                data = get_call('JSSResource/mobiledeviceapplications/bundleid/{0}/version/{1}'.format(item,extra_item))
-        return(data)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByIdSubset(cls, id_item,  subset_items):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}/subset/{4}'.format(__class__.__name__.lower(), id_item, subset_items))
+
+    @classmethod
+    def getByBundleid(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/bundleid/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByBundleid_version(cls, id_item, version_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/bundleid/{1}/version/{2}'.format(__class__.__name__.lower(), id_item, version_item))
 
 class MobileDeviceCommands():
-    pass
+
+    @classmethod
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByUdid(cls, udid):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid))
+
+    @classmethod
+    def getByCommand(cls, command):
+        '''Return Advanced searches'''
+        return get_call('{0}/command/{1}'.format(__class__.__name__.lower(), command))
 
 
 class MobileDeviceConfigurationProfiles():
 
     @classmethod
-    def get(cls, item=None, subset_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        process_data(__class__.__name__, item, subset_item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getBySubset(cls, item,  subset_items):
+        if type(item) == int:
+            return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
+        else:
+            return get_call('{0}/name/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
+
 
 class MobileDeviceEnrollementProfiles():
+
+    @classmethod
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByInvitation(cls, invitation):
+        '''Return Advanced searches'''
+        return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation))
+
+    @classmethod
+    def getBySubset(cls, item,  subset_items):
+        if type(item) == int:
+            return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
+        else:
+            return get_call('{0}/name/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
+
+
+class MobileDeviceExtensionAttributes(Basic_object):
     pass
 
 
-class MobileDeviceExtensionAttributes():
-
-    @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
-
-
-class MobileDeviceExtensionGroups():
-
-    @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
-
+class MobileDeviceGroups(Basic_object):
+    pass
 
 class MobileDeviceHistory():
     
     @classmethod
-    def get(cls, item_type,item, subset_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        process_data(__class__.__name__, item_type, item, subset_item)
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+
+    @classmethod
+    def getBySerial(cls, serial):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial))
+
+    @classmethod
+    def getByMac(cls, mac_address):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
+
 
 
 
 class MobileDeviceInvitations():
     
     @classmethod
-    def get(cls, item_id=None):
-        process_data(__class__.__name__, item_id)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByInvitation(cls, invitation_item):
+        return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
 
 
 class MobileDeviceProvisionningProfiles():
     
     @classmethod
-    def get(cls, item_type,item, subset_item=None):
-        '''Specity ID or Name for the item. If no item has been specified return the full list. subset_item is only available when use with id'''
-        process_data(__class__.__name__, item_type, item, subset_item)
+    def get(cls):
+        '''Return Advanced searches'''
+        return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def getById(cls, id_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def getByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+
+    @classmethod
+    def getBySubset(cls, item,  subset_items):
+        if type(item) == int:
+            return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
+        else:
+            return get_call('{0}/name/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
 
 class MobileDevices():
     pass
 
 
-class NetbootServers():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/netbootservers')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/netbootservers/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/netbootservers/id/{0}'.format(item))
-        return(data)
+class NetbootServers(Basic_object):
+    pass
 
 
-class NetworkSegments():
-    def __init__(self, name, starting_ip, ending_ip):
-        self.name = name
-        self.starting_ip = starting_ip
-        self.ending_ip = ending_ip
-    
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/networksegments')
-        else:
-            if type(item) is str:
-                data = get_call('JSSResource/networksegments/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call('JSSResource/networksegments/id/{0}'.format(item))
-        return(data)
-
+class NetworkSegments(Basic_object):
+    pass
 
 class OsxConfigurationProfiles():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/osxconfigurationprofiles')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/osxconfigurationprofiles/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/osxconfigurationprofiles/id/{0}'.format(item))
-        return(data)
+    pass
 
 
-class Packages():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/packages')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/packages/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/packages/id/{0}'.format(item))
-        return(data)
+class Packages(Basic_object):
+    pass
 
 
 class Patches():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/patches')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/patches/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/patches/id/{0}'.format(item))
-        return(data)
+    pass
 
 
-class PatchExternalSources():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/patchexternalsources')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/patchexternalsources/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/patchexternalsources/id/{0}'.format(item))
-        return(data)
+class PatchExternalSources(Basic_object):
+    pass
 
 
 class PatchInternalSources():
@@ -616,18 +829,7 @@ class PatchPolicies():
 
 
 class Peripherals():
-
-    @classmethod
-    def get(item_id=None):
-        if item_id == None:
-            data = get_call('JSSResource/peripherals')
-        else:
-            if type(item_id) is int:
-                data = get_call(
-                    'JSSResource/peripherals/id/{0}'.format(item_id))
-            else:
-                print('Item_ID should be an integer.')
-        return(data)
+    pass
 
 
 class PeripheralsTypes():
@@ -648,89 +850,27 @@ class Policies():
     pass    
 
 
-class Printers():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/printers')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/printers/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/printers/id/{0}'.format(item))
-        return(data)
+class Printers(Basic_object):
+    pass
 
 
-class RemovableMacAddresses():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/removablemacaddresses')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/removablemacaddresses/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/removablemacaddresses/id/{0}'.format(item))
-        return(data)
+class RemovableMacAddresses(Basic_object):
+    pass
 
 
-class RestrictedSoftware():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/restrictedsoftware')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/restrictedsoftware/name/{0}'.format(item))
-            if type(item) is int:
-                data = get_call(
-                    'JSSResource/restrictedsoftware/id/{0}'.format(item))
-        return(data)
-
+class RestrictedSoftware(Basic_object):
+    pass
 
 class SavedSearches():
     pass
 
 
-class Stripts():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/scripts')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/scripts/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/scripts/id/{0}'.format(item))
-        return(data)
+class Scripts(Basic_object):
+    pass
 
 
-class Sites():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/sites')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/sites/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/sites/id/{0}'.format(item))
-        return(data)
-
+class Sites(Basic_object):
+    pass
 
 class SmtpServer():
 
@@ -740,53 +880,16 @@ class SmtpServer():
         return(data)
 
 
-class SoftwareUpdateServers():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/softwareupdateservers')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/sitsoftwareupdateserverses/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/softwareupdateservers/id/{0}'.format(item))
-        return(data)
+class SoftwareUpdateServers(Basic_object):
+    pass
 
 
-class UserExtensionAttributes():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/userextensionattributes')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/userextensionattributes/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/userextensionattributes/id/{0}'.format(item))
-        return(data)
+class UserExtensionAttributes(Basic_object):
+    pass
 
 
-class UserGroups():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/usergroups')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/usergroups/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/usergroups/id/{0}'.format(item))
-        return(data)
-
+class UserGroups(Basic_object):
+    pass
 
 class Users():
     pass
@@ -837,17 +940,5 @@ class VppInvitations():
         return(data)
 
 
-class Webhooks():
-
-    @classmethod
-    def get(item=None):
-        if item == None:
-            data = get_call('JSSResource/webhooks')
-        else:
-            if type(item) is str:
-                data = get_call(
-                    'JSSResource/webhooks/name/{0}'.format(item))
-            elif type(item) is int:
-                data = get_call(
-                    'JSSResource/webhooks/id/{0}'.format(item))
-        return(data)
+class Webhooks(Basic_object):
+    pass
