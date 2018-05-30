@@ -50,7 +50,7 @@ def delete_call(url, data=None):
     base_url = Credentials.url
     username = Credentials.username
     password = Credentials.password
-    response=requests.put('{0}{1}'.format(base_url, url), data, auth = (username, password))
+    response=requests.delete('{0}{1}'.format(base_url, url), auth = (username, password))
     if response.status_code == 200:
         return response.json()
     else:
