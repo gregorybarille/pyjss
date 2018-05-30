@@ -39,5 +39,3 @@ def get_credentials(url, username):
 		else:
 			print('There is no password stored for the url {0} and the name {1}'.format(url, password))
 			exit()
-
-
