@@ -7,7 +7,7 @@ from pyjss.settings import Credentials
 
 from pyjss.parse_engine import (get_no_parameter, get_by_field)
 
-class Basic_object():
+class Basic_get_object():
 
     @classmethod
     def get(cls):
@@ -20,8 +20,22 @@ class Basic_object():
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item)) 
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+
+class Basic_delete_object():
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
     
+
+class Basic_object(Basic_get_object, Basic_delete_object):
+    pass
 class Accounts():
 
     @classmethod
@@ -40,9 +54,28 @@ class Accounts():
     @classmethod
     def getByGroupId(cls, groupID):
         return get_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
+
     @classmethod
     def getByGroupName(cls, groupName):
         return get_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName))
+
+
+    @classmethod
+    def deleteByUserName(cls, userName):
+        return delete_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
+
+    @classmethod
+    def deleteBUserId(cls, useriD):
+        return delete_call('{0}/userid/{1}'.format(__class__.__name__.lower(), useriD))
+
+    @classmethod
+    def deleteByGroupId(cls, groupID):
+        return delete_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
+
+    @classmethod
+    def deleteByGroupName(cls, groupName):
+        return delete_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName))
+
 
 class ActivationCode():
 
@@ -63,11 +96,27 @@ class AdvancedMobileDeviceSearches(Basic_object):
 class AdvancedUserSearches(Basic_object):
     pass
 
-class AllowedFileExtension(Basic_object):
-    pass
+class AllowedFileExtension():
+
+    @classmethod
+    def get(cls):
+        '''Return list of accounts'''
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByExtension(cls, extension):
+        return get_call('{0}/extension/{1}'.format(__class__.__name__.lower(), extension))
+    
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
-class Buildings(Basic_object):
+class Buildings(Basic_get_object,Basic_delete_object):
     pass
 
 
@@ -91,8 +140,14 @@ class Classes(Basic_object):
 
 
 class CommandFlush():
-    '''no get'''
-    pass
+
+    @classmethod
+    def deleteById(cls, group_type, id_items, status):
+        '''group_type could be one of the following: computers, computergroups, mobiledevices, mobiledevicegroups
+        id_items could a single or multiple value ( separated by comma )
+        status could be one of the following: Pending, Failed or Pending+Failed
+        '''
+        return delete_call('{0}/{1}/id/{2}/status/{3}'.format(__class__.__name__.lower(),group_type,id_items, status))
 
 
 class ComputerApplications():
@@ -151,7 +206,7 @@ class ComputerCheckin():
         '''Return Advanced searches'''
         return get_call(__class__.__name__.lower())
 
-class ComputerCommands(Basic_object):
+class ComputerCommands(Basic_get_object):
 
     @classmethod
     def getByUdid(cls, udid_item):
@@ -247,20 +302,16 @@ class ComputerInventoryCollection():
         return get_call(__class__.__name__.lower())
 
 
-class ComputerInvitations():
-
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_call(__class__.__name__.lower())
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+class ComputerInvitations(Basic_object):
 
     @classmethod
     def getByInvitation(cls, invitation_item):
         return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
+    
+    @classmethod
+    def deleteInvitation(cls, invitation_item):
+        return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
+
 
 
 class ComputerManagement():
@@ -311,16 +362,11 @@ class ComputerManagement():
         return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
 
 
-class ComputerReports(Basic_object):
+class ComputerReports(Basic_get_object):
     pass
 
-class Computers():
-    
-    @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_call(__class__.__name__.lower())
-    
+class Computers(Basic_object):
+
     @classmethod
     def getMoreInfo(cls):
         '''Return Advanced searches'''
@@ -337,19 +383,9 @@ class Computers():
         return get_call('{0}/match/name/{1}'.format(__class__.__name__.lower(), match_name))
 
     @classmethod
-    def getById(cls, id_item):
-        '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
-    
-    @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
         return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
-
-    @classmethod
-    def getByName(cls, name_item):
-        '''Return Advanced searches'''
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getByUdid(cls, udid_item):
@@ -365,6 +401,22 @@ class Computers():
     def getByMac(cls, mac_item, start_date, en_date):
         '''Return Advanced searches'''
         return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+
+    @classmethod
+    def deleteByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+
+    @classmethod
+    def deleteBySerial(cls, serial_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return delete_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+
+    @classmethod
+    def deleteByMac(cls, mac_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return delete_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+
 
 
 class Departments(Basic_object):
@@ -385,6 +437,7 @@ class DistributionPoints(Basic_object):
 
 class DockItems(Basic_object):
     pass
+
 
 class Ebooks(Basic_object):
 
@@ -461,17 +514,12 @@ class JsonWebTokenConfigurations():
         '''Return Advanced searches'''
         return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
-
-class LdapServers():
     @classmethod
-    def get(cls):
-        '''Return Advanced searches'''
-        return get_call(__class__.__name__.lower())
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
-    @classmethod
-    def getById(cls, id_item):
-        '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+class LdapServers(Basic_object):
 
     @classmethod
     def getUser(cls, server_item, user_name):
@@ -503,8 +551,16 @@ class LicencedSoftware(Basic_object):
     pass
 
 class LogFlush():
-    ''' only delete'''
-    pass
+
+    @classmethod
+    def deleteAllPolicies(cls, interval):
+        '''For interval the supported values are a combination of [Zero, One, Two, Three, Six] and [Days, Weeks, Months, Years].'''
+        return delete_call('{0}/policy/interval/{1}'.format(__class__.__name__.lower(), interval))
+    
+    @classmethod
+    def deletePolicy(cls, id_item, interval):
+        '''For interval the supported values are a combination of [Zero, One, Two, Three, Six] and [Days, Weeks, Months, Years].'''
+        return delete_call('{0}/policy/id/{1}/interval/{2}'.format(__class__.__name__.lower(), id_item, interval))
 
 
 class MacApplications(Basic_object):
@@ -521,6 +577,7 @@ class ManagedPreferenceProfiles(Basic_object):
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
         return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+
 
 class MobileDeviceApplications(Basic_object):
     
@@ -539,7 +596,7 @@ class MobileDeviceApplications(Basic_object):
         '''Return Advanced searches'''
         return get_call('{0}/bundleid/{1}/version/{2}'.format(__class__.__name__.lower(), id_item, version_item))
 
-class MobileDeviceCommands(Basic_object):
+class MobileDeviceCommands(Basic_get_object):
 
     @classmethod
     def getByUdid(cls, udid):
@@ -552,7 +609,7 @@ class MobileDeviceCommands(Basic_object):
         return get_call('{0}/command/{1}'.format(__class__.__name__.lower(), command))
 
 
-class MobileDeviceConfigurationProfiles(Basic_object):
+class MobileDeviceConfigurationProfiles(Basic_get_object):
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
@@ -571,6 +628,10 @@ class MobileDeviceEnrollementProfiles(Basic_object):
     def getByInvitation(cls, invitation):
         '''Return Advanced searches'''
         return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation))
+
+    @classmethod
+    def deleteInvitation(cls, invitation):
+        return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation))
 
 
 class MobileDeviceExtensionAttributes(Basic_object):
@@ -626,6 +687,14 @@ class MobileDeviceInvitations():
     def getByInvitation(cls, invitation_item):
         return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
 
+    @classmethod
+    def deleteById(cls, id_item):
+        '''Return Advanced searches'''
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByInvitation(cls, invitation_item):
+        return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
 
 class MobileDeviceProvisionningProfiles(Basic_object):
     
@@ -639,8 +708,54 @@ class MobileDeviceProvisionningProfiles(Basic_object):
         '''Return Advanced searches'''
         return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
 
-class MobileDevices():
-    pass
+    @classmethod
+    def deleteByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+
+
+class MobileDevices(Basic_object):
+
+    @classmethod
+    def getByMatch(cls, match_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/match/{1}'.format(__class__.__name__.lower(), match_item))
+    
+    @classmethod
+    def getSubset(cls, item_type, item, subset_items):
+        '''Item_type could be id/name/udid/serialnumber or macaddress'''
+        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+
+    @classmethod
+    def getByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+
+    @classmethod
+    def getBySerial(cls, serial_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+
+    @classmethod
+    def getByMac(cls, mac_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+
+    @classmethod
+    def deleteByUdid(cls, udid_item):
+        '''Return Advanced searches'''
+        return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+
+    @classmethod
+    def deleteBySerial(cls, serial_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return delete_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+
+    @classmethod
+    def deleteByMac(cls, mac_item, start_date, en_date):
+        '''Return Advanced searches'''
+        return delete_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+
 
 
 class NetbootServers(Basic_object):
@@ -650,15 +765,25 @@ class NetbootServers(Basic_object):
 class NetworkSegments(Basic_object):
     pass
 
-class OsxConfigurationProfiles():
-    pass
+
+class OsxConfigurationProfiles(Basic_object):
+    
+    @classmethod
+    def getSubset(cls, item_type, item, subset_items):
+        '''Item_type could be id/name'''
+        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
 
 
 class Packages(Basic_object):
     pass
 
 
-class Patches():
+class Patches(Basic_object):
+    
+    @classmethod
+    def getByBersion(cls, item_type, item, version):
+        '''Item_type could be id/name'''
+        return get_call('{0}/{1}/{2}/versopm/{3}'.format(__class__.__name__.lower(), item_type, item, version))
     pass
 
 
@@ -666,7 +791,7 @@ class PatchExternalSources(Basic_object):
     pass
 
 
-class PatchInternalSources(Basic_object):
+class PatchInternalSources(Basic_get_object):
     pass
 
 class PatchPolicies():
@@ -689,6 +814,10 @@ class PatchPolicies():
     def getBySoftwareConfigId(cls, id_item):
         return get_call('{0}/softwaretitleconfigid/id/{1}'.format(__class__.__name__.lower(), id_item))
 
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
 class Peripherals():
     
     @classmethod
@@ -705,6 +834,10 @@ class Peripherals():
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
         return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), id_item, subset_items))
 
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
 
 
 class PeripheralsTypes():
@@ -717,6 +850,10 @@ class PeripheralsTypes():
     @classmethod
     def getById(cls, id_item):
         return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+    
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
 class Policies(Basic_object):
@@ -746,7 +883,7 @@ class RemovableMacAddresses(Basic_object):
 class RestrictedSoftware(Basic_object):
     pass
 
-class SavedSearches():
+class SavedSearches(Basic_get_object):
     pass
 
 
@@ -773,11 +910,15 @@ class UserExtensionAttributes(Basic_object):
     pass
 
 
-class UserGroups(Basic_object):
+class UserGroups(Basic_get_object):
     pass
 
-class Users():
-    pass
+
+class Users(Basic_object):
+
+    @classmethod
+    def getByEmail(cls, email):
+        return get_call('{0}/email/{1}'.format(__class__.__name__.lower(), email))
 
 
 class VppAccounts():
@@ -791,6 +932,9 @@ class VppAccounts():
     def getById(cls, id_item):
         return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 class VppAssignments():
 
