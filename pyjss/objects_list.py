@@ -23,6 +23,27 @@ class Basic_get_object():
         return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
+class Basic_put_object():
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+
+class Basic_push_object():
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
 class Basic_delete_object():
 
     @classmethod
@@ -34,7 +55,7 @@ class Basic_delete_object():
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
     
 
-class Basic_object(Basic_get_object, Basic_delete_object):
+class Basic_object(Basic_get_object, Basic_put_object, Basic_push_object, Basic_delete_object):
     pass
 class Accounts():
 
@@ -116,12 +137,12 @@ class AllowedFileExtension():
         return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
-class Buildings(Basic_get_object,Basic_delete_object):
+class Buildings(Basic_object):
     pass
 
 
 class ByoProfiles(Basic_object):
-
+'''verify basic object'''
     @classmethod
     def getBysiteId(cls, siteID):
         return get_call('{0}/siteid/{1}'.format(__class__.__name__.lower(), siteID))
