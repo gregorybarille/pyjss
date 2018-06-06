@@ -7,56 +7,6 @@ from pyjss.settings import Credentials
 
 from pyjss.parse_engine import (get_no_parameter, get_by_field)
 
-class Basic_get_object():
-
-    @classmethod
-    def get(cls):
-        '''Return list of accounts'''
-        return get_call(__class__.__name__.lower())
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
-
-
-class Basic_put_object():
-
-    @classmethod
-    def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
-
-    @classmethod
-    def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
-
-
-class Basic_push_object():
-
-    @classmethod
-    def putById(cls, id_item, data):
-        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
-
-    @classmethod
-    def putByName(cls, name_item, data):
-        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
-
-class Basic_delete_object():
-
-    @classmethod
-    def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
-
-    @classmethod
-    def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
-    
-
-class Basic_object(Basic_get_object, Basic_put_object, Basic_push_object, Basic_delete_object):
-    pass
 class Accounts():
 
     @classmethod
@@ -69,29 +19,60 @@ class Accounts():
         return get_call('{0}/userid/{1}'.format(__class__.__name__.lower(),useriD))
 
     @classmethod
-    def getByUserName(cls, userName):
-        return get_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
+    def putByUserId(cls, useriD, payload):
+        return put_call('{0}/userid/{1}'.format(__class__.__name__.lower(),useriD), payload)
 
     @classmethod
-    def getByGroupId(cls, groupID):
-        return get_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
-
-    @classmethod
-    def getByGroupName(cls, groupName):
-        return get_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName))
-
-
-    @classmethod
-    def deleteByUserName(cls, userName):
-        return delete_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
+    def pushByUserId(cls, useriD, payload):
+        return push_call('{0}/userid/{1}'.format(__class__.__name__.lower(), useriD), payload)
 
     @classmethod
     def deleteBUserId(cls, useriD):
         return delete_call('{0}/userid/{1}'.format(__class__.__name__.lower(), useriD))
 
     @classmethod
+    def getByUserName(cls, userName):
+        return get_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
+    
+    @classmethod
+    def putByUserName(cls, userName, payload):
+        return put_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName), payload)
+
+    @classmethod
+    def pushByUserName(cls, userName, payload):
+        return push_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName), payload)
+
+    @classmethod
+    def deleteByUserName(cls, userName):
+        return delete_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
+
+    @classmethod
+    def getByGroupId(cls, groupID):
+        return get_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
+    
+    @classmethod
+    def putByGroupId(cls, groupID, payload):
+        return put_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID), payload)
+    
+    @classmethod
+    def pushByGroupId(cls, groupID, payload):
+        return push_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID), payload)
+
+    @classmethod
     def deleteByGroupId(cls, groupID):
         return delete_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
+
+    @classmethod
+    def getByGroupName(cls, groupName):
+        return get_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName))
+    
+    @classmethod
+    def putByGroupName(cls, groupName, payload):
+        return put_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName), payload)
+
+    @classmethod
+    def pushByGroupName(cls, groupName, payload):
+        return push_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName), payload)
 
     @classmethod
     def deleteByGroupName(cls, groupName):
@@ -104,18 +85,126 @@ class ActivationCode():
     def get(cls):
         '''Return Activation Code'''
         return get_call(__class__.__name__.lower())
+    
+    @classmethod
+    def put(cls, activation_code):
+        '''Return Activation Code'''
+        return put_call(__class__.__name__.lower(), activation_code)
 
 
-class AdvancedComputerSearches(Basic_object):
-    pass
+class AdvancedComputerSearches():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class AdvancedMobileDeviceSearches(Basic_object):
-    pass
+class AdvancedMobileDeviceSearches():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
-class AdvancedUserSearches(Basic_object):
-    pass
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+class AdvancedUserSearches():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 class AllowedFileExtension():
 
@@ -129,35 +218,204 @@ class AllowedFileExtension():
         return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
     @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+    
+    @classmethod
     def getByExtension(cls, extension):
         return get_call('{0}/extension/{1}'.format(__class__.__name__.lower(), extension))
+    
+    @classmethod
+    def putByExtension(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByExtension(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteByExtension(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+
+
+class Buildings():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+
+class ByoProfiles():
+    '''verify basic object'''
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
     
     @classmethod
     def deleteById(cls, id_item):
         return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
-class Buildings(Basic_object):
-    pass
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
 
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
 
-class ByoProfiles(Basic_object):
-'''verify basic object'''
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
     @classmethod
     def getBysiteId(cls, siteID):
         return get_call('{0}/siteid/{1}'.format(__class__.__name__.lower(), siteID))
 
     @classmethod
+    def putBysiteId(cls, siteID, data):
+        return put_call('{0}/siteid/{1}'.format(__class__.__name__.lower(), siteID), data)
+
+    @classmethod
     def getBySiteName(cls, siteName):
         return get_call('{0}/sitename/{1}'.format(__class__.__name__.lower(), siteName))
 
+    @classmethod
+    def putBySiteName(cls, siteName, data):
+        return put_call('{0}/sitename/{1}'.format(__class__.__name__.lower(), siteName), data)
 
-class Categories(Basic_object):
-    pass
+class Categories():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class Classes(Basic_object):
-    pass
+class Classes():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
 class CommandFlush():
@@ -193,11 +451,13 @@ class ComputerApplications():
 
 
 
-class ComputerApplicationsUsage():
+class ComputerApplicationUsage():
 
     @classmethod
     def getById(cls, id_item, start_date, en_date):
         '''Return Advanced searches'''
+        print('{0}/id/{1}/{2}_{3}'.format(__class__.__name__.lower(),
+                                          id_item, start_date, en_date))
         return get_call('{0}/id/{1}/{2}_{3}'.format(__class__.__name__.lower(), id_item, start_date, en_date))
 
     @classmethod
@@ -224,32 +484,154 @@ class ComputerCheckin():
 
     @classmethod
     def get(cls):
-        '''Return Advanced searches'''
+        ''''''
         return get_call(__class__.__name__.lower())
 
-class ComputerCommands(Basic_get_object):
+    @classmethod
+    def put(cls, checkin):
+        ''''''
+        return put_call(__class__.__name__.lower(), checkin)
+
+class ComputerCommands():
 
     @classmethod
-    def getByUdid(cls, udid_item):
-        '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
-    
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
     @classmethod
-    def getByStatus(cls, status_item):
-        '''Return Advanced searches'''
-        return get_call('{0}/status/{1}'.format(__class__.__name__.lower(), status_item))
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
     
 
-class ComputerConfigurations(Basic_object):
-    pass
+class ComputerConfigurations():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class ComputerExtensionAttributes(Basic_object):
-    pass
+class ComputerExtensionAttributes():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class ComputerGroups(Basic_object):
-    pass
+class ComputerGroups():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
 
 class ComputerHardwareSoftwareReports():
     
@@ -315,20 +697,58 @@ class ComputerHistory():
         '''Return Advanced searches'''
         return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
 
+
 class ComputerInventoryCollection():
 
     @classmethod
     def get(cls):
-        '''Return Advanced searches'''
+        '''Return Activation Code'''
         return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def put(cls, settings):
+        '''Return Activation Code'''
+        return put_call(__class__.__name__.lower(), settings)
 
-class ComputerInvitations(Basic_object):
+
+class ComputerInvitations():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getByInvitation(cls, invitation_item):
         return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
     
+    @classmethod
+    def pushByInvitation(cls, invitation_item, data):
+        return push_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item), data)
+
     @classmethod
     def deleteInvitation(cls, invitation_item):
         return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
@@ -383,11 +803,67 @@ class ComputerManagement():
         return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
 
 
-class ComputerReports(Basic_get_object):
-    pass
+class ComputerReports():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
-class Computers(Basic_object):
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+
+class Computers():
+    
+    @classmethod
+    def getListID(cls):
+        '''Return list of accounts'''
+        data = get_call(__class__.__name__.lower())
+        computer_list = []
+        for computer in data['computers']:
+            computer_list.append(computer['id'])
+        return computer_list
+    
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+    
     @classmethod
     def getMoreInfo(cls):
         '''Return Advanced searches'''
@@ -412,16 +888,16 @@ class Computers(Basic_object):
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
         return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
-    
-    @classmethod
-    def getBySerial(cls, serial_item, start_date, en_date):
-        '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
 
     @classmethod
-    def getByMac(cls, mac_item, start_date, en_date):
+    def putByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+        return put_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
+
+    @classmethod
+    def pushByUdid(cls, udid_item, data):
+        '''Return Advanced searches'''
+        return push_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
 
     @classmethod
     def deleteByUdid(cls, udid_item):
@@ -429,45 +905,283 @@ class Computers(Basic_object):
         return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
 
     @classmethod
-    def deleteBySerial(cls, serial_item, start_date, en_date):
+    def getBySerial(cls, serial_item):
         '''Return Advanced searches'''
-        return delete_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item))
 
     @classmethod
-    def deleteByMac(cls, mac_item, start_date, en_date):
+    def putBySerial(cls, serial_item, data):
         '''Return Advanced searches'''
-        return delete_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+        return put_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item), data)
+
+    @classmethod
+    def pushBySerial(cls, serial_item, data):
+        '''Return Advanced searches'''
+        return push_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item), data)
+
+    @classmethod
+    def deleteBySerial(cls, serial_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item))
+
+    @classmethod
+    def getByMac(cls, mac_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
+
+    @classmethod
+    def putByMac(cls, mac_item, data):
+        '''Return Advanced searches'''
+        return put_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item), data)
+
+    @classmethod
+    def pushByMac(cls, mac_item, data):
+        '''Return Advanced searches'''
+        return push_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item), data)
+
+    @classmethod
+    def deleteByMac(cls, mac_item):
+        '''Return Advanced searches'''
+        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
 
 
 
-class Departments(Basic_object):
-    pass
+class Departments():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class DirectoryBindings(Basic_object):
-    pass
+class DirectoryBindings():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class DiskEncryptionConfigurations(Basic_object):
-    pass
+class DiskEncryptionConfigurations():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class DistributionPoints(Basic_object):
-    pass
+class DistributionPoints():
+
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class DockItems(Basic_object):
-    pass
+class DockItems():
 
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
-class Ebooks(Basic_object):
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+class Ebooks():
+    
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
         return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
-
-
 
 
 class FileUploads():
@@ -479,8 +1193,13 @@ class GsxConnexion():
 
     @classmethod
     def get(cls):
-        '''Return Advanced searches'''
+        ''''''
         return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def put(cls, settings):
+        ''''''
+        return put_call(__class__.__name__.lower(), settings)
 
 class HealthCareListener():
     
@@ -507,8 +1226,42 @@ class HealthCareListenerRule():
         return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
-class Ibeacons(Basic_object):
-    pass
+class Ibeacons():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 class InfrastructureManager():
 
@@ -540,7 +1293,42 @@ class JsonWebTokenConfigurations():
         return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
-class LdapServers(Basic_object):
+class LdapServers():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getUser(cls, server_item, user_name):
@@ -568,8 +1356,42 @@ class LdapServers(Basic_object):
 
 
 
-class LicencedSoftware(Basic_object):
-    pass
+class LicencedSoftware():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 class LogFlush():
 
@@ -584,7 +1406,42 @@ class LogFlush():
         return delete_call('{0}/policy/id/{1}/interval/{2}'.format(__class__.__name__.lower(), id_item, interval))
 
 
-class MacApplications(Basic_object):
+class MacApplications():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
@@ -592,7 +1449,42 @@ class MacApplications(Basic_object):
         return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
 
 
-class ManagedPreferenceProfiles(Basic_object):
+class ManagedPreferenceProfiles():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
@@ -600,8 +1492,43 @@ class ManagedPreferenceProfiles(Basic_object):
         return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
 
 
-class MobileDeviceApplications(Basic_object):
-    
+class MobileDeviceApplications():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
@@ -617,8 +1544,19 @@ class MobileDeviceApplications(Basic_object):
         '''Return Advanced searches'''
         return get_call('{0}/bundleid/{1}/version/{2}'.format(__class__.__name__.lower(), id_item, version_item))
 
-class MobileDeviceCommands(Basic_get_object):
+class MobileDeviceCommands():
+    
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
     @classmethod
     def getByUdid(cls, udid):
         '''Return Advanced searches'''
@@ -630,7 +1568,18 @@ class MobileDeviceCommands(Basic_get_object):
         return get_call('{0}/command/{1}'.format(__class__.__name__.lower(), command))
 
 
-class MobileDeviceConfigurationProfiles(Basic_get_object):
+class MobileDeviceConfigurationProfiles():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
@@ -638,7 +1587,18 @@ class MobileDeviceConfigurationProfiles(Basic_get_object):
         return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
 
 
-class MobileDeviceEnrollementProfiles(Basic_object):
+class MobileDeviceEnrollementProfiles():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
@@ -655,12 +1615,80 @@ class MobileDeviceEnrollementProfiles(Basic_object):
         return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation))
 
 
-class MobileDeviceExtensionAttributes(Basic_object):
-    pass
+class MobileDeviceExtensionAttributes():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class MobileDeviceGroups(Basic_object):
-    pass
+class MobileDeviceGroups():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 class MobileDeviceHistory():
     
@@ -717,8 +1745,19 @@ class MobileDeviceInvitations():
     def deleteByInvitation(cls, invitation_item):
         return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
 
-class MobileDeviceProvisionningProfiles(Basic_object):
-    
+class MobileDeviceProvisionningProfiles():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
@@ -735,8 +1774,42 @@ class MobileDeviceProvisionningProfiles(Basic_object):
         return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
 
 
-class MobileDevices(Basic_object):
+class MobileDevices():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
     @classmethod
     def getByMatch(cls, match_item):
         '''Return Advanced searches'''
@@ -779,28 +1852,198 @@ class MobileDevices(Basic_object):
 
 
 
-class NetbootServers(Basic_object):
-    pass
+class NetbootServers():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class NetworkSegments(Basic_object):
-    pass
+class NetworkSegments():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class OsxConfigurationProfiles(Basic_object):
-    
+class OsxConfigurationProfiles():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name'''
         return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
 
 
-class Packages(Basic_object):
-    pass
+class Packages():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class Patches(Basic_object):
-    
+class Patches():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
     @classmethod
     def getByBersion(cls, item_type, item, version):
         '''Item_type could be id/name'''
@@ -808,12 +2051,80 @@ class Patches(Basic_object):
     pass
 
 
-class PatchExternalSources(Basic_object):
-    pass
+class PatchExternalSources():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class PatchInternalSources(Basic_get_object):
-    pass
+class PatchInternalSources():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 class PatchPolicies():
     
@@ -877,8 +2188,43 @@ class PeripheralsTypes():
         return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
 
 
-class Policies(Basic_object):
+class Policies():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name'''
@@ -893,27 +2239,231 @@ class Policies(Basic_object):
         return get_call('{0}/createdBy/{1}'.format(__class__.__name__.lower(), creator_name))
 
 
-class Printers(Basic_object):
-    pass
+class Printers():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class RemovableMacAddresses(Basic_object):
-    pass
+class RemovableMacAddresses():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class RestrictedSoftware(Basic_object):
-    pass
+class RestrictedSoftware():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
-class SavedSearches(Basic_get_object):
-    pass
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+class SavedSearches():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class Scripts(Basic_object):
-    pass
+class Scripts():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class Sites(Basic_object):
-    pass
+class Sites():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 class SmtpServer():
 
@@ -923,20 +2473,157 @@ class SmtpServer():
         return get_call(__class__.__name__.lower())
 
 
-class SoftwareUpdateServers(Basic_object):
-    pass
+class SoftwareUpdateServers():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class UserExtensionAttributes(Basic_object):
-    pass
+class UserExtensionAttributes():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class UserGroups(Basic_get_object):
-    pass
+class UserGroups():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class Users(Basic_object):
+class Users():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
 
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+    
     @classmethod
     def getByEmail(cls, email):
         return get_call('{0}/email/{1}'.format(__class__.__name__.lower(), email))
@@ -985,5 +2672,39 @@ class VppInvitations():
         return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
 
 
-class Webhooks(Basic_object):
-    pass
+class Webhooks():
+    @classmethod
+    def get(cls):
+        return get_call(__class__.__name__.lower())
+
+    @classmethod
+    def getById(cls, id_item):
+        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def getByName(cls, name_item):
+        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
+    @classmethod
+    def putById(cls, id_item, data):
+        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def putByName(cls, name_item, data):
+        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def pushById(cls, id_item, data):
+        return push_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
+    @classmethod
+    def pushByName(cls, name_item, data):
+        return push_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+
+    @classmethod
+    def deleteById(cls, id_item):
+        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
+    @classmethod
+    def deleteByName(cls, name_item):
+        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
