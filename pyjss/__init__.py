@@ -1,6 +1,6 @@
 from pyjss.objects_list import (Accounts, ActivationCode, AdvancedComputerSearches, AdvancedMobileDeviceSearches, AdvancedUserSearches,
 								AllowedFileExtension, Buildings, ByoProfiles, Categories, Classes,
-								CommandFlush, ComputerApplications, ComputerApplicationsUsage, ComputerCheckin, ComputerCommands,
+								CommandFlush, ComputerApplications, ComputerApplicationUsage, ComputerCheckin, ComputerCommands,
 								ComputerConfigurations, ComputerExtensionAttributes, ComputerGroups, ComputerHardwareSoftwareReports, ComputerHistory,
 								ComputerInventoryCollection, ComputerInvitations, ComputerManagement, ComputerReports, Computers,
 								Departments, DirectoryBindings, DiskEncryptionConfigurations, DistributionPoints, DockItems,
