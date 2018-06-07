@@ -42,8 +42,18 @@ def get_credentials(url, username):
 			exit()
 
 def get_auth_from_file(filename):
-	with open(filename, 'r') as auth_file:
-		credentials_data = json.load(auth_file)
-		Credentials(credentials_data['url'],
-		            credentials_data['username'], credentials_data['password'])
-		print(credentials_data['url'])
+	try:
+		with open(filename, 'r') as auth_file:
+			credentials_data = json.load(auth_file)
+			try:
+				Credentials(credentials_data['url'],
+						credentials_data['username'], credentials_data['password'])
+			except KeyError:
+				print('The auth file should have the following format :\n{\n"url":"url_value",\n "username":"username_value",\n "password":"password_value"\n}')
+				exit
+	except FileNotFoundError:
+		print('The file {0} does not exist'.format(filename))
+		exit
+	except PermissionError:
+		print('Youn don\'t have the permissions to read the file {0}'.format(filename))
+		exit
