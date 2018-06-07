@@ -33,7 +33,7 @@ def put_call(url, data=None):
     else:
         return 'Error {0}'.format(response.status_code)
 
-def push_call(url, data=None):
+def post_call(url, data=None):
     base_url = Credentials.url
     username = Credentials.username
     password = Credentials.password
