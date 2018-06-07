@@ -151,3 +151,5 @@ main.py
 #Additional files
 *.iml
 *.xml
+
+settings.json
