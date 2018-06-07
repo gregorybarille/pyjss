@@ -1,4 +1,5 @@
 import keyring
+import json
 
 class Credentials:
 
@@ -39,3 +40,10 @@ def get_credentials(url, username):
 		else:
 			print('There is no password stored for the url {0} and the name {1}'.format(url, password))
 			exit()
+
+def get_auth_from_file(filename):
+	with open(filename, 'r') as auth_file:
+		credentials_data = json.load(auth_file)
+		Credentials(credentials_data['url'],
+		            credentials_data['username'], credentials_data['password'])
+		print(credentials_data['url'])
