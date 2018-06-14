@@ -8,7 +8,7 @@ from pyjss.settings import Credentials
 from pyjss.parse_engine import (get_no_parameter, get_by_field)
 
 class Accounts():
-
+    
     @classmethod
     def get(cls):
         '''Return list of accounts'''
@@ -28,7 +28,7 @@ class Accounts():
 
     @classmethod
     def deleteBUserId(cls, useriD):
-        return delete_call('{0}/userid/{1}'.format(__class__.__name__.lower(), useriD))
+        return delete_call('{0}/userid/{1}'.format(__class__.__name__.lower(), useriD)) 
 
     @classmethod
     def getByUserName(cls, userName):
@@ -1864,7 +1864,7 @@ class MobileDeviceInvitations():
         return put_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item), data)
     
     @classmethod
-    def postByInvitation(cls, invitation_item):
+    def postByInvitation(cls, invitation_item, data):
         return post_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item), data)
 
     @classmethod
@@ -2164,7 +2164,7 @@ class OsxConfigurationProfiles():
 
 class Packages():
    
-   @classmethod
+    @classmethod
     def get(cls):
         return get_call(__class__.__name__.lower())
 
