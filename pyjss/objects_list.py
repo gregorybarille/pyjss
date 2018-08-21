@@ -168,6 +168,7 @@ class AdvancedMobileDeviceSearches():
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
+
 class AdvancedUserSearches():
 
     @classmethod
@@ -205,6 +206,7 @@ class AdvancedUserSearches():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
 
 class AllowedFileExtension():
 
@@ -244,7 +246,6 @@ class AllowedFileExtension():
     @classmethod
     def deleteByExtension(cls, id_item):
         return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
-
 
 
 class Buildings():
@@ -339,6 +340,7 @@ class ByoProfiles():
     @classmethod
     def putBySiteName(cls, siteName, data):
         return put_call('{0}/sitename/{1}'.format(__class__.__name__.lower(), siteName), data)
+
 
 class Categories():
 
@@ -450,7 +452,6 @@ class ComputerApplications():
         return get_call('{0}/application/{1}/version/{2}/inventory/{3}'.format(__class__.__name__.lower(), application, version, info_items))
 
 
-
 class ComputerApplicationUsage():
 
     @classmethod
@@ -480,6 +481,7 @@ class ComputerApplicationUsage():
         '''Return Advanced searches'''
         return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
 
+
 class ComputerCheckin():
 
     @classmethod
@@ -491,6 +493,7 @@ class ComputerCheckin():
     def put(cls, checkin):
         ''''''
         return put_call(__class__.__name__.lower(), checkin)
+
 
 class ComputerCommands():
 
@@ -514,7 +517,6 @@ class ComputerCommands():
     def postByName(cls, name_item, data):
         return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
 
-    
 
 class ComputerConfigurations():
 
@@ -665,6 +667,7 @@ class ComputerHardwareSoftwareReports():
         '''Return Advanced searches'''
         return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
 
+
 class ComputerHistory():
     
     @classmethod
@@ -752,7 +755,6 @@ class ComputerInvitations():
     @classmethod
     def deleteInvitation(cls, invitation_item):
         return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
-
 
 
 class ComputerManagement():
@@ -944,7 +946,6 @@ class Computers():
     def deleteByMac(cls, mac_item):
         '''Return Advanced searches'''
         return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
-
 
 
 class Departments():
@@ -1141,6 +1142,7 @@ class DockItems():
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
+
 class Ebooks():
     
     @classmethod
@@ -1202,6 +1204,7 @@ class GsxConnexion():
         ''''''
         return put_call(__class__.__name__.lower(), settings)
 
+
 class HealthCareListener():
     """ to do """
     @classmethod
@@ -1217,6 +1220,7 @@ class HealthCareListener():
     @classmethod
     def putById(cls, id_item, data):
         return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+
 
 class HealthCareListenerRule():
     
@@ -1268,7 +1272,8 @@ class Ibeacons():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
-    
+
+
 class InfrastructureManager():
 
     @classmethod
@@ -1374,7 +1379,6 @@ class LdapServers():
             return get_call('{0}/name/{1}/group/{2}/user/{3}'.format(__class__.__name__.lower(), server_item, group_name, user_name))
 
 
-
 class LicencedSoftware():
 
     @classmethod
@@ -1412,6 +1416,7 @@ class LicencedSoftware():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
 
 class LogFlush():
     ''' to be done'''
@@ -1588,6 +1593,7 @@ class MobileDeviceApplications():
         '''Return Advanced searches'''
         return delete_call('{0}/bundleid/{1}/version/{2}'.format(__class__.__name__.lower(), id_item, version_item))
 
+
 class MobileDeviceCommands():
     ''' post to be done '''
     @classmethod
@@ -1759,7 +1765,6 @@ class MobileDeviceExtensionAttributes():
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-
 class MobileDeviceGroups():
 
     @classmethod
@@ -1870,6 +1875,7 @@ class MobileDeviceInvitations():
     @classmethod
     def deleteByInvitation(cls, invitation_item):
         return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
+
 
 class MobileDeviceProvisionningProfiles():
 
@@ -2039,7 +2045,6 @@ class MobileDevices():
         return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
 
 
-
 class NetbootServers():
 
     @classmethod
@@ -2079,7 +2084,6 @@ class NetbootServers():
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-
 class NetworkSegments():
 
     @classmethod
@@ -2117,6 +2121,7 @@ class NetworkSegments():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
 
 class OsxConfigurationProfiles():
 
@@ -2201,50 +2206,6 @@ class Packages():
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
-class Patches():
-
-    @classmethod
-    def get(cls):
-        return get_call(__class__.__name__.lower())
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
-
-    @classmethod
-    def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
-
-    @classmethod
-    def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
-
-    @classmethod
-    def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
-
-    @classmethod
-    def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
-
-    @classmethod
-    def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
-
-    @classmethod
-    def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
-
-    @classmethod
-    def getByBersion(cls, item_type, item, version):
-        '''Item_type could be id/name'''
-        return get_call('{0}/{1}/{2}/versopm/{3}'.format(__class__.__name__.lower(), item_type, item, version))
-
-
 class PatchAvailableTitles():
     
     @classmethod
@@ -2320,6 +2281,7 @@ class PatchReports():
         '''Item_type could be id/name'''
         return get_call('{0}/{1}/{2}/version/{3}'.format(__class__.__name__.lower(), item_type, item, version))
 
+
 class PatchSoftwareTitles():
     
     @classmethod
@@ -2357,6 +2319,7 @@ class PatchSoftwareTitles():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
 
 class PatchPolicies():
 
@@ -2453,6 +2416,7 @@ class PeripheralsTypes():
     @classmethod
     def deleteById(cls, id_item):
         return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+
 
 class Policies():
 
@@ -2583,6 +2547,7 @@ class RemovableMacAddresses():
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
+
 class RestrictedSoftware():
 
     @classmethod
@@ -2620,21 +2585,6 @@ class RestrictedSoftware():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
-
-
-class SavedSearches():
-
-    @classmethod
-    def get(cls):
-        return get_call(__class__.__name__.lower())
-
-    @classmethod
-    def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
-
-    @classmethod
-    def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
 
 class Scripts():
@@ -2675,6 +2625,7 @@ class Scripts():
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
+
 class Sites():
 
     @classmethod
@@ -2713,6 +2664,7 @@ class Sites():
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
 
+
 class SmtpServer():
 
     @classmethod
@@ -2724,6 +2676,7 @@ class SmtpServer():
     def put(cls, server):
         ''''''
         return put_call(__class__.__name__.lower(), server)
+
 
 class SoftwareUpdateServers():
 
@@ -2840,6 +2793,7 @@ class UserGroups():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+
 
 class Users():
 

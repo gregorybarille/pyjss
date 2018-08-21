@@ -9,9 +9,9 @@ from pyjss.objects_list import (Accounts, ActivationCode, AdvancedComputerSearch
 								LogFlush, MacApplications, ManagedPreferenceProfiles, MobileDeviceApplications, MobileDeviceCommands,
 								MobileDeviceConfigurationProfiles, MobileDeviceEnrollementProfiles, MobileDeviceExtensionAttributes, MobileDeviceGroups, MobileDeviceHistory,
 								MobileDeviceInvitations, MobileDeviceProvisionningProfiles, MobileDevices, NetbootServers, NetworkSegments,
-                                OsxConfigurationProfiles, Packages, Patches, PatchAvailableTitles, PatchExternalSources, PatchInternalSources, PatchReports,
+                                OsxConfigurationProfiles, Packages, PatchAvailableTitles, PatchExternalSources, PatchInternalSources, PatchReports,
                                 PatchSoftwareTitles,PatchPolicies, Peripherals, PeripheralsTypes, Policies, Printers,
-								RemovableMacAddresses, RestrictedSoftware, SavedSearches, Scripts, Sites,
+								RemovableMacAddresses, RestrictedSoftware, Scripts, Sites,
 								SmtpServer, SoftwareUpdateServers, UserExtensionAttributes, UserGroups, Users,
 								VppAccounts, VppAssignments, VppInvitations, Webhooks)
 

@@ -1,6 +1,6 @@
 import inspect
 import sys
-from pyjss.api_calls import delete_call, get_call, push_call, put_call
+from pyjss.api_calls import delete_call, get_call, post_call, put_call
 from pyjss.endpoints import endpoints
 
 
@@ -27,8 +27,6 @@ def get_no_parameter(class_name):
 	return get_call('{0}'.format(str(class_name).lower()))
 
 def get_by_field(class_name, field, *args):
-	args_cleaned = clean_args(args)
-	print(field)
-	url = str(class_name).lower() + endpoints[field].format(*args_cleaned)
+	url = str(class_name).lower() + field + args
 	return get_call(url)
 
