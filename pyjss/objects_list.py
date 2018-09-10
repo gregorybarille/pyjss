@@ -3,10 +3,21 @@ import inspect
 
 
 from pyjss.api_calls import delete_call, get_call, post_call, put_call
-from pyjss.settings import Credentials
 
-from pyjss.parse_engine import (get_no_parameter, get_by_field)
 
+def get_all_id(call_response):
+    id_list = []
+    # print(call_response)
+    root_key = list(call_response.keys())[0]
+    # print(len(call_response[root_key]))
+    # for id_item in call_response[root_key]:
+    #     print(id_item)
+    # pass
+    print(call_response[root_key].get('id'))
+
+def get_all_names(call_response):
+    print(list(call_response.keys())[0])
+    pass
 class Accounts():
     
     @classmethod

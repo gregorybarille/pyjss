@@ -11,9 +11,9 @@ def get_call(url):
     username = Credentials.username
     password = Credentials.password
     response = requests.get(
-        '{0}{1}{2}'.format(base_url, 'JSSResource/',url), headers={'Accept': "application/json"}, auth= ( username, password ))
+        '{0}{1}{2}'.format(base_url, 'JSSResource/',url), headers={'Accept': "application/xml"}, auth= ( username, password ))
     if response.status_code == 200:
-        return response.json()
+        return response.content
     else:
         return 'Error {0}'.format(response.status_code)
 
@@ -22,8 +22,9 @@ def put_call(url, data=None):
     base_url = Credentials.url
     username = Credentials.username
     password = Credentials.password
-    response = requests.put('{0}{1}'.format(
-        base_url, url), data, auth=(username, password))
+    response = requests.put('{0}{1}{2}'.format(
+        base_url, 'JSSResource/', url), data, auth=(username, password))
+    print('{0}{1}{2}'.format(base_url, 'JSSResource/', url))
     if response.status_code == 201:
         xml = etree.fromstring(response.content)
         item_id = xml.find('id').text
@@ -36,7 +37,7 @@ def post_call(url, data=None):
     base_url = Credentials.url
     username = Credentials.username
     password = Credentials.password
-    response = requests.post('{0}{1}'.format(base_url, url), data, auth = (username, password))
+    response=requests.post('{0}{1}{2}'.format( base_url, 'JSSResource/', url), data, auth=(username, password))
     if response.status_code == 201:
         xml = etree.fromstring(response.content)
         item_id = xml.find('id').text
@@ -49,8 +50,8 @@ def delete_call(url, data=None):
     base_url = Credentials.url
     username = Credentials.username
     password = Credentials.password
-    response=requests.delete('{0}{1}'.format(base_url, url), auth = (username, password))
+    response=requests.delete('{0}{1}{2}'.format(base_url, 'JSSResource/', url), auth=(username, password))
     if response.status_code == 200:
-        return response.json()
+        return response.content
     else:
         return 'Error {0}'.format(response.status_code)
