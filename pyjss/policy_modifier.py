@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup as soup
-from pyjss.templates import default_scope_template
+from pyjss.templates import default_scope_template, default_policy_template
 from pyjss.objects_list import Policies
 
 
@@ -147,6 +147,12 @@ class Policy:
 	
 	def clear_scope(self):
 		return self.data.find('scope').replace_with(soup(default_scope_template, 'xml'))
-	
+
 	def update(self):
-		return Policies.putById(str(self.id.string), str(self.data))
+		return Policies.putById(str(self.id), str(self.data))
+	
+	def delete(self):
+		return Policies.deleteById(str(self.id))
+
+def generatePolicy():
+	return Policy(default_policy_template)
