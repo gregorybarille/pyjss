@@ -31,15 +31,15 @@ class Policy:
 		self.exclusions.ibeacons = xml_data.policy.scope.exclusions.ibeacons
 
 	def __parse_addition(self,action_type, data_type, *args):
+		tag_name = data_type[:(len(data_type) - 1)]
 		if 'remove' in action_type:
 			print(action_type)
 			for arg in args:
-				if type(arg) == int:
-					print('1', self.data.scope.find(data_type, id=arg))
-				elif type(arg) == str:
-					print('2', self.data.scope.find(data_type, name=arg))
-		else:
-			tag_name = data_type[:(len(data_type) - 1)]
+				if 'exclude' in action_type:
+					self.data.exclusions.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
+				else:
+					self.data.scope.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
+		elif 'add' in action_type:
 			for arg in args:
 				if type(arg) == int:
 					new_tag = self.data.new_tag(tag_name)
@@ -47,87 +47,68 @@ class Policy:
 					new_id_tag.string = str(arg)
 					new_tag.append(new_id_tag)
 					if action_type == 'add':
-						self.data.scope.find(data_type).append(new_tag)
+						self.data.scope.find(data_type, recursive=False).append(new_tag)
 					elif action_type == 'exclude':
-						self.data.scope.exclusions.find(data_type).append(new_tag)
+						self.data.scope.exclusions.find(data_type, recursive=False).append(new_tag)
 				elif type(arg) == str:
 					new_tag = self.data.new_tag(tag_name)
 					new_id_tag = self.data.new_tag('name')
 					new_id_tag.string = str(arg)
 					new_tag.append(new_id_tag)
 					if action_type == 'add':
-						self.data.scope.find(data_type).append(new_tag)
+						self.data.scope.find(data_type, recursive=False).append(new_tag)
 					elif action_type == 'exclude':
-						self.data.scope.exclusions.find(data_type).append(new_tag)
+						self.data.scope.exclusions.find(data_type, recursive=False).append(new_tag)
 				else:
 					raise TypeError
-			return
 
 	def addComputers(self, *args):
 		self.__parse_addition('add', 'computers', *args)
-		print('addComputers', self.data.scope)
 
 	def removeComputers(self, *args):
 		self.__parse_addition('remove', 'computers', *args)
-		print('removeComputers', self.data.scope)
 
 	def addComputersGroups(self, *args):
 		self.__parse_addition('add', 'computergroups', *args)
-		print('computergroups', self.data.scope)
 
 	def removeComputersGroups(self, *args):
 		self.__parse_addition('remove', 'computergroups', *args)
-		print('removeComputersGroups', self.data.scope)
 
 	def addBuildings(self, *args):
 		self.__parse_addition('add', 'buildings', *args)
-		print('buildings', self.data.scope)
 
 	def removeBuildings(self, *args):
 		self.__parse_addition('remove', 'buildings', *args)
-		print('removeBuildings', self.data.scope)
 
 	def addDepartments(self, *args):
 		self.__parse_addition('add', 'departments', *args)
-		print('departments', self.data.scope)
 
 	def removeDepartments(self, *args):
 		self.__parse_addition('remove', 'departments', *args)
-		print('removeDepartments', self.data.scope)
 
 	def excludeComputers(self, *args):
 		self.__parse_addition('exclude','computers', *args)
-		print('computers', self.data.scope)
 
 	def removeExcludedComputers(self, *args):
 		self.__parse_addition('remove exclude', 'computers', *args)
-		print('removeExcludedComputers', self.data.scope)
 	
 	def excludeComputersGroups(self, *args):
 		self.__parse_addition('exclude','computergroups', *args)
-		print('computergroups', self.data.scope)
 
 	def removeExcludedComputersGroups(self, *args):
 		self.__parse_addition('remove exclude', 'computergroups', *args)
-		print('removeExcludedComputersGroups', self.data.scope)
 
 	def excludeBuildings(self, *args):
 		self.__parse_addition('exclude', 'buildings', *args)
-		print('buildings', self.data.scope)
 
 	def removeExcludedBuildings(self, *args):
-			self.__parse_addition('remove exclude', 'buildings', *args)
-			print('removeExcludedBuildings', self.data.scope)
+		self.__parse_addition('remove exclude', 'buildings', *args)
 
 	def excludeDepartments(self, *args):
 		self.__parse_addition('exclude', 'departments', *args)
-		print('departments', self.data.scope)
 
 	def removeExcludedDepartments(self, *args):
-			self.__parse_addition('remove exclude', 'departments', *args)
-			print('removeExcludedDepartments', self.data.scope)
+		self.__parse_addition('remove exclude', 'departments', *args)
 	
 	def clear_scope(self):
-		print('clear_scope')
-		print(self.data.find('scope').replace_with(soup(default_scope_template,'xml')))
-		print('clear_scope')
+		self.data.find('scope').replace_with(soup(default_scope_template,'xml'))
