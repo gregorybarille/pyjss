@@ -153,3 +153,7 @@ main.py
 *.xml
 
 settings.json
+test.py
+test.json
+reportUnmanaged.py
+reportapps.py
