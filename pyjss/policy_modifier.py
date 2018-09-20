@@ -10,7 +10,7 @@ class Policy:
 		self.data = xml_data
 		self._id = xml_data.policy.general.find('id', recursive=False).string
 		self._name = xml_data.policy.general.find('name', recursive=False).string
-		self._enabled = xml_data.policy.general.find('enabled', recursive=False).string
+		self._enabled = xml_data.policy.general.find('enabled', recursive=False)
 		self.category = xml_data.policy.general.category
 		self.scope = xml_data.policy.scope
 		self.allcomputers = xml_data.policy.scope.all_computers
@@ -38,11 +38,11 @@ class Policy:
 
 	@property
 	def name(self):
-		return self._name
+		return self._name.string
 
 	@name.setter
 	def name(self, value):
-		self._name.replace_with(value)
+		self._name.string = value
 
 	@property
 	def id(self):
@@ -50,20 +50,20 @@ class Policy:
 
 	@id.setter
 	def id(self, value):
-		self._id.replace_with(value)
+		self._id.string = value
 	
 	@property
 	def enabled(self):
-		return self._enabled
+		return self._enabled.string
 
 	@enabled.setter
 	def enabled(self, value):
 		value = value.lower()
-		if value not in ['true', 'false' ]:
+		if value not in ['true', 'false']:
 			raise ValueError
 		else:
 			print('setter2')
-			self._enabled.replace_with(value)
+			self._enabled.string = value
 
 
 	def __parse_addition(self,action_type, data_type, *args):
@@ -79,18 +79,19 @@ class Policy:
 					if 'exclude' in action_type:
 						self.data.exclusions.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
 					else:
+						#check remove one item
 						self.data.scope.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
 			elif 'add' in action_type:
 				for arg in args:
 					new_tag = self.data.new_tag(tag_name)
 					if type(arg) == int:
-						new_id_tag = self.data.new_tag('id')
+						new_sub_tag = self.data.new_tag('id')
 					elif type(arg) == str:
-						new_id_tag = self.data.new_tag('name')
+						new_sub_tag = self.data.new_tag('name')
 					else:
 						raise TypeError
-					new_id_tag.string = str(arg)
-					new_tag.append(new_id_tag)
+					new_sub_tag.string = str(arg)
+					new_tag.append(new_sub_tag)
 					if action_type == 'add':
 						self.data.scope.find(data_type, recursive=False).append(new_tag)
 					elif action_type == 'exclude':
@@ -104,10 +105,10 @@ class Policy:
 		return self.__parse_addition('remove', 'computers', *args)
 
 	def addComputersGroups(self, *args):
-		return self.__parse_addition('add', 'computergroups', *args)
+		return self.__parse_addition('add', 'computer_groups', *args)
 
 	def removeComputersGroups(self, *args):
-		return self.__parse_addition('remove', 'computergroups', *args)
+		return self.__parse_addition('remove', 'computer_groups', *args)
 
 	def addBuildings(self, *args):
 		return self.__parse_addition('add', 'buildings', *args)
@@ -128,10 +129,10 @@ class Policy:
 		return self.__parse_addition('remove exclude', 'computers', *args)
 	
 	def excludeComputersGroups(self, *args):
-		return self.__parse_addition('exclude', 'computergroups', *args)
+		return self.__parse_addition('exclude', 'computer_groups', *args)
 
 	def removeExcludedComputersGroups(self, *args):
-		return self.__parse_addition('remove exclude', 'computergroups', *args)
+		return self.__parse_addition('remove exclude', 'computer_groups', *args)
 
 	def excludeBuildings(self, *args):
 		return self.__parse_addition('exclude', 'buildings', *args)
