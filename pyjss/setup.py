@@ -20,3 +20,4 @@ setuptools.setup(
         "Operating System :: MacOS :: MacOS X",
     ],
 )
+#Requirements bs4, lxml,

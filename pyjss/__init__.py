@@ -17,4 +17,4 @@ from pyjss.objects_list import (Accounts, ActivationCode, AdvancedComputerSearch
 
 from pyjss.settings import Credentials, get_credentials, set_credentials, get_auth_from_file
 
-from pyjss.policy_modifier import Policy, generatePolicy
+# from pyjss.policy_modifier import Policy, generatePolicy
