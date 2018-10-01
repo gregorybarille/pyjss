@@ -157,3 +157,5 @@ test.py
 test.json
 reportUnmanaged.py
 reportapps.py
+
+.idea
