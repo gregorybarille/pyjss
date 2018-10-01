@@ -2479,8 +2479,8 @@ class Policy:
 
     def __init__(self, xml_data ):
         self.data = xml_data
-        self._id = xml_data.policy.general.find('id', recursive=False).string
-        self._name = xml_data.policy.general.find('name', recursive=False).string
+        self._id = xml_data.policy.general.find('id', recursive=False)
+        self._name = xml_data.policy.general.find('name', recursive=False)
         self._enabled = xml_data.policy.general.find('enabled', recursive=False)
         self.category = xml_data.policy.general.category
         self.scope = xml_data.policy.scope
