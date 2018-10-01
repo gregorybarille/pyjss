@@ -2482,6 +2482,15 @@ class Policy:
         self._id = xml_data.policy.general.find('id', recursive=False)
         self._name = xml_data.policy.general.find('name', recursive=False)
         self._enabled = xml_data.policy.general.find('enabled', recursive=False)
+        self._trigger_checkin = xml_data.policy.general.find('trigger_checkin', recursive=False)
+        self._trigger_enrollment_complete = xml_data.policy.general.find('trigger_enrollment_complete', recursive=False)
+        self._trigger_login = xml_data.policy.general.find('trigger_login', recursive=False)
+        self._trigger_logout = xml_data.policy.general.find('trigger_logout', recursive=False)
+        self._trigger_network_state_changed = xml_data.policy.general.find('trigger_network_state_changed', recursive=False)
+        self._trigger_startup = xml_data.policy.general.find('trigger_startup', recursive=False)
+        #To do: Manage custom triggers
+        self.trigger_other = xml_data.policy.general.find('trigger_other', recursive=False)
+        self.offline = xml_data.policy.general.find('offline', recursive=False)
         self.category = xml_data.policy.general.category
         self.scope = xml_data.policy.scope
         self.allcomputers = xml_data.policy.scope.all_computers
@@ -2503,6 +2512,11 @@ class Policy:
         self.exclusions.user_groups = xml_data.policy.scope.exclusions.user_groups
         self.exclusions.network_segments = xml_data.policy.scope.exclusions.network_segments
         self.exclusions.ibeacons = xml_data.policy.scope.exclusions.ibeacons
+        #Printers to be done
+        #Scripts to be done
+        #Packages to be done
+        #Accounts to be done
+
 
     def __str__(self):
         return self.data.prettify()
@@ -2533,9 +2547,79 @@ class Policy:
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            print('setter2')
             self._enabled.string = value
 
+    @property
+    def trigger_checkin(self):
+        return self._trigger_checkin.string
+
+    @trigger_checkin.setter
+    def trigger_checkin(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._trigger_checkin.string = value
+
+    @property
+    def trigger_enrollment_complete(self):
+        return self._trigger_checkin.string
+
+    @trigger_enrollment_complete.setter
+    def trigger_enrollment_complete(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._trigger_enrollment_complete.string = value
+    
+    @property
+    def trigger_login(self):
+        return self._trigger_login.string
+
+    @trigger_login.setter
+    def trigger_login(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._trigger_login.string = value
+
+    @property
+    def trigger_logout(self):
+        return self._trigger_logout.string
+
+    @trigger_logout.setter
+    def trigger_logout(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._trigger_logout.string = value
+    
+    @property
+    def trigger_network_state_changed(self):
+        return self._trigger_network_state_changed.string
+
+    @trigger_network_state_changed.setter
+    def trigger_network_state_changed(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._trigger_network_state_changed.string = value
+
+    @property
+    def trigger_startup(self):
+        return self._trigger_startup.string
+
+    @trigger_startup.setter
+    def trigger_startup(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._trigger_startup.string = value
 
     def __parse_addition(self,action_type, data_type, *args):
         if len(args) == 0:
