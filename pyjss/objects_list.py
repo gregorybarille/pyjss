@@ -5,19 +5,6 @@ from bs4 import BeautifulSoup as soup
 from pyjss.api_calls import delete_call, get_call, post_call, put_call
 from pyjss.templates import default_scope_template, default_policy_template
 
-def get_all_id(call_response):
-    id_list = []
-    # print(call_response)
-    root_key = list(call_response.keys())[0]
-    # print(len(call_response[root_key]))
-    # for id_item in call_response[root_key]:
-    #     print(id_item)
-    # pass
-    print(call_response[root_key].get('id'))
-
-def get_all_names(call_response):
-    print(list(call_response.keys())[0])
-    pass
 class Accounts():
     
     @classmethod
@@ -2437,7 +2424,11 @@ class Policies():
 
     @classmethod
     def getById(cls, id_item):
-        return Policy(get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item)))
+        response = get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        if type(response) == int:
+            return response
+        else:
+            return Policy(response)
 
     @classmethod
     def putById(cls, id_item, data):
@@ -2453,7 +2444,11 @@ class Policies():
 
     @classmethod
     def getByName(cls, name_item):
-        return Policy(get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item)))
+        response = get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        if type(response) == int:
+            return response
+        else:
+            return Policy(response)
 
     @classmethod
     def putByName(cls, name_item, data):
@@ -2483,7 +2478,6 @@ class Policies():
 class Policy:
 
     def __init__(self, xml_data ):
-        xml_data = soup(xml_data, 'xml')
         self.data = xml_data
         self._id = xml_data.policy.general.find('id', recursive=False).string
         self._name = xml_data.policy.general.find('name', recursive=False).string
