@@ -2482,16 +2482,20 @@ class Policy:
         self._id = xml_data.policy.general.find('id', recursive=False)
         self._name = xml_data.policy.general.find('name', recursive=False)
         self._enabled = xml_data.policy.general.find('enabled', recursive=False)
+        self._site = xml_data.policy.general.find('site',recursive=False)
+        self._category = xml_data.policy.general.category
         self._trigger_checkin = xml_data.policy.general.find('trigger_checkin', recursive=False)
         self._trigger_enrollment_complete = xml_data.policy.general.find('trigger_enrollment_complete', recursive=False)
         self._trigger_login = xml_data.policy.general.find('trigger_login', recursive=False)
         self._trigger_logout = xml_data.policy.general.find('trigger_logout', recursive=False)
         self._trigger_network_state_changed = xml_data.policy.general.find('trigger_network_state_changed', recursive=False)
         self._trigger_startup = xml_data.policy.general.find('trigger_startup', recursive=False)
-        #To do: Manage custom triggers
-        self.trigger_other = xml_data.policy.general.find('trigger_other', recursive=False)
-        self.offline = xml_data.policy.general.find('offline', recursive=False)
-        self.category = xml_data.policy.general.category
+        self._trigger_other = xml_data.policy.general.find('trigger_other', recursive=False)
+        self._offline = xml_data.policy.general.find('offline', recursive=False)
+        self._frequency = xml_data.policy.general.find('frequency', recursive=False)
+        self._target_drive = xml_data.policy.general.find('target_drive', recursive=False)
+        self.packages = xml_data.policy.find('packages')
+        self.scripts = xml_data.policy.find('scripts')
         self.scope = xml_data.policy.scope
         self.allcomputers = xml_data.policy.scope.all_computers
         self.computers = xml_data.policy.scope.computers
@@ -2512,15 +2516,9 @@ class Policy:
         self.exclusions.user_groups = xml_data.policy.scope.exclusions.user_groups
         self.exclusions.network_segments = xml_data.policy.scope.exclusions.network_segments
         self.exclusions.ibeacons = xml_data.policy.scope.exclusions.ibeacons
-        #Printers to be done
-        #Scripts to be done
-        #Packages to be done
-        #Accounts to be done
 
-
-    def __str__(self):
-        return self.data.prettify()
-
+    def __repr__(self):
+        return str(self.data)
     @property
     def name(self):
         return self._name.string
@@ -2531,7 +2529,7 @@ class Policy:
 
     @property
     def id(self):
-        return self._id
+        return self._id.string
 
     @id.setter
     def id(self, value):
@@ -2549,6 +2547,28 @@ class Policy:
         else:
             self._enabled.string = value
 
+    @property
+    def category(self):
+        return self._category
+
+    @category.setter
+    def category(self, value):
+        if type(value) == int:
+            self._category.find('id').string = str(value)
+            self._category.find('name').decompose()
+        elif type(value) == str:
+            try:
+                self._category.find('name').string = value
+            except AttributeError:
+                new_tag = self.data.new_tag('name')
+                new_tag.string = value
+                self._category.append(new_tag)
+
+    @category.deleter
+    def category(self):
+        self._category.find('id').string = '-1'
+        self._category.find('name').string = 'None'
+    
     @property
     def trigger_checkin(self):
         return self._trigger_checkin.string
@@ -2620,6 +2640,71 @@ class Policy:
             raise ValueError
         else:
             self._trigger_startup.string = value
+    
+    @property
+    def trigger_other(self):
+        return self._trigger_other.string
+    
+    @trigger_other.setter
+    def trigger_other(self, value):
+        self._trigger_other.string = value
+
+    @trigger_other.deleter
+    def trigger_other(self, value):
+        del self._trigger_other
+
+    @property
+    def offline(self):
+        return self._offline.string
+
+    @offline.setter
+    def offline(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._offline.string = value
+
+    @property
+    def frequency(self):
+        return self._offline.string
+
+    @frequency.setter
+    def frequency(self, value):
+        if value not in ['Once per computer', 'Once per user per computer', 'Once per user', 'Once every day', 'Once every week', 'Once every month', 'Ongoing']:
+            raise ValueError
+        else:
+            self._frequency.string = value
+
+    @property
+    def target_drive(self):
+        return self._target_drive.string
+
+    @target_drive.setter
+    def target_drive(self, value):
+        self._target_drive.string = value
+
+    @property
+    def site(self):
+        return self._site
+
+    @site.setter
+    def site(self, value):
+        if type(value) == int:
+            print('test')
+            self._site.find('id').string = str(value)
+            self._site.find('name').decompose()
+        elif type(value) == str:
+            try:
+                self._site.find('name').string = value
+            except AttributeError:
+                new_tag = self.data.new_tag('name')
+                new_tag.string = value
+                self._site.append(new_tag)
+    @site.deleter
+    def site(self):
+        self._site.find('id').string = '-1'
+        self._site.find('name').string = 'None'
 
     def __parse_addition(self,action_type, data_type, *args):
         if len(args) == 0:
@@ -2651,6 +2736,45 @@ class Policy:
                         self.data.scope.find(data_type, recursive=False).append(new_tag)
                     elif action_type == 'exclude':
                         self.data.scope.exclusions.find(data_type, recursive=False).append(new_tag)
+        return self.data
+        
+    def __parse_others(self,action_type, data_type, *args):
+        if len(args) == 0:
+            if action_type == 'add':
+                print('No items to be added')
+            elif 'remove' in action_type:
+                self.data.find(data_type, recursive=False).clear()
+        else:
+            tag_name = data_type[:(len(data_type) - 1)]
+            if 'remove' in action_type:
+                for arg in args:
+                    self.data.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
+            elif 'add' in action_type:
+                print(self.data.find(data_type, recursive=False))
+                for arg in args:
+                    new_tag = self.data.new_tag(tag_name)
+                    if type(arg) == int:
+                        new_sub_tag = self.data.new_tag('id')
+                    elif type(arg) == str:
+                        new_sub_tag = self.data.new_tag('name')
+                    else:
+                        raise TypeError
+                    new_sub_tag.string = str(arg)
+                    new_tag.append(new_sub_tag)
+                    # self.data.find(data_type).append(new_tag)
+                    # print(self.data.find(data_type).find('size').string)
+                    if self.data.find(data_type).find('size'):
+                        self.data.find(data_type).find('size').string = str(int(self.data.find(data_type).find('size').string) + 1)
+                    if data_type in [ 'scripts', 'packages']:
+                        if data_type == 'packages':
+                            new_tag2 = self.data.new_tag('action')
+                            new_tag2.string = 'Install'
+                        elif data_type == 'scripts':
+                            new_tag2 = self.data.new_tag('priority')
+                            new_tag2.string = 'After'
+                        new_tag.append(new_tag2)
+                    #     list(map(lambda x: new_tag.append(self.data.new_tag(x)), [ 'parameter{}'.format(number) for number in range(4,12)]))
+                    self.data.find(data_type).append(new_tag)
         return self.data
 
     def addComputers(self, *args):
@@ -2703,6 +2827,12 @@ class Policy:
     
     def clear_scope(self):
         return self.data.find('scope').replace_with(soup(default_scope_template, 'xml'))
+    
+    def addScripts(self, *args):
+        return self.__parse_others('add', 'scripts', *args)
+    
+    def addPackages(self, *args):
+        return self.__parse_others('add', 'packages', *args)
 
     def update(self):
         return Policies.putById(str(self.id), str(self.data))

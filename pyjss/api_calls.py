@@ -22,10 +22,12 @@ def put_call(url, data=None):
     base_url = Credentials.url
     username = Credentials.username
     password = Credentials.password
+    print(type(data))
     response = requests.put('{0}{1}{2}'.format(
         base_url, 'JSSResource/', url), data, auth=(username, password))
     print('{0}{1}{2}'.format(base_url, 'JSSResource/', url))
     if response.status_code == 201:
+        print(response.content, response.status_code)
         return soup(response.content, 'xml')
     else:
         return 'Error {0}'.format(response.status_code)
