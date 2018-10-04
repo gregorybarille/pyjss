@@ -2707,6 +2707,16 @@ class Policy:
         self._site.find('id').string = '-1'
         self._site.find('name').string = 'None'
 
+    def _create_tag(self, data_type,tag, arg):
+        print('create tag')
+        new_data_type = self.data.new_tag(data_type)
+        new_sub_tag = self.data.new_tag(tag)
+        new_sub_tag.string = str(arg)
+        new_data_type.append(new_sub_tag)
+        print(new_data_type)
+        return new_data_type
+
+
     def __parse_addition(self,action_type, data_type, *args):
         if len(args) == 0:
             if action_type == 'add':
@@ -2781,13 +2791,15 @@ class Policy:
                 print('No items to be added')
         else:
             tag_name = data_type[:(len(data_type) - 1)]
+            print(tag_name)
+            new_list =[]
             int_list = list(filter(lambda x: type(x) == int , args))
             str_list = list(filter(lambda x: type(x) == str , args))
             if int_list:
-                new_tag = self.data.new_tag('id')
+                print('int_list')
                 for number in int_list:
-                    new_tag.string =str(number)
-                self.data.find(data_type).append(new_tag)
+                    self._create_tag(tag_name, 'id', number)
+                # new_list.append(map(lambda x: self._create_tag(tag_name, 'id', x), int_list))
             if str_list:
                 print('str_list')
             print(int_list, str_list)
