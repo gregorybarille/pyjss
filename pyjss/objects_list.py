@@ -2496,6 +2496,7 @@ class Policy:
         self._target_drive = xml_data.policy.general.find('target_drive', recursive=False)
         self.packages = xml_data.policy.find('packages')
         self.scripts = xml_data.policy.find('scripts')
+        self.printers = xml_data.policy.find('printers')
         self.scope = xml_data.policy.scope
         self.allcomputers = xml_data.policy.scope.all_computers
         self.computers = xml_data.policy.scope.computers
@@ -2737,7 +2738,7 @@ class Policy:
                     elif action_type == 'exclude':
                         self.data.scope.exclusions.find(data_type, recursive=False).append(new_tag)
         return self.data
-        
+
     def __parse_others(self,action_type, data_type, *args):
         if len(args) == 0:
             if action_type == 'add':
@@ -2748,7 +2749,7 @@ class Policy:
             tag_name = data_type[:(len(data_type) - 1)]
             if 'remove' in action_type:
                 for arg in args:
-                    self.data.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
+                    list(map(lambda x: self.data.find(data_type, recursive=False).find(tag_name, string=x).decompose())) 
             elif 'add' in action_type:
                 print(self.data.find(data_type, recursive=False))
                 for arg in args:
@@ -2761,8 +2762,6 @@ class Policy:
                         raise TypeError
                     new_sub_tag.string = str(arg)
                     new_tag.append(new_sub_tag)
-                    # self.data.find(data_type).append(new_tag)
-                    # print(self.data.find(data_type).find('size').string)
                     if self.data.find(data_type).find('size'):
                         self.data.find(data_type).find('size').string = str(int(self.data.find(data_type).find('size').string) + 1)
                     if data_type in [ 'scripts', 'packages']:
@@ -2777,8 +2776,46 @@ class Policy:
                     self.data.find(data_type).append(new_tag)
         return self.data
 
+    def __parse_others2(self,data_type, *args):
+        if len(args) == 0:
+                print('No items to be added')
+        else:
+            tag_name = data_type[:(len(data_type) - 1)]
+            int_list = list(filter(lambda x: type(x) == int , args))
+            str_list = list(filter(lambda x: type(x) == str , args))
+            if int_list:
+                new_tag = self.data.new_tag('id')
+                for number in int_list:
+                    new_tag.string =str(number)
+                self.data.find(data_type).append(new_tag)
+            if str_list:
+                print('str_list')
+            print(int_list, str_list)
+            # if 
+            #     new_tag = self.data.new_tag(tag_name)
+            #     if type(arg) == int:
+            #         new_sub_tag = self.data.new_tag('id')
+            #     elif type(arg) == str:
+            #         new_sub_tag = self.data.new_tag('name')
+            #     else:
+            #         raise TypeError
+            #     new_sub_tag.string = str(arg)
+            #     new_tag.append(new_sub_tag)
+            #     if self.data.find(data_type).find('size'):
+            #         self.data.find(data_type).find('size').string = str(int(self.data.find(data_type).find('size').string) + 1)
+            #     if data_type in [ 'scripts', 'packages']:
+            #         if data_type == 'packages':
+            #             new_tag2 = self.data.new_tag('action')
+            #             new_tag2.string = 'Install'
+            #         elif data_type == 'scripts':
+            #             new_tag2 = self.data.new_tag('priority')
+            #             new_tag2.string = 'After'
+            #         new_tag.append(new_tag2)
+        return self.data
+
     def addComputers(self, *args):
-        return self.__parse_addition('add', 'computers', *args)
+        return self.__parse_others2('computers', *args)
+        # return self.__parse_addition('add', 'computers', *args)
 
     def removeComputers(self, *args):
         return self.__parse_addition('remove', 'computers', *args)
@@ -2830,9 +2867,24 @@ class Policy:
     
     def addScripts(self, *args):
         return self.__parse_others('add', 'scripts', *args)
+
+    def removeScripts(self, *args):
+        return self.__parse_others('remove', 'scripts', *args)
     
     def addPackages(self, *args):
         return self.__parse_others('add', 'packages', *args)
+
+    def removePackages(self, *args):
+        return self.__parse_others('remove', 'packages', *args)
+
+    def mapPrinters(self, *args):
+        return self.__parse_others('add', 'printers', *args)
+
+    def unmapPrinters(self, *args):
+        return self.__parse_others('add', 'printers', *args)
+
+    def removePrinters(self, *args):
+        return self.__parse_others('remove', 'printers', *args)
 
     def update(self):
         return Policies.putById(str(self.id), str(self.data))
