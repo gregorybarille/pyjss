@@ -2707,84 +2707,7 @@ class Policy:
         self._site.find('id').string = '-1'
         self._site.find('name').string = 'None'
 
-    def _create_tag(self, data_type,tag, arg):
-        print('create tag')
-        new_data_type = self.data.new_tag(data_type)
-        new_sub_tag = self.data.new_tag(tag)
-        new_sub_tag.string = str(arg)
-        new_data_type.append(new_sub_tag)
-        print(new_data_type)
-        return new_data_type
 
-
-    def __parse_addition(self,action_type, data_type, *args):
-        if len(args) == 0:
-            if action_type == 'add':
-                print('No items to be added')
-            elif 'remove' in action_type:
-                self.data.scope.find(data_type, recursive=False).clear()
-        else:
-            tag_name = data_type[:(len(data_type) - 1)]
-            if 'remove' in action_type:
-                for arg in args:
-                    if 'exclude' in action_type:
-                        self.data.exclusions.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
-                    else:
-                        #check remove one item
-                        self.data.scope.find(data_type, recursive=False).find(tag_name, string=arg).decompose()
-            elif 'add' in action_type:
-                for arg in args:
-                    new_tag = self.data.new_tag(tag_name)
-                    if type(arg) == int:
-                        new_sub_tag = self.data.new_tag('id')
-                    elif type(arg) == str:
-                        new_sub_tag = self.data.new_tag('name')
-                    else:
-                        raise TypeError
-                    new_sub_tag.string = str(arg)
-                    new_tag.append(new_sub_tag)
-                    if action_type == 'add':
-                        self.data.scope.find(data_type, recursive=False).append(new_tag)
-                    elif action_type == 'exclude':
-                        self.data.scope.exclusions.find(data_type, recursive=False).append(new_tag)
-        return self.data
-
-    def __parse_others(self,action_type, data_type, *args):
-        if len(args) == 0:
-            if action_type == 'add':
-                print('No items to be added')
-            elif 'remove' in action_type:
-                self.data.find(data_type, recursive=False).clear()
-        else:
-            tag_name = data_type[:(len(data_type) - 1)]
-            if 'remove' in action_type:
-                for arg in args:
-                    list(map(lambda x: self.data.find(data_type, recursive=False).find(tag_name, string=x).decompose())) 
-            elif 'add' in action_type:
-                print(self.data.find(data_type, recursive=False))
-                for arg in args:
-                    new_tag = self.data.new_tag(tag_name)
-                    if type(arg) == int:
-                        new_sub_tag = self.data.new_tag('id')
-                    elif type(arg) == str:
-                        new_sub_tag = self.data.new_tag('name')
-                    else:
-                        raise TypeError
-                    new_sub_tag.string = str(arg)
-                    new_tag.append(new_sub_tag)
-                    if self.data.find(data_type).find('size'):
-                        self.data.find(data_type).find('size').string = str(int(self.data.find(data_type).find('size').string) + 1)
-                    if data_type in [ 'scripts', 'packages']:
-                        if data_type == 'packages':
-                            new_tag2 = self.data.new_tag('action')
-                            new_tag2.string = 'Install'
-                        elif data_type == 'scripts':
-                            new_tag2 = self.data.new_tag('priority')
-                            new_tag2.string = 'After'
-                        new_tag.append(new_tag2)
-                    #     list(map(lambda x: new_tag.append(self.data.new_tag(x)), [ 'parameter{}'.format(number) for number in range(4,12)]))
-                    self.data.find(data_type).append(new_tag)
-        return self.data
 
     def __parse_others2(self,data_type, *args):
         if len(args) == 0:
@@ -2796,13 +2719,9 @@ class Policy:
             int_list = list(filter(lambda x: type(x) == int , args))
             str_list = list(filter(lambda x: type(x) == str , args))
             if int_list:
-                print('int_list')
-                for number in int_list:
-                    self._create_tag(tag_name, 'id', number)
-                # new_list.append(map(lambda x: self._create_tag(tag_name, 'id', x), int_list))
+                list(map(lambda x: self.data.find(data_type).append(self._create_tag(data_type, 'id', x)), int_list))
             if str_list:
-                print('str_list')
-            print(int_list, str_list)
+                list(map(lambda x: self.data.find(data_type).append(self._create_tag(data_type, 'name', x)), str_list))
             # if 
             #     new_tag = self.data.new_tag(tag_name)
             #     if type(arg) == int:
@@ -2825,60 +2744,82 @@ class Policy:
             #         new_tag.append(new_tag2)
         return self.data
 
+    def _create_tag(self, tag_name, arg):
+        new_data_type = self.data.new_tag(tag_name)
+        if type(arg) == int:
+            new_sub_tag = self.data.new_tag('id')
+        elif type(arg) == str:
+            new_sub_tag = self.data.new_tag('name')
+        new_sub_tag.string = str(arg)
+        new_data_type.append(new_sub_tag)
+        return new_data_type
+    
+    def _create_secondary_tag(self, tag_name, secondary, arg):
+        new_data_type = self.data.new_tag(tag_name)
+        new_secondary_tag = self.data.new_tag(secondary)
+        if type(arg) == int:
+            new_sub_tag = self.data.new_tag('id')
+        elif type(arg) == str:
+            new_sub_tag = self.data.new_tag('name')
+        new_sub_tag.string = str(arg)
+        new_secondary_tag.string = str(secondary_arg)
+        new_data_type.append(new_sub_tag, new_secondary_tag)
+        print(new_data_type)
+        return new_data_type
+
     def addComputers(self, *args):
-        return self.__parse_others2('computers', *args)
-        # return self.__parse_addition('add', 'computers', *args)
+        list(map(lambda x: self.computers.append(self._create_tag('computer', x)), args))
 
     def removeComputers(self, *args):
-        return self.__parse_addition('remove', 'computers', *args)
+        list(map(lambda x: self.computers.find('computer', string=x).decompose(), args))
 
     def addComputersGroups(self, *args):
-        return self.__parse_addition('add', 'computer_groups', *args)
+        list(map(lambda x: self.computergroups.append(self._create_tag('computer_group', x)), args))
 
     def removeComputersGroups(self, *args):
-        return self.__parse_addition('remove', 'computer_groups', *args)
+        list(map(lambda x: self.computergroups.find('computer_group', string=x).decompose(), args))
 
     def addBuildings(self, *args):
-        return self.__parse_addition('add', 'buildings', *args)
+        list(map(lambda x: self.buildings.append(self._create_tag('building', x)), args))
 
     def removeBuildings(self, *args):
-        return self.__parse_addition('remove', 'buildings', *args)
+        list(map(lambda x: self.buildings.find('building', string=x).decompose(), args))
 
     def addDepartments(self, *args):
-        return self.__parse_addition('add', 'departments', *args)
+        list(map(lambda x: self.departments.append(self._create_tag('department', x)), args))
 
     def removeDepartments(self, *args):
-        return self.__parse_addition('remove', 'departments', *args)
+        list(map(lambda x: self.buildings.find('department', string=x).decompose(), args))
 
     def excludeComputers(self, *args):
-        return self.__parse_addition('exclude', 'computers', *args)
+        list(map(lambda x: self.exclusions.computers.append(self._create_tag('computer', x)), args))
 
     def removeExcludedComputers(self, *args):
-        return self.__parse_addition('remove exclude', 'computers', *args)
+        list(map(lambda x: self.exclusions.computers.find('computer', string=x).decompose(), args))
     
     def excludeComputersGroups(self, *args):
-        return self.__parse_addition('exclude', 'computer_groups', *args)
+        list(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), args))
 
     def removeExcludedComputersGroups(self, *args):
-        return self.__parse_addition('remove exclude', 'computer_groups', *args)
+        list(map(lambda x: self.exclusions.computergroups.find('computer_group', string=x).decompose(), args))
 
     def excludeBuildings(self, *args):
-        return self.__parse_addition('exclude', 'buildings', *args)
+        list(map(lambda x: self.exclusions.buildings.append(self._create_tag('building', x)), args))
 
     def removeExcludedBuildings(self, *args):
-        return self.__parse_addition('remove exclude', 'buildings', *args)
+        list(map(lambda x: self.exclusions.buildings.find('building', string=x).decompose(), args))
 
     def excludeDepartments(self, *args):
-        return self.__parse_addition('exclude', 'departments', *args)
+        list(map(lambda x: self.exclusions.departments.append(self._create_tag('department', x)), args))
 
     def removeExcludedDepartments(self, *args):
-        return self.__parse_addition('remove exclude', 'departments', *args)
+        list(map(lambda x: self.exclusions.departments.find('department', string=x).decompose(), args))
     
     def clear_scope(self):
         return self.data.find('scope').replace_with(soup(default_scope_template, 'xml'))
     
     def addScripts(self, *args):
-        return self.__parse_others('add', 'scripts', *args)
+        list(map(lambda x: self.scripts.append(self._create_secondary_tag('script', 'priority', x)), args))
 
     def removeScripts(self, *args):
         return self.__parse_others('remove', 'scripts', *args)
