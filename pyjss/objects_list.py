@@ -2707,42 +2707,7 @@ class Policy:
         self._site.find('id').string = '-1'
         self._site.find('name').string = 'None'
 
-
-
-    def __parse_others2(self,data_type, *args):
-        if len(args) == 0:
-                print('No items to be added')
-        else:
-            tag_name = data_type[:(len(data_type) - 1)]
-            print(tag_name)
-            new_list =[]
-            int_list = list(filter(lambda x: type(x) == int , args))
-            str_list = list(filter(lambda x: type(x) == str , args))
-            if int_list:
-                list(map(lambda x: self.data.find(data_type).append(self._create_tag(data_type, 'id', x)), int_list))
-            if str_list:
-                list(map(lambda x: self.data.find(data_type).append(self._create_tag(data_type, 'name', x)), str_list))
-            # if 
-            #     new_tag = self.data.new_tag(tag_name)
-            #     if type(arg) == int:
-            #         new_sub_tag = self.data.new_tag('id')
-            #     elif type(arg) == str:
-            #         new_sub_tag = self.data.new_tag('name')
-            #     else:
-            #         raise TypeError
-            #     new_sub_tag.string = str(arg)
-            #     new_tag.append(new_sub_tag)
-            #     if self.data.find(data_type).find('size'):
-            #         self.data.find(data_type).find('size').string = str(int(self.data.find(data_type).find('size').string) + 1)
-            #     if data_type in [ 'scripts', 'packages']:
-            #         if data_type == 'packages':
-            #             new_tag2 = self.data.new_tag('action')
-            #             new_tag2.string = 'Install'
-            #         elif data_type == 'scripts':
-            #             new_tag2 = self.data.new_tag('priority')
-            #             new_tag2.string = 'After'
-            #         new_tag.append(new_tag2)
-        return self.data
+    def _check_if_present(self, data , tag_name,*args):
 
     def _create_tag(self, tag_name, arg):
         new_data_type = self.data.new_tag(tag_name)
@@ -2754,17 +2719,17 @@ class Policy:
         new_data_type.append(new_sub_tag)
         return new_data_type
     
-    def _create_secondary_tag(self, tag_name, secondary, arg):
+    def _create_secondary_tag(self, tag_name, secondary_tag, secondary_arg, item):
         new_data_type = self.data.new_tag(tag_name)
-        new_secondary_tag = self.data.new_tag(secondary)
-        if type(arg) == int:
+        new_secondary_tag = self.data.new_tag(secondary_tag)
+        if type(item) == int:
             new_sub_tag = self.data.new_tag('id')
-        elif type(arg) == str:
+        elif type(item) == str:
             new_sub_tag = self.data.new_tag('name')
-        new_sub_tag.string = str(arg)
+        new_sub_tag.string = str(item)
         new_secondary_tag.string = str(secondary_arg)
-        new_data_type.append(new_sub_tag, new_secondary_tag)
-        print(new_data_type)
+        new_data_type.append(new_sub_tag)
+        new_data_type.append(new_secondary_tag)
         return new_data_type
 
     def addComputers(self, *args):
@@ -2818,26 +2783,27 @@ class Policy:
     def clear_scope(self):
         return self.data.find('scope').replace_with(soup(default_scope_template, 'xml'))
     
-    def addScripts(self, *args):
-        list(map(lambda x: self.scripts.append(self._create_secondary_tag('script', 'priority', x)), args))
+    def addScripts(self, **kwargs):
+        [ self.scripts.append(self._create_secondary_tag( 'script', 'priority', x,y)) for x, y in kwargs.items() ]
 
     def removeScripts(self, *args):
-        return self.__parse_others('remove', 'scripts', *args)
+        list(map(lambda x: self.scripts.find('script', string=x).decompose(), args))
     
-    def addPackages(self, *args):
-        return self.__parse_others('add', 'packages', *args)
+    def addPackages(self, **kwargs):
+        [ self.packages.append(self._create_secondary_tag( 'package', 'action', x,y)) for x, y in kwargs.items() ]
 
     def removePackages(self, *args):
-        return self.__parse_others('remove', 'packages', *args)
+        list(map(lambda x: self.scripts.find('package', string=x).decompose(), args))
 
-    def mapPrinters(self, *args):
-        return self.__parse_others('add', 'printers', *args)
+    def mapPrinters(self, *args): 
+        self._check_if_present(self.printers, 'printer', 467)
+        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'install', x)), args))
 
     def unmapPrinters(self, *args):
-        return self.__parse_others('add', 'printers', *args)
+        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'uninstall', x)), args))
 
     def removePrinters(self, *args):
-        return self.__parse_others('remove', 'printers', *args)
+        list(map(lambda x: self.printers.find('printer', string=x).decompose(), args))
 
     def update(self):
         return Policies.putById(str(self.id), str(self.data))
