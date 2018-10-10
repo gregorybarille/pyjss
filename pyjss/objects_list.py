@@ -2497,6 +2497,7 @@ class Policy:
         self.packages = xml_data.policy.find('packages')
         self.scripts = xml_data.policy.find('scripts')
         self.printers = xml_data.policy.find('printers', recursive=False)
+        self.bindings = xml_data.policy.find('directory_bindings')
         self.scope = xml_data.policy.scope
         self.allcomputers = xml_data.policy.scope.all_computers
         self.computers = xml_data.policy.scope.computers
@@ -2813,6 +2814,13 @@ class Policy:
 
     def removePrinters(self, *args):
         list(map(lambda x: self.printers.find(string=x).find_parent('printer').decompose(), args))
+    
+    def addBinding(self, *args):
+        arg_tuple = tuple(filter(lambda x: not self.bindings.find(string=x), args))
+        list(map(lambda x: self.bindings.append(self._create_tag('binding', x)), arg_tuple))
+
+    def removeBindings(self, *args):
+        list(map(lambda x: self.bindings.find(string=x).find_parent('binding').decompose(), args))
 
     def update(self):
         return Policies.putById(str(self.id), str(self.data))
