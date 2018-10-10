@@ -2708,9 +2708,6 @@ class Policy:
         self._site.find('id').string = '-1'
         self._site.find('name').string = 'None'
 
-    def _check_if_present(self, data , tag_name,arg ):
-        print(self.computers.find('computer', string='134'))
-        print(data.find(tag_name, string='467'))
 
     def _create_tag(self, tag_name, arg):
         new_data_type = self.data.new_tag(tag_name)
@@ -2736,49 +2733,57 @@ class Policy:
         return new_data_type
 
     def addComputers(self, *args):
-        list(map(lambda x: self.computers.append(self._create_tag('computer', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.computers.find(string=x), args))
+        list(map(lambda x: self.computers.append(self._create_tag('computer', x)), arg_tuple))
 
     def removeComputers(self, *args):
         list(map(lambda x: self.computers.find(string=x).find_parent('computer').decompose(), args))
 
     def addComputersGroups(self, *args):
-        list(map(lambda x: self.computergroups.append(self._create_tag('computer_group', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.computergroups.find(string=x), args))
+        list(map(lambda x: self.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
 
     def removeComputersGroups(self, *args):
         list(map(lambda x: self.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
 
     def addBuildings(self, *args):
-        list(map(lambda x: self.buildings.append(self._create_tag('building', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.buildings.find(string=x), args))
+        list(map(lambda x: self.buildings.append(self._create_tag('building', x)), arg_tuple))
 
     def removeBuildings(self, *args):
         list(map(lambda x: self.buildings.find(string=x).find_parent('building').decompose(), args))
 
     def addDepartments(self, *args):
-        list(map(lambda x: self.departments.append(self._create_tag('department', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.departments.find(string=x), args))
+        list(map(lambda x: self.departments.append(self._create_tag('department', x)), arg_tuple))
 
     def removeDepartments(self, *args):
         list(map(lambda x: self.buildings.find(string=x).find_parent('department').decompose(), args))
 
     def excludeComputers(self, *args):
-        list(map(lambda x: self.exclusions.computers.append(self._create_tag('computer', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.computers.find(string=x), args))
+        list(map(lambda x: self.exclusions.computers.append(self._create_tag('computer', x)), arg_tuple))
 
     def removeExcludedComputers(self, *args):
         list(map(lambda x: self.exclusions.computers.find(string=x).find_parent('computer').decompose(), args))
     
     def excludeComputersGroups(self, *args):
-        list(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.computergroups.find(string=x), args))
+        list(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
 
     def removeExcludedComputersGroups(self, *args):
         list(map(lambda x: self.exclusions.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
 
     def excludeBuildings(self, *args):
-        list(map(lambda x: self.exclusions.buildings.append(self._create_tag('building', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.buildings.find(string=x), args))
+        list(map(lambda x: self.exclusions.buildings.append(self._create_tag('building', x)), arg_tuple))
 
     def removeExcludedBuildings(self, *args):
         list(map(lambda x: self.exclusions.buildings.find(string=x).find_parent('building').decompose(), args))
 
     def excludeDepartments(self, *args):
-        list(map(lambda x: self.exclusions.departments.append(self._create_tag('department', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.departments.find(string=x), args))
+        list(map(lambda x: self.exclusions.departments.append(self._create_tag('department', x)), arg_tuple))
 
     def removeExcludedDepartments(self, *args):
         list(map(lambda x: self.exclusions.departments.find(string=x).find_parent('department').decompose(), args))
@@ -2799,11 +2804,12 @@ class Policy:
         list(map(lambda x: self.scripts.find(string=x).find_parent('package').decompose(), args))
 
     def mapPrinters(self, *args): 
-        self._check_if_present(self.printers, 'printer', 467)
-        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'install', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), args))
+        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'install', x)), arg_tuple))
 
     def unmapPrinters(self, *args):
-        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'uninstall', x)), args))
+        arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), args))
+        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'uninstall', x)), arg_tuple))
 
     def removePrinters(self, *args):
         list(map(lambda x: self.printers.find(string=x).find_parent('printer').decompose(), args))
