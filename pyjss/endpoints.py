@@ -1,9 +1,9 @@
 endpoints = {
     'Accounts': {
-		0: {
-			'methods': ['get']
-		},
-		2: {
+        0: {
+            'methods': ['get']
+        },
+        2: {
             'id': {
                 'endpoint': '/userid/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -12,37 +12,22 @@ endpoints = {
                 'endpoint': '/username/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
             },
-			'groupid': {
-				'endpoint': '/groupid/{0}',
-				'methods': ['get', 'put', 'post', 'delete']
-			},
-			'groupname': {
-				'endpoint': '/groupname/{0}',
-				'methods': ['get', 'put', 'post', 'delete']
-			}
-    	}
+            'groupid': {
+                'endpoint': '/groupid/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'groupname': {
+                'endpoint': '/groupname/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
     },
-   	'ActivationCode':{
+    'ActivationCode': {
         0: {
             'methods': ['get', 'put']
         }
-	},
-   	'AdvancedComputerSearches':{
-        0: {
-            'methods': ['get']
-        },
-        2: {
-            'id': {
-                'endpoint': '/id/{0}',
-                'methods': ['get', 'put', 'post', 'delete']
-            },
-            'name': {
-                'endpoint': '/name/{0}',
-                'methods': ['get', 'put', 'post', 'delete']
-            }
-        }
-	},
-   	'AdvancedMobileDeviceSearches': {
+    },
+    'AdvancedComputerSearches': {
         0: {
             'methods': ['get']
         },
@@ -57,7 +42,7 @@ endpoints = {
             }
         }
     },
-   	'AdvancedUserSearches': {
+    'AdvancedMobileDeviceSearches': {
         0: {
             'methods': ['get']
         },
@@ -72,7 +57,22 @@ endpoints = {
             }
         }
     },
-   	'AllowedFileExtension': {
+    'AdvancedUserSearches': {
+        0: {
+            'methods': ['get']
+        },
+        2: {
+            'id': {
+                'endpoint': '/id/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            },
+            'name': {
+                'endpoint': '/name/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
+            }
+        }
+    },
+    'AllowedFileExtension': {
         0: {
             'methods': ['get']
         },
@@ -87,7 +87,7 @@ endpoints = {
             }
         }
     },
-   	'Buildings': {
+    'Buildings': {
         0: {
             'methods': ['get']
         },
@@ -102,11 +102,11 @@ endpoints = {
             }
         }
     },
-   	'ByoProfiles': {
+    'ByoProfiles': {
         0: {
             'methods': ['get']
         },
-      	2: {
+        2: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -116,16 +116,16 @@ endpoints = {
                 'methods': ['get', 'put', 'post', 'delete']
             },
             'siteid': {
-				'endpoint': '/groupid/{0}',
-				'methods': ['get', 'put', 'post', 'delete']
+                'endpoint': '/groupid/{0}',
+                'methods': ['get', 'put', 'post', 'delete']
             },
             'sitename': {
                 'endpoint': '/groupname/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
             }
-    	}
+        }
     },
-   	'Categories': {
+    'Categories': {
         0: {
             'methods': ['get']
         },
@@ -140,7 +140,7 @@ endpoints = {
             }
         }
     },
-   	'Classes': {
+    'Classes': {
         0: {
             'methods': ['get']
         },
@@ -155,55 +155,55 @@ endpoints = {
             }
         }
     },
-   	'ComputerApplications': {
+    'ComputerApplications': {
         1: {
             'name': {
                 'endpoint': '/application/{0}',
                 'methods': ['get']
             }
         },
-      	2: {
+        2: {
             'inventory': {
-				'endpoint': '/application/{0}/inventory/{1}',
-				'methods': ['get']
+                'endpoint': '/application/{0}/inventory/{1}',
+                'methods': ['get']
             },
             'version': {
                 'endpoint': '/application/{0}/version/{1}',
                 'methods': ['get']
             }
-    	},
-		3: {
-			'name':{
-				'endpoint': '/application/{0}/version/{1}/inventory/{2}',
-				'methods': ['get']
-			}
-		}
+        },
+        3: {
+            'name': {
+                'endpoint': '/application/{0}/version/{1}/inventory/{2}',
+                            'methods': ['get']
+            }
+        }
     },
     'ComputerApplicationsUsage': {
-      		3: {
+        3: {
             'id': {
-				'endpoint': '/id/{0}/{1}',
-				'methods': ['get']
+                'endpoint': '/id/{0}/{1}',
+                'methods': ['get']
             },
             'name': {
                 'endpoint': '/name/{0}/{1}',
                 'methods': ['get']
             },
             'udid': {
-				'endpoint': '/udid/{0}/{1}',
-				'methods': ['get']
+                'endpoint': '/udid/{0}/{1}',
+                'methods': ['get']
             },
             'serialnumber': {
-				'endpoint': '/serialnumber/{0}/{1}',
-				'methods': ['get']
+                'endpoint': '/serialnumber/{0}/{1}',
+                'methods': ['get']
             },
             'macaddress': {
-				'endpoint': '/macaddress/{0}/{1}',
-				'methods': ['get']
+                'endpoint': '/macaddress/{0}/{1}',
+                'methods': ['get']
             }
         }
     },
-   	'ComputerCheckin': {
+    'ComputerCheckin': {
         0: {
             'methods': ['get', 'put']
         }
@@ -251,7 +251,7 @@ endpoints = {
                 'endpoint': '/command/{0}/passcode/{1}/id/{2}',
                 'methods': ['get']
             }
-        }    
+        }
     },
     'ComputerConfigurations': {
         0: {
@@ -300,25 +300,25 @@ endpoints = {
     },
     'ComputerHardwareSoftwareReports': {
         3: {
-        'id': {
-            'endpoint': '/id/{0}/{1}',
-            'methods': ['get']
-        },
-        'name': {
-            'endpoint': '/name/{0}/{1}',
-            'methods': ['get']
-        },
-        'udid': {
-            'endpoint': '/udid/{0}/{1}',
-            'methods': ['get']
-        },
-        'serialnumber': {
-            'endpoint': '/serialnumber/{0}/{1}',
-            'methods': ['get']
-        },
-        'macaddress': {
-            'endpoint': '/macaddress/{0}/{1}',
-            'methods': ['get']
+            'id': {
+                'endpoint': '/id/{0}/{1}',
+                'methods': ['get']
+            },
+            'name': {
+                'endpoint': '/name/{0}/{1}',
+                'methods': ['get']
+            },
+            'udid': {
+                'endpoint': '/udid/{0}/{1}',
+                'methods': ['get']
+            },
+            'serialnumber': {
+                'endpoint': '/serialnumber/{0}/{1}',
+                'methods': ['get']
+            },
+            'macaddress': {
+                'endpoint': '/macaddress/{0}/{1}',
+                'methods': ['get']
             }
         },
         4: {
@@ -486,7 +486,7 @@ endpoints = {
                 'methods': ['get', 'put', 'post', 'delete']
             }
         },
-        2:{
+        2: {
             'id': {
                 'endpoint': '/name/{0}',
                 'methods': ['get', 'put', 'post', 'delete']
@@ -510,7 +510,7 @@ endpoints = {
         0: {
             'methods': ['get']
         },
-        1:{
+        1: {
             'id': {
                 'endpoint': '/id/{0}',
                 'methods': ['get', 'put']
@@ -580,7 +580,7 @@ endpoints = {
             }
         }
     },
-    'LdapServers':{
+    'LdapServers': {
 
     },
     'LicencedSoftware': {
@@ -598,7 +598,7 @@ endpoints = {
             }
         }
     },
-    'LogFlush':{
+    'LogFlush': {
     },
     'MacApplications': {
         0: {
@@ -642,10 +642,10 @@ endpoints = {
             }
         }
     },
-    'MobileDeviceApplications':{
+    'MobileDeviceApplications': {
 
     },
-    'MobileDeviceCommands':{
+    'MobileDeviceCommands': {
 
     },
     'MobileDeviceConfigurationProfiles': {
@@ -669,7 +669,7 @@ endpoints = {
             }
         }
     },
-    'MobileDeviceConfigurationProfiles':{
+    'MobileDeviceConfigurationProfiles': {
 
     },
     'MobileDeviceEnrollementProfiles': {
