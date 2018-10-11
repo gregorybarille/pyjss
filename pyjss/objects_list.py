@@ -2496,14 +2496,14 @@ class Policy:
         self.printers = xml_data.policy.find('printers', recursive=False)
         self.bindings = xml_data.policy.find('directory_bindings')
         self.maintenance = xml_data.policy.find('maintenance')
-        self._updateInventory = xml_data.policy.find('maintenance').find('recon')
-        self._resetComputerName = xml_data.policy.find('maintenance').find('reset_name')
-        self._installCachedPackages = xml_data.policy.find('maintenance').find('install_all_cached_packages')
-        self._fixDiskPermissions = xml_data.policy.find('maintenance').find('permissions')
-        self._fixByHost = xml_data.policy.find('maintenance').find('byhost')
-        self._fixSystemCaches = xml_data.policy.find('maintenance').find('system_cache')
-        self._fixUserCaches = xml_data.policy.find('maintenance').find('user_cache')
-        self._verifyStartupDisk = xml_data.policy.find('maintenance').find('verify')
+        self._update_inventory = xml_data.policy.find('maintenance').find('recon')
+        self._reset_computer_name = xml_data.policy.find('maintenance').find('reset_name')
+        self._install_cached_packages = xml_data.policy.find('maintenance').find('install_all_cached_packages')
+        self._fix_permissions = xml_data.policy.find('maintenance').find('permissions')
+        self._fix_by_host = xml_data.policy.find('maintenance').find('byhost')
+        self._fix_system_caches = xml_data.policy.find('maintenance').find('system_cache')
+        self._fix_user_caches = xml_data.policy.find('maintenance').find('user_cache')
+        self._verify_disk = xml_data.policy.find('maintenance').find('verify')
         self.files_processes = xml_data.policy.find('files_processes')
         self._search_by_path =xml_data.policy.find('files_processes').find('search_by_path')
         self._delete_file =xml_data.policy.find('files_processes').find('delete_file')
@@ -2725,100 +2725,100 @@ class Policy:
         self._site.find('name').string = 'None'
 
     @property
-    def updateInventory(self):
-        return self._updateInventory.string
+    def update_inventory(self):
+        return self._update_inventory.string
 
-    @updateInventory.setter
-    def updateInventory(self, value):
+    @update_inventory.setter
+    def update_inventory(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._updateInventory.string = value
+            self._update_inventory.string = value
     
     @property
-    def resetComputerName(self):
-        return self._resetComputerName.string
+    def reset_computer_name(self):
+        return self._reset_computer_name.string
 
-    @resetComputerName.setter
-    def resetComputerName(self, value):
+    @reset_computer_name.setter
+    def reset_computer_name(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._resetComputerName.string = value
+            self._reset_computer_name.string = value
 
     @property
-    def installCachedPackage(self):
-        return self._installCachedPackages.string
+    def install_cached_packages(self):
+        return self._install_cached_packages.string
 
-    @installCachedPackage.setter
-    def installCachedPackage(self, value):
+    @install_cached_packages.setter
+    def install_cached_packages(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._installCachedPackages.string = value
+            self._install_cached_packages.string = value
 
     @property
-    def fixDiskPermissions(self):
+    def fix_permissions(self):
         return self._offline.string
 
-    @fixDiskPermissions.setter
-    def fixDiskPermissions(self, value):
+    @fix_permissions.setter
+    def fix_permissions(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._fixDiskPermissions.string = value
+            self._fix_permissions.string = value
 
     @property
-    def fixByHost(self):
-        return self._fixByHost.string
+    def fix_by_host(self):
+        return self._fix_by_host.string
 
-    @fixByHost.setter
-    def fixByHost(self, value):
+    @fix_by_host.setter
+    def fix_by_host(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._fixByHost.string = value
+            self._fix_by_host.string = value
 
     @property
-    def fixSystemCaches(self):
-        return self._fixSystemCaches.string
+    def fix_system_caches(self):
+        return self._fix_system_caches.string
 
-    @fixSystemCaches.setter
-    def fixSystemCaches(self, value):
+    @fix_system_caches.setter
+    def fix_system_caches(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._fixSystemCaches.string = value
+            self._fix_system_caches.string = value
 
     @property
-    def fixUserCaches(self):
-        return self._fixUserCaches.string
+    def fix_user_caches(self):
+        return self._fix_user_caches.string
 
-    @fixUserCaches.setter
-    def fixUserCaches(self, value):
+    @fix_user_caches.setter
+    def fix_user_caches(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._fixUserCaches.string = value
+            self._fix_user_caches.string = value
 
     @property
-    def verifyStartupDisk(self):
-        return self._verifyStartupDisk.string
+    def verify_disk(self):
+        return self._verify_disk.string
 
-    @verifyStartupDisk.setter
-    def verifyStartupDisk(self, value):
+    @verify_disk.setter
+    def verify_disk(self, value):
         value = value.lower()
         if value not in ['true', 'false']:
             raise ValueError
         else:
-            self._verifyStartupDisk.string = value
+            self._verify_disk.string = value
 
     @property
     def search_by_path(self):
