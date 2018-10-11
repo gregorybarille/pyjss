@@ -11,7 +11,7 @@ setuptools.setup(
     description="A wrapper for Jamf Pro classic API.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/sillegue/pyjss",
+    url="https://github.com/gregorybarille/pyjss",
     packages=setuptools.find_packages(),
     classifiers=[
         "Development Status:: 3 - Alpha",
@@ -19,5 +19,11 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: MacOS :: MacOS X",
     ],
+    install_requires=[
+        'requests',
+        'bs4',
+        'lxml'
+    ],
+
 )
 # Requirements bs4, lxml,
