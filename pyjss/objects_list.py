@@ -2504,6 +2504,15 @@ class Policy:
         self._fixSystemCaches = xml_data.policy.find('maintenance').find('system_cache')
         self._fixUserCaches = xml_data.policy.find('maintenance').find('user_cache')
         self._verifyStartupDisk = xml_data.policy.find('maintenance').find('verify')
+        self.files_processes = xml_data.policy.find('files_processes')
+        self._search_by_path =xml_data.policy.find('files_processes').find('search_by_path')
+        self._delete_file =xml_data.policy.find('files_processes').find('delete_file')
+        self._search_by_filename =xml_data.policy.find('files_processes').find('filename')
+        self._update_locate_database =xml_data.policy.find('files_processes').find('update_locate_database')
+        self._search_spotlight =xml_data.policy.find('files_processes').find('spotlight_search')
+        self._search_process =xml_data.policy.find('files_processes').find('search_for_process')
+        self._kill_process = xml_data.policy.find('files_processes').find('kill_process')
+        self._run_command = xml_data.policy.find('files_processes').find('run_command')
         self.scope = xml_data.policy.scope
         self.allcomputers = xml_data.policy.scope.all_computers
         self.computers = xml_data.policy.scope.computers
@@ -2811,6 +2820,83 @@ class Policy:
         else:
             self._verifyStartupDisk.string = value
 
+    @property
+    def search_by_path(self):
+        return self._search_by_path.string
+
+    @search_by_path.setter
+    def search_by_path(self, value):
+        self._search_by_path.string = value
+
+    @property
+    def delete_file(self):
+        return self._search_by_path.string
+
+    @delete_file.setter
+    def delete_file(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._delete_file.string = value
+
+    @property
+    def search_by_filename(self):
+        return self._search_by_filename.string
+
+    @search_by_filename.setter
+    def search_by_filename(self, value):
+        self._search_by_filename.string = value
+
+
+    @property
+    def update_locate_database(self):
+        return self._update_locate_database.string
+
+    @update_locate_database.setter
+    def update_locate_database(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._update_locate_database.string = value
+
+    @property
+    def search_spotlight(self):
+        return self._search_spotlight.string
+
+    @search_spotlight.setter
+    def search_spotlight(self, value):
+        self._search_spotlight.string = value
+
+    @property
+    def search_process(self):
+        return self._search_process.string
+
+    @search_process.setter
+    def search_process(self, value):
+        self._search_process.string = value
+
+    @property
+    def kill_process(self):
+        return self._kill_process.string
+
+    @kill_process.setter
+    def kill_process(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._kill_process.string = value
+    
+    @property
+    def run_command(self):
+        return self._run_command.string
+
+    @run_command.setter
+    def run_command(self, value):
+        self._run_command.string = value
+
     def _create_tag(self, tag_name, arg):
         new_data_type = self.data.new_tag(tag_name)
         if type(arg) == int:
@@ -2891,7 +2977,8 @@ class Policy:
         list(map(lambda x: self.exclusions.departments.find(string=x).find_parent('department').decompose(), args))
     
     def clear_scope(self):
-        return self.data.find('scope').replace_with(soup(default_scope_template, 'xml'))
+        #To correct
+        return self.data.find('scope').replace_with(default_scope_template)
     
     def addScripts(self, **kwargs):
         [ self.scripts.append(self._create_secondary_tag( 'script', 'priority', x,y)) for x, y in kwargs.items() ]
