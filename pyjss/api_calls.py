@@ -1,8 +1,6 @@
-import json
-import xml.etree.ElementTree as etree
-
 import requests
 from bs4 import BeautifulSoup as soup
+
 from pyjss.settings import Credentials
 
 

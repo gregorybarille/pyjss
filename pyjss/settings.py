@@ -1,5 +1,6 @@
-import keyring
 import json
+
+import keyring
 
 
 class Credentials:

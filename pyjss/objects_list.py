@@ -1,7 +1,3 @@
-import json
-import inspect
-from bs4 import BeautifulSoup as soup
-
 from pyjss.api_calls import delete_call, get_call, post_call, put_call
 from pyjss.templates import default_scope_template, default_policy_template
 
