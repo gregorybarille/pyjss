@@ -1,5 +1,6 @@
 from pyjss.api_calls import delete_call, get_call, post_call, put_call
-from pyjss.templates import default_scope_template, default_policy_template
+from pyjss.templates import default_policy_template, default_scope_template
+
 
 class Accounts():
     
@@ -2494,6 +2495,15 @@ class Policy:
         self.scripts = xml_data.policy.find('scripts')
         self.printers = xml_data.policy.find('printers', recursive=False)
         self.bindings = xml_data.policy.find('directory_bindings')
+        self.maintenance = xml_data.policy.find('maintenance')
+        self._updateInventory = xml_data.policy.find('maintenance').find('recon')
+        self._resetComputerName = xml_data.policy.find('maintenance').find('reset_name')
+        self._installCachedPackages = xml_data.policy.find('maintenance').find('install_all_cached_packages')
+        self._fixDiskPermissions = xml_data.policy.find('maintenance').find('permissions')
+        self._fixByHost = xml_data.policy.find('maintenance').find('byhost')
+        self._fixSystemCaches = xml_data.policy.find('maintenance').find('system_cache')
+        self._fixUserCaches = xml_data.policy.find('maintenance').find('user_cache')
+        self._verifyStartupDisk = xml_data.policy.find('maintenance').find('verify')
         self.scope = xml_data.policy.scope
         self.allcomputers = xml_data.policy.scope.all_computers
         self.computers = xml_data.policy.scope.computers
@@ -2516,7 +2526,7 @@ class Policy:
         self.exclusions.ibeacons = xml_data.policy.scope.exclusions.ibeacons
 
     def __repr__(self):
-        return str(self.data)
+        return str(self.data.prettify())
 
     @property
     def name(self):
@@ -2705,6 +2715,101 @@ class Policy:
         self._site.find('id').string = '-1'
         self._site.find('name').string = 'None'
 
+    @property
+    def updateInventory(self):
+        return self._updateInventory.string
+
+    @updateInventory.setter
+    def updateInventory(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._updateInventory.string = value
+    
+    @property
+    def resetComputerName(self):
+        return self._resetComputerName.string
+
+    @resetComputerName.setter
+    def resetComputerName(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._resetComputerName.string = value
+
+    @property
+    def installCachedPackage(self):
+        return self._installCachedPackages.string
+
+    @installCachedPackage.setter
+    def installCachedPackage(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._installCachedPackages.string = value
+
+    @property
+    def fixDiskPermissions(self):
+        return self._offline.string
+
+    @fixDiskPermissions.setter
+    def fixDiskPermissions(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._fixDiskPermissions.string = value
+
+    @property
+    def fixByHost(self):
+        return self._fixByHost.string
+
+    @fixByHost.setter
+    def fixByHost(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._fixByHost.string = value
+
+    @property
+    def fixSystemCaches(self):
+        return self._fixSystemCaches.string
+
+    @fixSystemCaches.setter
+    def fixSystemCaches(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._fixSystemCaches.string = value
+
+    @property
+    def fixUserCaches(self):
+        return self._fixUserCaches.string
+
+    @fixUserCaches.setter
+    def fixUserCaches(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._fixUserCaches.string = value
+
+    @property
+    def verifyStartupDisk(self):
+        return self._verifyStartupDisk.string
+
+    @verifyStartupDisk.setter
+    def verifyStartupDisk(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._verifyStartupDisk.string = value
 
     def _create_tag(self, tag_name, arg):
         new_data_type = self.data.new_tag(tag_name)

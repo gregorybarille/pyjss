@@ -21,7 +21,7 @@ setuptools.setup(
     ],
     install_requires=[
         'requests',
-        'bs4',
+        'bs4>=4.4.0',
         'lxml'
     ],
 
