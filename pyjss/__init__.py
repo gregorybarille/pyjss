@@ -15,4 +15,4 @@ from pyjss.objects_list import (Accounts, ActivationCode, AdvancedComputerSearch
                                 SmtpServer, SoftwareUpdateServers, UserExtensionAttributes, UserGroups, Users,
                                 VppAccounts, VppAssignments, VppInvitations, Webhooks)
 
-from pyjss.settings import Credentials, get_credentials, set_credentials, get_auth_from_file
+from pyjss.settings import Credentials, get_credentials, set_credentials, get_auth_from_file, create_auth_file
