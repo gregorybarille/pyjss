@@ -1,6 +1,6 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("/Users/greg/Git/Github/pyjss/README.MD", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
@@ -14,7 +14,6 @@ setuptools.setup(
     url="https://github.com/gregorybarille/pyjss",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Development Status:: 3 - Alpha",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: MacOS :: MacOS X",
