@@ -2507,7 +2507,7 @@ class Policy:
         self.files_processes = xml_data.policy.find('files_processes')
         self._search_by_path =xml_data.policy.find('files_processes').find('search_by_path')
         self._delete_file =xml_data.policy.find('files_processes').find('delete_file')
-        self._search_by_filename =xml_data.policy.find('files_processes').find('filename')
+        self._search_by_filename =xml_data.policy.find('files_processes').find('locate_file')
         self._update_locate_database =xml_data.policy.find('files_processes').find('update_locate_database')
         self._search_spotlight =xml_data.policy.find('files_processes').find('spotlight_search')
         self._search_process =xml_data.policy.find('files_processes').find('search_for_process')
@@ -2551,7 +2551,7 @@ class Policy:
 
     @id.setter
     def id(self, value):
-        self._id.string = value
+        self._id.string = str(value)
     
     @property
     def enabled(self):
@@ -2685,7 +2685,7 @@ class Policy:
 
     @property
     def frequency(self):
-        return self._offline.string
+        return self._frequency.string
 
     @frequency.setter
     def frequency(self, value):
@@ -2762,7 +2762,7 @@ class Policy:
 
     @property
     def fix_permissions(self):
-        return self._offline.string
+        return self._fix_permissions.string
 
     @fix_permissions.setter
     def fix_permissions(self, value):
@@ -2830,7 +2830,7 @@ class Policy:
 
     @property
     def delete_file(self):
-        return self._search_by_path.string
+        return self._delete_file.string
 
     @delete_file.setter
     def delete_file(self, value):
@@ -2922,7 +2922,7 @@ class Policy:
 
     def addComputers(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.computers.find(string=x), args))
-        list(map(lambda x: self.computers.append(self._create_tag('computer', x)), arg_tuple))
+        tuple(map(lambda x: self.computers.append(self._create_tag('computer', x)), arg_tuple))
 
     def removeComputers(self, *args):
         list(map(lambda x: self.computers.find(string=x).find_parent('computer').decompose(), args))

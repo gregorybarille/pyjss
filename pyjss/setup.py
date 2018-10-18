@@ -4,8 +4,8 @@ with open("/Users/greg/Git/Github/pyjss/README.MD", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pyjss",
-    version="1.0dev",
+    name="pyjss-test",
+    version="1.1",
     author="Gregory Barillé",
     author_email="barille@gmail.com",
     description="A wrapper for Jamf Pro classic API.",
@@ -20,9 +20,8 @@ setuptools.setup(
     ],
     install_requires=[
         'requests',
-        'bs4>=4.4.0',
+        'beautifulsoup4>=4.4.0',
         'lxml'
     ],
 
 )
-# Requirements bs4, lxml,
