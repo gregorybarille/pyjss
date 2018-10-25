@@ -36,7 +36,7 @@ def get_credentials(url, username):
     except TypeError as e:
         print('The following error occured:')
         print(e)
-        exit()
+        raise
     else:
         if password != None:
             print('A password has been successully retrieved')
@@ -68,7 +68,7 @@ def get_auth_from_file(filename):
             except KeyError:
                 print(
                     'The auth file should have the following format :\n{\n"url":"url_value",\n "username":"username_value",\n "password":"password_value"\n}')
-                exit
+                raise
             else:
                 print('A password has been successully retrieved')
     except FileNotFoundError:

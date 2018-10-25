@@ -19,7 +19,14 @@ class TestSettingsCase(unittest.TestCase):
         pass
 
     def test_get_auth_from_file(self):
-        credentials_file = os.path.join(
-            os.path.dirname(__file__), 'credentials.json')
+        credentials_file = os.path.join(os.path.dirname(__file__), 'good_credentials_file.json')
         get_auth_from_file(credentials_file)
-        self.assertEqual(Credentials.get(), 'url_value')
+        self.assertEqual(Credentials.url, 'url_value')
+        self.assertEqual(Credentials.username, 'username_value')
+        self.assertEqual(Credentials.password, 'password_value')
+        with self.assertRaises(KeyError):
+            bad_credentials_file = os.path.join(os.path.dirname(__file__), 'bad_credentials_file.json')
+            get_auth_from_file(bad_credentials_file)
+        with self.assertRaises(OSError):
+            not_credentials_file = os.path.join(os.path.dirname(__file__), 'not_credentials_file.json')
+            get_auth_from_file(not_credentials_file)
