@@ -42,8 +42,7 @@ def get_credentials(url, username):
             print('A password has been successully retrieved')
             return Credentials(url, username, password)
         else:
-            print('There is no password stored for the url {0} and the name {1}'.format(
-                url, password))
+            print(f'There is no password stored for the {url} and the name {password}')
             exit()
 
 
@@ -81,5 +80,5 @@ def get_auth_from_file(filename):
             create_auth_file()
     except PermissionError:
         print(
-            'Youn don\'t have the permissions to read the file {0}'.format(filename))
+            f'Youn don\'t have the permissions to read the file {filename}')
         exit

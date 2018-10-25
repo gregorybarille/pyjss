@@ -11,67 +11,67 @@ class Accounts():
 
     @classmethod
     def getByUserId(cls, useriD):
-        return get_call('{0}/userid/{1}'.format(__class__.__name__.lower(),useriD))
+        return get_call(f'{__class__.__name__.lower()}/userid/{useriD}')
 
     @classmethod
     def putByUserId(cls, useriD, payload):
-        return put_call('{0}/userid/{1}'.format(__class__.__name__.lower(),useriD), payload)
+        return put_call(f'{__class__.__name__.lower()}/userid/{useriD}', payload)
 
     @classmethod
     def postByUserId(cls, useriD, payload):
-        return post_call('{0}/userid/{1}'.format(__class__.__name__.lower(), useriD), payload)
+        return post_call(f'{__class__.__name__.lower()}/userid/{useriD}', payload)
 
     @classmethod
     def deleteBUserId(cls, useriD):
-        return delete_call('{0}/userid/{1}'.format(__class__.__name__.lower(), useriD)) 
+        return delete_call(f'{__class__.__name__.lower()}/userid/{useriD}') 
 
     @classmethod
     def getByUserName(cls, userName):
-        return get_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
+        return get_call(f'{__class__.__name__.lower()}/username/{userName}')
     
     @classmethod
     def putByUserName(cls, userName, payload):
-        return put_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName), payload)
+        return put_call(f'{__class__.__name__.lower()}/username/{userName}', payload)
 
     @classmethod
     def postByUserName(cls, userName, payload):
-        return post_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName), payload)
+        return post_call(f'{__class__.__name__.lower()}/username/{userName}', payload)
 
     @classmethod
     def deleteByUserName(cls, userName):
-        return delete_call('{0}/username/{1}'.format(__class__.__name__.lower(), userName))
+        return delete_call(f'{__class__.__name__.lower()}/username/{userName}')
 
     @classmethod
     def getByGroupId(cls, groupID):
-        return get_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
+        return get_call(f'{__class__.__name__.lower()}/groupid/{groupID}')
     
     @classmethod
     def putByGroupId(cls, groupID, payload):
-        return put_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID), payload)
+        return put_call(f'{__class__.__name__.lower()}/groupid/{groupID}', payload)
     
     @classmethod
     def postByGroupId(cls, groupID, payload):
-        return post_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID), payload)
+        return post_call(f'{__class__.__name__.lower()}/groupid/{groupID}', payload)
 
     @classmethod
     def deleteByGroupId(cls, groupID):
-        return delete_call('{0}/groupid/{1}'.format(__class__.__name__.lower(), groupID))
+        return delete_call(f'{__class__.__name__.lower()}/groupid/{groupID}')
 
     @classmethod
     def getByGroupName(cls, groupName):
-        return get_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName))
+        return get_call(f'{__class__.__name__.lower()}/groupname/{groupName}')
     
     @classmethod
     def putByGroupName(cls, groupName, payload):
-        return put_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName), payload)
+        return put_call(f'{__class__.__name__.lower()}/groupname/{groupName}', payload)
 
     @classmethod
     def postByGroupName(cls, groupName, payload):
-        return post_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName), payload)
+        return post_call(f'{__class__.__name__.lower()}/groupname/{groupName}', payload)
 
     @classmethod
     def deleteByGroupName(cls, groupName):
-        return delete_call('{0}/groupname/{1}'.format(__class__.__name__.lower(), groupName))
+        return delete_call(f'{__class__.__name__.lower()}/groupname/{groupName}')
 
 
 class ActivationCode():
@@ -95,35 +95,35 @@ class AdvancedComputerSearches():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class AdvancedMobileDeviceSearches():
@@ -133,35 +133,35 @@ class AdvancedMobileDeviceSearches():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class AdvancedUserSearches():
@@ -172,35 +172,35 @@ class AdvancedUserSearches():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class AllowedFileExtension():
@@ -212,35 +212,35 @@ class AllowedFileExtension():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
     
     @classmethod
     def getByExtension(cls, extension):
-        return get_call('{0}/extension/{1}'.format(__class__.__name__.lower(), extension))
+        return get_call(f'{__class__.__name__.lower()}/extension/{extension}')
     
     @classmethod
     def putByExtension(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postByExtension(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteByExtension(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
 class Buildings():
@@ -251,35 +251,35 @@ class Buildings():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class ByoProfiles():
@@ -290,51 +290,51 @@ class ByoProfiles():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
     
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getBysiteId(cls, siteID):
-        return get_call('{0}/siteid/{1}'.format(__class__.__name__.lower(), siteID))
+        return get_call(f'{__class__.__name__.lower()}/siteid/{siteID}')
 
     @classmethod
     def putBysiteId(cls, siteID, data):
-        return put_call('{0}/siteid/{1}'.format(__class__.__name__.lower(), siteID), data)
+        return put_call(f'{__class__.__name__.lower()}/siteid/{siteID}', data)
 
     @classmethod
     def getBySiteName(cls, siteName):
-        return get_call('{0}/sitename/{1}'.format(__class__.__name__.lower(), siteName))
+        return get_call(f'{__class__.__name__.lower()}/sitename/{siteName}')
 
     @classmethod
     def putBySiteName(cls, siteName, data):
-        return put_call('{0}/sitename/{1}'.format(__class__.__name__.lower(), siteName), data)
+        return put_call(f'{__class__.__name__.lower()}/sitename/{siteName}', data)
 
 
 class Categories():
@@ -345,35 +345,35 @@ class Categories():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class Classes():
@@ -384,35 +384,35 @@ class Classes():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class CommandFlush():
@@ -423,7 +423,7 @@ class CommandFlush():
         id_items could a single or multiple value ( separated by comma )
         status could be one of the following: Pending, Failed or Pending+Failed
         '''
-        return delete_call('{0}/{1}/id/{2}/status/{3}'.format(__class__.__name__.lower(),group_type,id_items, status))
+        return delete_call(f'{__class__.__name__.lower()}/{group_type}/id/{id_items}/status/{status}')
 
 
 class ComputerApplications():
@@ -431,20 +431,20 @@ class ComputerApplications():
     @classmethod
     def getApp(cls, application):
         '''Return Advanced searches'''
-        return get_call('{0}/application/{1}'.format(__class__.__name__.lower(), application))
+        return get_call(f'{__class__.__name__.lower()}/application/{application}')
 
     @classmethod
     def getAppInfo(cls, application, inventory_items):
         '''Return Advanced searches'''
-        return get_call('{0}/application/{1}/inventory/{2}'.format(__class__.__name__.lower(), application, inventory_items))
+        return get_call(f'{__class__.__name__.lower()}/application/{application}/inventory/{inventory_items}')
 
     @classmethod
     def getAppVersion(cls, application, version):
-        return get_call('{0}/application/{1}/version/{2}'.format(__class__.__name__.lower(), application, version))
+        return get_call(f'{__class__.__name__.lower()}/application/{application}/version/{version}')
 
     @classmethod
     def getAppVersionInfo(cls, application, version, info_items):
-        return get_call('{0}/application/{1}/version/{2}/inventory/{3}'.format(__class__.__name__.lower(), application, version, info_items))
+        return get_call(f'{__class__.__name__.lower()}/application/{application}/version/{version}/inventory/{info_items}')
 
 
 class ComputerApplicationUsage():
@@ -452,29 +452,27 @@ class ComputerApplicationUsage():
     @classmethod
     def getById(cls, id_item, start_date, en_date):
         '''Return Advanced searches'''
-        print('{0}/id/{1}/{2}_{3}'.format(__class__.__name__.lower(),
-                                          id_item, start_date, en_date))
-        return get_call('{0}/id/{1}/{2}_{3}'.format(__class__.__name__.lower(), id_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}/{start_date}_{en_date}')
 
     @classmethod
     def getByName(cls, name_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/name/{1}/{2}_{3}'.format(__class__.__name__.lower(), name_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}/{start_date}_{en_date}')
 
     @classmethod
     def getByUdid(cls, udid_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}/{2}_{3}'.format(__class__.__name__.lower(), udid_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}/{start_date}_{en_date}')
     
     @classmethod
     def getBySerial(cls, serial_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}/{start_date}_{en_date}')
 
     @classmethod
     def getByMac(cls, mac_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}/{start_date}_{en_date}')
 
 
 class ComputerCheckin():
@@ -498,19 +496,19 @@ class ComputerCommands():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
 
 class ComputerConfigurations():
@@ -521,35 +519,35 @@ class ComputerConfigurations():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class ComputerExtensionAttributes():
@@ -560,35 +558,35 @@ class ComputerExtensionAttributes():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class ComputerGroups():
@@ -599,35 +597,35 @@ class ComputerGroups():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class ComputerHardwareSoftwareReports():
@@ -635,32 +633,32 @@ class ComputerHardwareSoftwareReports():
     @classmethod
     def getById(cls, id_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}/{2}_{3}'.format(__class__.__name__.lower(), id_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}/{start_date}_{en_date}')
 
     @classmethod
     def getByIdSubset(cls, id_item, start_date, en_date, subset_items):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}/{2}_{3}/subset/{4}'.format(__class__.__name__.lower(), id_item, start_date, en_date, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}/{start_date}_{en_date}/subset/{subset_items}')
 
     @classmethod
     def getByName(cls, name_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/name/{1}/{2}_{3}'.format(__class__.__name__.lower(), name_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}/{start_date}_{en_date}')
 
     @classmethod
     def getByUdid(cls, udid_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}/{2}_{3}'.format(__class__.__name__.lower(), udid_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}/{start_date}_{en_date}')
     
     @classmethod
     def getBySerial(cls, serial_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}/{2}_{3}'.format(__class__.__name__.lower(), serial_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}/{start_date}_{en_date}')
 
     @classmethod
     def getByMac(cls, mac_item, start_date, en_date):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}/{2}_{3}'.format(__class__.__name__.lower(), mac_item, start_date, en_date))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}/{start_date}_{en_date}')
 
 
 class ComputerHistory():
@@ -668,32 +666,32 @@ class ComputerHistory():
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(),item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
     @classmethod
     def getByName(cls, name_item):
         '''Return Advanced searches'''
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}'.format(__class__.__name__.lower(), udid_item))
     
     @classmethod
-    def getBySerial(cls, serial):
+    def getBySerial(cls, serial_item):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}')
     
     @classmethod
-    def getByMac(cls, mac_address):
+    def getByMac(cls, mac_item):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}')
 
 
 class ComputerInventoryCollection():
@@ -717,39 +715,39 @@ class ComputerInvitations():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getByInvitation(cls, invitation_item):
-        return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
+        return get_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}')
     
     @classmethod
     def postByInvitation(cls, invitation_item, data):
-        return post_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item), data)
+        return post_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}', data)
 
     @classmethod
     def deleteInvitation(cls, invitation_item):
-        return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
+        return delete_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}')
 
 
 class ComputerManagement():
@@ -757,47 +755,47 @@ class ComputerManagement():
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
     
     @classmethod
     def getByIdUsername(cls, id_item, username):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}/username/{2}'.format(__class__.__name__.lower(), id_item, username))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}/username/{username}')
 
     @classmethod
     def getByIdPatchFilter(cls, id_item, filter_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}/patchfilter/{2}/'.format(__class__.__name__.lower(), id_item, filter_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}/patchfilter/{filter_item}/')
     
     @classmethod
     def getSubsetByUsername(cls, username, item_types, item, subset_items):
         '''Return Advanced searches'''
-        return get_call('{0}/{1}/{2}/username/{3}/subset/{4}'.format(__class__.__name__.lower(), item_types, item,username, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_types}/{item}/username/{username}/subset/{subset_items}')
 
     @classmethod
     def getByName(cls, name_item):
         '''Return Advanced searches'''
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
     
     @classmethod
     def getBySerial(cls, serial):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial}')
     
     @classmethod
     def getByMac(cls, mac_address):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_address}')
 
 
 class ComputerReports():
@@ -807,11 +805,11 @@ class ComputerReports():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class Computers():
@@ -832,115 +830,115 @@ class Computers():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
     
     @classmethod
     def getMoreInfo(cls):
         '''Return Advanced searches'''
-        return get_call('{}/subset/basic'.format(__class__.__name__.lower()))
+        return get_call(f'{__class__.__name__.lower()}/subset/basic')
 
     @classmethod
     def getByMatch(cls, match_item):
         '''Return Advanced searches'''
-        return get_call('{0}/match/{1}'.format(__class__.__name__.lower(), match_item))
+        return get_call(f'{__class__.__name__.lower()}/match/{match_item}')
 
     @classmethod
     def getByMatchName(cls, match_name):
         '''Return Advanced searches'''
-        return get_call('{0}/match/name/{1}'.format(__class__.__name__.lower(), match_name))
+        return get_call(f'{__class__.__name__.lower()}/match/name/{match_name}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
     @classmethod
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
 
     @classmethod
     def putByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
+        return put_call(f'{__class__.__name__.lower()}/udid/{udid_item}', data)
 
     @classmethod
     def postByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
-        return post_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
+        return post_call(f'{__class__.__name__.lower()}/udid/{udid_item}', data)
 
     @classmethod
     def deleteByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return delete_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
 
     @classmethod
     def getBySerial(cls, serial_item):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}')
 
     @classmethod
     def putBySerial(cls, serial_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item), data)
+        return put_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}', data)
 
     @classmethod
     def postBySerial(cls, serial_item, data):
         '''Return Advanced searches'''
-        return post_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item), data)
+        return post_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}', data)
 
     @classmethod
     def deleteBySerial(cls, serial_item):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}')
 
     @classmethod
     def getByMac(cls, mac_item):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}')
 
     @classmethod
     def putByMac(cls, mac_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item), data)
+        return put_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}', data)
 
     @classmethod
     def postByMac(cls, mac_item, data):
         '''Return Advanced searches'''
-        return post_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item), data)
+        return post_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}', data)
 
     @classmethod
     def deleteByMac(cls, mac_item):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}')
 
 
 class Departments():
@@ -951,35 +949,35 @@ class Departments():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class DirectoryBindings():
@@ -990,35 +988,35 @@ class DirectoryBindings():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class DiskEncryptionConfigurations():
@@ -1029,35 +1027,35 @@ class DiskEncryptionConfigurations():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class DistributionPoints():
@@ -1068,35 +1066,35 @@ class DistributionPoints():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class DockItems():
@@ -1107,35 +1105,35 @@ class DockItems():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class Ebooks():
@@ -1146,40 +1144,40 @@ class Ebooks():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
 
 class FileUploads():
@@ -1210,11 +1208,11 @@ class HealthCareListener():
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
 
 class HealthCareListenerRule():
@@ -1227,7 +1225,7 @@ class HealthCareListenerRule():
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
 class Ibeacons():
@@ -1238,35 +1236,35 @@ class Ibeacons():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class InfrastructureManager():
@@ -1279,11 +1277,11 @@ class InfrastructureManager():
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
 
 class JsonWebTokenConfigurations():
@@ -1296,19 +1294,19 @@ class JsonWebTokenConfigurations():
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
 class LdapServers():
@@ -1319,59 +1317,59 @@ class LdapServers():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getUser(cls, server_item, user_name):
         '''Return Advanced searches'''
         if type(server_item) == int:
-            return get_call('{0}/id/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
+            return get_call('{__class__.__name__.lower()}/id/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
         else:
-            return get_call('{0}/name/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
+            return get_call('{__class__.__name__.lower()}/name/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
 
     @classmethod
     def getByGroup(cls, server_item, group_name):
         '''Return Advanced searches'''
         if type(server_item) == int:
-            return get_call('{0}/id/{1}/group/{2}'.format(__class__.__name__.lower(), server_item, group_name))
+            return get_call(f'{__class__.__name__.lower()}/id/{server_item}/group/{group_name}')
         else:
-            return get_call('{0}/name/{1}/group/{2}'.format(__class__.__name__.lower(), server_item, group_name))
+            return get_call(f'{__class__.__name__.lower()}/name/{server_item}/group/{group_name}')
 
     @classmethod
     def getUserByGroup(cls, server_item, group_name, user_name):
         '''Return Advanced searches'''
         if type(server_item) == int:
-            return get_call('{0}/id/{1}/group/{2}/user/{3}'.format(__class__.__name__.lower(), server_item, group_name, user_name))
+            return get_call(f'{__class__.__name__.lower()}/id/{server_item}/group/{group_name}/user/{user_name}')
         else:
-            return get_call('{0}/name/{1}/group/{2}/user/{3}'.format(__class__.__name__.lower(), server_item, group_name, user_name))
+            return get_call(f'{__class__.__name__.lower()}/name/{server_item}/group/{group_name}/user/{user_name}')
 
 
 class LicencedSoftware():
@@ -1382,35 +1380,35 @@ class LicencedSoftware():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class LogFlush():
@@ -1418,12 +1416,12 @@ class LogFlush():
     @classmethod
     def deleteAllPolicies(cls, interval):
         '''For interval the supported values are a combination of [Zero, One, Two, Three, Six] and [Days, Weeks, Months, Years].'''
-        return delete_call('{0}/policy/interval/{1}'.format(__class__.__name__.lower(), interval))
+        return delete_call(f'{__class__.__name__.lower()}/policy/interval/{interval}')
     
     @classmethod
     def deletePolicy(cls, id_item, interval):
         '''For interval the supported values are a combination of [Zero, One, Two, Three, Six] and [Days, Weeks, Months, Years].'''
-        return delete_call('{0}/policy/id/{1}/interval/{2}'.format(__class__.__name__.lower(), id_item, interval))
+        return delete_call(f'{__class__.__name__.lower()}/policy/id/{id_item}/interval/{interval}')
 
 
 class MacApplications():
@@ -1434,40 +1432,40 @@ class MacApplications():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
 
 class ManagedPreferenceProfiles():
@@ -1478,41 +1476,41 @@ class ManagedPreferenceProfiles():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
 
 class MobileDeviceApplications():
@@ -1523,70 +1521,70 @@ class MobileDeviceApplications():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name or bundleid'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
     @classmethod
     def getByBundleid(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/bundleid/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/bundleid/{id_item}')
 
     @classmethod
     def putByBundleid(cls, id_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/bundleid/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/bundleid/{id_item}', data)
 
     @classmethod
     def deleteByBundleid(cls, id_item):
         '''Return Advanced searches'''
-        return delete_call('{0}/bundleid/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/bundleid/{id_item}')
 
     @classmethod
     def getByBundleid_version(cls, id_item, version_item):
         '''Return Advanced searches'''
-        return get_call('{0}/bundleid/{1}/version/{2}'.format(__class__.__name__.lower(), id_item, version_item))
+        return get_call(f'{__class__.__name__.lower()}/bundleid/{id_item}/version/{version_item}')
 
     @classmethod
     def putByBundleid_version(cls, id_item, version_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/bundleid/{1}/version/{2}'.format(__class__.__name__.lower(), id_item, version_item), data)
+        return put_call(f'{__class__.__name__.lower()}/bundleid/{id_item}/version/{version_item}', data)
 
     @classmethod
     def deleteByBundleid_version(cls, id_item, version_item):
         '''Return Advanced searches'''
-        return delete_call('{0}/bundleid/{1}/version/{2}'.format(__class__.__name__.lower(), id_item, version_item))
+        return delete_call(f'{__class__.__name__.lower()}/bundleid/{id_item}/version/{version_item}')
 
 
 class MobileDeviceCommands():
@@ -1597,21 +1595,21 @@ class MobileDeviceCommands():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getByUdid(cls, udid):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid}')
 
     @classmethod
     def getByCommand(cls, command):
         '''Return Advanced searches'''
-        return get_call('{0}/command/{1}'.format(__class__.__name__.lower(), command))
+        return get_call(f'{__class__.__name__.lower()}/command/{command}')
 
 
 class MobileDeviceConfigurationProfiles():
@@ -1622,40 +1620,40 @@ class MobileDeviceConfigurationProfiles():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
 
 class MobileDeviceEnrollementProfiles():
@@ -1666,59 +1664,59 @@ class MobileDeviceEnrollementProfiles():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name or invitation'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
     @classmethod
     def getByInvitation(cls, invitation):
         '''Return Advanced searches'''
-        return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation))
+        return get_call(f'{__class__.__name__.lower()}/invitation/{invitation}')
 
     @classmethod
     def putByInvitation(cls, invitation, data):
         '''Return Advanced searches'''
-        return put_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation), data)
+        return put_call(f'{__class__.__name__.lower()}/invitation/{invitation}', data)
 
     @classmethod
     def postByInvitation(cls, invitation, data):
         '''Return Advanced searches'''
-        return post_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation), data)
+        return post_call(f'{__class__.__name__.lower()}/invitation/{invitation}', data)
 
     @classmethod
     def deleteInvitation(cls, invitation):
-        return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation))
+        return delete_call(f'{__class__.__name__.lower()}/invitation/{invitation}')
 
 
 class MobileDeviceExtensionAttributes():
@@ -1729,35 +1727,35 @@ class MobileDeviceExtensionAttributes():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class MobileDeviceGroups():
@@ -1768,35 +1766,35 @@ class MobileDeviceGroups():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class MobileDeviceHistory():
@@ -1804,32 +1802,32 @@ class MobileDeviceHistory():
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
         '''Return Advanced searches'''
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
 
     @classmethod
-    def getBySerial(cls, serial):
+    def getBySerial(cls, serial_item):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}')
 
     @classmethod
-    def getByMac(cls, mac_address):
+    def getByMac(cls, mac_item):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_address))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber/macaddress'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
 
 class MobileDeviceInvitations():
@@ -1840,36 +1838,36 @@ class MobileDeviceInvitations():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
     @classmethod
     def getByInvitation(cls, invitation_item):
-        return get_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
+        return get_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}')
 
     @classmethod
     def putByInvitation(cls, invitation_item, data):
-        return put_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item), data)
+        return put_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}', data)
     
     @classmethod
     def postByInvitation(cls, invitation_item, data):
-        return post_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item), data)
+        return post_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}', data)
 
     @classmethod
     def deleteByInvitation(cls, invitation_item):
-        return delete_call('{0}/invitation/{1}'.format(__class__.__name__.lower(), invitation_item))
+        return delete_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}')
 
 
 class MobileDeviceProvisionningProfiles():
@@ -1880,60 +1878,60 @@ class MobileDeviceProvisionningProfiles():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
     
     @classmethod
     def putByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
+        return put_call(f'{__class__.__name__.lower()}/udid/{udid_item}', data)
 
     @classmethod
     def postByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
-        return post_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
+        return post_call(f'{__class__.__name__.lower()}/udid/{udid_item}', data)
 
     @classmethod
     def deleteByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return delete_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
 
 class MobileDevices():
@@ -1944,100 +1942,100 @@ class MobileDevices():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
     
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
     @classmethod
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return get_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
 
     @classmethod
     def putByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
+        return put_call(f'{__class__.__name__.lower()}/udid/{udid_item}', data)
 
     @classmethod
     def postByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
-        return post_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item), data)
+        return post_call(f'{__class__.__name__.lower()}/udid/{udid_item}', data)
 
     @classmethod
     def deleteByUdid(cls, udid_item):
         '''Return Advanced searches'''
-        return delete_call('{0}/udid/{1}'.format(__class__.__name__.lower(), udid_item))
+        return delete_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
 
     @classmethod
     def getBySerial(cls, serial_item):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}')
 
     @classmethod
     def putBySerial(cls, serial_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item), data)
+        return put_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}', data)
 
     @classmethod
     def postBySerial(cls, serial_item, data):
         '''Return Advanced searches'''
-        return post_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item), data)
+        return post_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}', data)
 
     @classmethod
     def deleteBySerial(cls, serial_item):
         '''Return Advanced searches'''
-        return get_call('{0}/serialnumber/{1}'.format(__class__.__name__.lower(), serial_item))
+        return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}')
 
     @classmethod
     def getByMac(cls, mac_item):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}')
 
     @classmethod
     def putByMac(cls, mac_item, data):
         '''Return Advanced searches'''
-        return put_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item), data)
+        return put_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}', data)
 
     @classmethod
     def postByMac(cls, mac_item, data):
         '''Return Advanced searches'''
-        return post_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item), data)
+        return post_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}', data)
 
     @classmethod
     def deleteByMac(cls, mac_item):
         '''Return Advanced searches'''
-        return get_call('{0}/macaddress/{1}'.format(__class__.__name__.lower(), mac_item))
+        return get_call(f'{__class__.__name__.lower()}/macaddress/{mac_item}')
 
 
 class NetbootServers():
@@ -2048,35 +2046,35 @@ class NetbootServers():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class NetworkSegments():
@@ -2087,35 +2085,35 @@ class NetworkSegments():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class OsxConfigurationProfiles():
@@ -2126,40 +2124,40 @@ class OsxConfigurationProfiles():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
 
 class Packages():
@@ -2170,42 +2168,42 @@ class Packages():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class PatchAvailableTitles():
     
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/sourceid/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/sourceid/{id_item}')
 
 
 class PatchExternalSources():
@@ -2216,35 +2214,35 @@ class PatchExternalSources():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class PatchInternalSources():
@@ -2254,27 +2252,27 @@ class PatchInternalSources():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class PatchReports():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getByVersion(cls, item_type, item, version):
         '''Item_type could be id/name'''
-        return get_call('{0}/{1}/{2}/version/{3}'.format(__class__.__name__.lower(), item_type, item, version))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/version/{version}')
 
 
 class PatchSoftwareTitles():
@@ -2285,35 +2283,35 @@ class PatchSoftwareTitles():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class PatchPolicies():
@@ -2324,48 +2322,49 @@ class PatchPolicies():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def getSubset(cls, id_item, subset_items):
         '''Item_type could be id/name/'''
-        return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), id_item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}/subset/{subset_items}')
 
     @classmethod
     def getBySoftwareConfigId(cls, id_item):
-        return get_call('{0}/softwaretitleconfigid/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/softwaretitleconfigid/id/{id_item}')
 
     @classmethod
+    #ToCorrect. Needs Data Verify API
     def postBySoftwareConfigId(cls, id_item):
-        return get_call('{0}/softwaretitleconfigid/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/softwaretitleconfigid/id/{id_item}')
 
 
 class Peripherals():
@@ -2377,16 +2376,16 @@ class Peripherals():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getSubset(cls, id_item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
-        return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), id_item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}/subset/{subset_items}')
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
 class PeripheralsTypes():
@@ -2398,19 +2397,19 @@ class PeripheralsTypes():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
 class Policies():
@@ -2421,7 +2420,7 @@ class Policies():
 
     @classmethod
     def getById(cls, id_item):
-        response = get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        response = get_call(f'{__class__.__name__.lower()}/id/{id_item}')
         if type(response) == int:
             return response
         else:
@@ -2429,19 +2428,19 @@ class Policies():
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        response = get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        response = get_call(f'{__class__.__name__.lower()}/name/{name_item}')
         if type(response) == int:
             return response
         else:
@@ -2449,28 +2448,28 @@ class Policies():
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
         
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name'''
-        return get_call('{0}/{1}/{2}/subset/{3}'.format(__class__.__name__.lower(), item_type, item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
 
     @classmethod
     def getByCategory(cls, category):
-        return get_call('{0}/category/{1}'.format(__class__.__name__.lower(), category))
+        return get_call(f'{__class__.__name__.lower()}/category/{category}')
 
     @classmethod
     def getByCreator(cls, creator_name):
-        return get_call('{0}/createdBy/{1}'.format(__class__.__name__.lower(), creator_name))
+        return get_call(f'{__class__.__name__.lower()}/createdBy/{creator_name}')
 
 class Policy:
 
@@ -2925,56 +2924,56 @@ class Policy:
         tuple(map(lambda x: self.computers.append(self._create_tag('computer', x)), arg_tuple))
 
     def removeComputers(self, *args):
-        list(map(lambda x: self.computers.find(string=x).find_parent('computer').decompose(), args))
+        tuple(map(lambda x: self.computers.find(string=x).find_parent('computer').decompose(), args))
 
     def addComputersGroups(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.computergroups.find(string=x), args))
-        list(map(lambda x: self.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
+        tuple(map(lambda x: self.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
 
     def removeComputersGroups(self, *args):
-        list(map(lambda x: self.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
+        tuple(map(lambda x: self.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
 
     def addBuildings(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.buildings.find(string=x), args))
-        list(map(lambda x: self.buildings.append(self._create_tag('building', x)), arg_tuple))
+        tuple(map(lambda x: self.buildings.append(self._create_tag('building', x)), arg_tuple))
 
     def removeBuildings(self, *args):
-        list(map(lambda x: self.buildings.find(string=x).find_parent('building').decompose(), args))
+        tuple(map(lambda x: self.buildings.find(string=x).find_parent('building').decompose(), args))
 
     def addDepartments(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.departments.find(string=x), args))
-        list(map(lambda x: self.departments.append(self._create_tag('department', x)), arg_tuple))
+        tuple(map(lambda x: self.departments.append(self._create_tag('department', x)), arg_tuple))
 
     def removeDepartments(self, *args):
-        list(map(lambda x: self.buildings.find(string=x).find_parent('department').decompose(), args))
+        tuple(map(lambda x: self.buildings.find(string=x).find_parent('department').decompose(), args))
 
     def excludeComputers(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.exclusions.computers.find(string=x), args))
-        list(map(lambda x: self.exclusions.computers.append(self._create_tag('computer', x)), arg_tuple))
+        tuple(map(lambda x: self.exclusions.computers.append(self._create_tag('computer', x)), arg_tuple))
 
     def removeExcludedComputers(self, *args):
-        list(map(lambda x: self.exclusions.computers.find(string=x).find_parent('computer').decompose(), args))
+        tuple(map(lambda x: self.exclusions.computers.find(string=x).find_parent('computer').decompose(), args))
     
     def excludeComputersGroups(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.exclusions.computergroups.find(string=x), args))
-        list(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
+        tuple(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
 
     def removeExcludedComputersGroups(self, *args):
-        list(map(lambda x: self.exclusions.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
+        tuple(map(lambda x: self.exclusions.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
 
     def excludeBuildings(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.exclusions.buildings.find(string=x), args))
-        list(map(lambda x: self.exclusions.buildings.append(self._create_tag('building', x)), arg_tuple))
+        tuple(map(lambda x: self.exclusions.buildings.append(self._create_tag('building', x)), arg_tuple))
 
     def removeExcludedBuildings(self, *args):
-        list(map(lambda x: self.exclusions.buildings.find(string=x).find_parent('building').decompose(), args))
+        tuple(map(lambda x: self.exclusions.buildings.find(string=x).find_parent('building').decompose(), args))
 
     def excludeDepartments(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.exclusions.departments.find(string=x), args))
-        list(map(lambda x: self.exclusions.departments.append(self._create_tag('department', x)), arg_tuple))
+        tuple(map(lambda x: self.exclusions.departments.append(self._create_tag('department', x)), arg_tuple))
 
     def removeExcludedDepartments(self, *args):
-        list(map(lambda x: self.exclusions.departments.find(string=x).find_parent('department').decompose(), args))
+        tuple(map(lambda x: self.exclusions.departments.find(string=x).find_parent('department').decompose(), args))
     
     def clear_scope(self):
         #To correct
@@ -2984,31 +2983,31 @@ class Policy:
         [ self.scripts.append(self._create_secondary_tag( 'script', 'priority', x,y)) for x, y in kwargs.items() ]
 
     def removeScripts(self, *args):
-        list(map(lambda x: self.scripts.find(string=x).find_parent('script').decompose(), args))
+        tuple(map(lambda x: self.scripts.find(string=x).find_parent('script').decompose(), args))
     
     def addPackages(self, **kwargs):
         [ self.packages.append(self._create_secondary_tag( 'package', 'action', x,y)) for x, y in kwargs.items() ]
 
     def removePackages(self, *args):
-        list(map(lambda x: self.scripts.find(string=x).find_parent('package').decompose(), args))
+        tuple(map(lambda x: self.scripts.find(string=x).find_parent('package').decompose(), args))
 
     def mapPrinters(self, *args): 
         arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), args))
-        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'install', x)), arg_tuple))
+        tuple(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'install', x)), arg_tuple))
 
     def unmapPrinters(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), args))
-        list(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'uninstall', x)), arg_tuple))
+        tuple(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'uninstall', x)), arg_tuple))
 
     def removePrinters(self, *args):
-        list(map(lambda x: self.printers.find(string=x).find_parent('printer').decompose(), args))
+        tuple(map(lambda x: self.printers.find(string=x).find_parent('printer').decompose(), args))
     
     def addBinding(self, *args):
         arg_tuple = tuple(filter(lambda x: not self.bindings.find(string=x), args))
-        list(map(lambda x: self.bindings.append(self._create_tag('binding', x)), arg_tuple))
+        tuple(map(lambda x: self.bindings.append(self._create_tag('binding', x)), arg_tuple))
 
     def removeBindings(self, *args):
-        list(map(lambda x: self.bindings.find(string=x).find_parent('binding').decompose(), args))
+        tuple(map(lambda x: self.bindings.find(string=x).find_parent('binding').decompose(), args))
 
     def update(self):
         return Policies.putById(str(self.id), str(self.data))
@@ -3025,35 +3024,35 @@ class Printers():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class RemovableMacAddresses():
@@ -3064,35 +3063,35 @@ class RemovableMacAddresses():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class RestrictedSoftware():
@@ -3103,35 +3102,35 @@ class RestrictedSoftware():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class Scripts():
@@ -3142,35 +3141,35 @@ class Scripts():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class Sites():
@@ -3181,35 +3180,35 @@ class Sites():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class SmtpServer():
@@ -3233,35 +3232,35 @@ class SoftwareUpdateServers():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class UserExtensionAttributes():
@@ -3272,35 +3271,35 @@ class UserExtensionAttributes():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class UserGroups():
@@ -3311,35 +3310,35 @@ class UserGroups():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
 
 class Users():
@@ -3350,39 +3349,39 @@ class Users():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
     
     @classmethod
     def getByEmail(cls, email):
-        return get_call('{0}/email/{1}'.format(__class__.__name__.lower(), email))
+        return get_call(f'{__class__.__name__.lower()}/email/{email}')
 
 
 class VppAccounts():
@@ -3393,19 +3392,19 @@ class VppAccounts():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
 class VppAssignments():
@@ -3416,19 +3415,19 @@ class VppAssignments():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
 
 class VppInvitations():
@@ -3439,23 +3438,23 @@ class VppInvitations():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getSubset(cls, item, subset_items):
-        return get_call('{0}/id/{1}/subset/{2}'.format(__class__.__name__.lower(), item, subset_items))
+        return get_call(f'{__class__.__name__.lower()}/id/{item}/subset/{subset_items}')
 
 
 class Webhooks():
@@ -3466,32 +3465,32 @@ class Webhooks():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def putById(cls, id_item, data):
-        return put_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def postById(cls, id_item, data):
-        return post_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item), data)
+        return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
 
     @classmethod
     def deleteById(cls, id_item):
-        return delete_call('{0}/id/{1}'.format(__class__.__name__.lower(), id_item))
+        return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
 
     @classmethod
     def putByName(cls, name_item, data):
-        return put_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return put_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def postByName(cls, name_item, data):
-        return post_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item), data)
+        return post_call(f'{__class__.__name__.lower()}/name/{name_item}', data)
 
     @classmethod
     def deleteByName(cls, name_item):
-        return delete_call('{0}/name/{1}'.format(__class__.__name__.lower(), name_item))
+        return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
