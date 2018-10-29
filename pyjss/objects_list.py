@@ -1,5 +1,6 @@
 from pyjss.api_calls import delete_call, get_call, post_call, put_call
 from pyjss.templates import default_policy_template, default_scope_template
+from bs4 import BeautifulSoup as soup
 
 
 class Accounts():
@@ -1521,7 +1522,11 @@ class MobileDeviceApplications():
 
     @classmethod
     def getById(cls, id_item):
-        return get_call(f'{__class__.__name__.lower()}/id/{id_item}')
+        response = get_call(f'{__class__.__name__.lower()}/id/{id_item}')
+        if type(response) == int:
+            return response
+        else:
+            return MobileApplication(response)
 
     @classmethod
     def putById(cls, id_item, data):
@@ -1537,7 +1542,12 @@ class MobileDeviceApplications():
 
     @classmethod
     def getByName(cls, name_item):
-        return get_call(f'{__class__.__name__.lower()}/name/{name_item}')
+        response = get_call(f'{__class__.__name__.lower()}/name/{name_item}')
+        if type(response) == int:
+            return response
+        else:
+            print(type(response))
+            return MobileApplication(response)
 
     @classmethod
     def putByName(cls, name_item, data):
@@ -1585,6 +1595,155 @@ class MobileDeviceApplications():
     def deleteByBundleid_version(cls, id_item, version_item):
         '''Return Advanced searches'''
         return delete_call(f'{__class__.__name__.lower()}/bundleid/{id_item}/version/{version_item}')
+
+class MobileApplication:
+
+    def __init__(self,xml_data):
+        self.data = xml_data
+        self._id = xml_data.mobile_device_application.general.find('id', recursive=False)
+        self._name = xml_data.mobile_device_application.general.find('name', recursive=False)
+        self._site = xml_data.mobile_device_application.general.find('site',recursive=False)
+        self._enabled = xml_data.mobile_device_application.general.find('enabled', recursive=False)
+        self._version = xml_data.mobile_device_application.general.version
+        self._free = xml_data.mobile_device_application.general.free
+        self._bundle_id = xml_data.mobile_device_application.general.bundle_id
+        self._itunes_store_url = xml_data.mobile_device_application.general.itunes_store_url
+        self._category = xml_data.mobile_device_application.general.category
+        #Properties to do
+        self._make_available_after_install = xml_data.mobile_device_application.general.make_available_after_install
+        self._itunes_country_region = xml_data.mobile_device_application.general.itunes_country_region
+        self._itunes_sync_time = xml_data.mobile_device_application.general.itunes_sync_time
+        self._deployment_type = xml_data.mobile_device_application.general.deployment_type
+        self._deploy_automatically = xml_data.mobile_device_application.general.deploy_automatically
+        self._deploy_as_managed_app = xml_data.mobile_device_application.general.deploy_as_managed_app
+        self._remove_app_when_mdm_profile_is_removed = xml_data.mobile_device_application.general.remove_app_when_mdm_profile_is_removed
+        self._prevent_backup_of_app_data = xml_data.mobile_device_application.general.prevent_backup_of_app_data
+        self._keep_description_and_icon_up_to_date = xml_data.mobile_device_application.general.keep_description_and_icon_up_to_date
+        self._keep_app_updated_on_devices =  xml_data.mobile_device_application.general.keep_app_updated_on_devices
+        self._take_over_management = xml_data.mobile_device_application.general.take_over_management
+        self._host_externally = xml_data.mobile_device_application.general.host_externally
+        self._external_url = xml_data.mobile_device_application.general.external_url
+        self._self_service = xml_data.mobile_device_application.self_service
+        self._self_service_description = xml_data.mobile_device_application.self_service.self_service_description
+        self._feature_on_main_page = xml_data.mobile_device_application.self_service.feature_on_main_page
+        self._self_service_categories = xml_data.mobile_device_application.self_service.self_service_categories
+        self._notification = xml_data.mobile_device_application.self_service.notification
+        self._notification_subject =  xml_data.mobile_device_application.self_service.notification_subject
+        self._notification_message = xml_data.mobile_device_application.self_service.notification_message
+        self._vpp = xml_data.mobile_device_application.vpp
+        
+
+    def __repr__(self):
+        return str(self.data.prettify())
+
+    @property
+    def name(self):
+        return self._name.string
+
+    @name.setter
+    def name(self, value):
+        self._name.string = value
+
+    @property
+    def id(self):
+        return self._id.string
+
+    @id.setter
+    def id(self, value):
+        self._id.string = str(value)
+    
+    @property
+    def enabled(self):
+        return self._enabled.string
+
+    @enabled.setter
+    def enabled(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._enabled.string = value
+
+    @property
+    def category(self):
+        return self._category
+
+    @category.setter
+    def category(self, value):
+        if type(value) == int:
+            self._category.find('id').string = str(value)
+            self._category.find('name').decompose()
+        elif type(value) == str:
+            try:
+                self._category.find('name').string = value
+            except AttributeError:
+                new_tag = self.data.new_tag('name')
+                new_tag.string = value
+                self._category.append(new_tag)
+
+    @category.deleter
+    def category(self):
+        self._category.find('id').string = '-1'
+        self._category.find('name').string = 'None'
+
+    @property
+    def site(self):
+        return self._site
+
+    @site.setter
+    def site(self, value):
+        if type(value) == int:
+            print('test')
+            self._site.find('id').string = str(value)
+            self._site.find('name').decompose()
+        elif type(value) == str:
+            try:
+                self._site.find('name').string = value
+            except AttributeError:
+                new_tag = self.data.new_tag('name')
+                new_tag.string = value
+                self._site.append(new_tag)
+
+    @site.deleter
+    def site(self):
+        self._site.find('id').string = '-1'
+        self._site.find('name').string = 'None'
+
+    @property
+    def free(self):
+        return self._free.string
+
+    @free.setter
+    def free(self, value):
+        value = value.lower()
+        if value not in ['true', 'false']:
+            raise ValueError
+        else:
+            self._free.string = value
+
+    @property
+    def version(self):
+        return self._version.string
+
+    @version.setter
+    def version(self, value):
+        self._version.string = str(value)
+
+    @property
+    def bundle_id(self):
+        return self._bundle_id.string
+
+    @bundle_id.setter
+    def bundle_id(self, value):
+        self._bundle_id.string = str(value)
+
+    @property
+    def itunes_store_url(self):
+        return self._itunes_store_url.string
+
+    @itunes_store_url.setter
+    def itunes_store_url(self, value):
+        self._itunes_store_url.string = str(value)
 
 
 class MobileDeviceCommands():
@@ -2919,95 +3078,100 @@ class Policy:
         new_data_type.append(new_secondary_tag)
         return new_data_type
 
-    def addComputers(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.computers.find(string=x), args))
+    def addComputers(self, *computers):
+        arg_tuple = tuple(filter(lambda x: not self.computers.find(string=x), computers))
         tuple(map(lambda x: self.computers.append(self._create_tag('computer', x)), arg_tuple))
 
-    def removeComputers(self, *args):
-        tuple(map(lambda x: self.computers.find(string=x).find_parent('computer').decompose(), args))
+    def removeComputers(self, *computers):
+        tuple(map(lambda x: self.computers.find(string=x).find_parent('computer').decompose(), computers))
 
-    def addComputersGroups(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.computergroups.find(string=x), args))
+    def addComputersGroups(self, *computersgroups):
+        arg_tuple = tuple(filter(lambda x: not self.computergroups.find(string=x), computersgroups))
         tuple(map(lambda x: self.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
 
-    def removeComputersGroups(self, *args):
-        tuple(map(lambda x: self.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
+    def removeComputersGroups(self, *computersgroups):
+        tuple(map(lambda x: self.computergroups.find(string=x).find_parent('computer_group').decompose(), computersgroups))
 
-    def addBuildings(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.buildings.find(string=x), args))
+    def addBuildings(self, *buildings):
+        arg_tuple = tuple(filter(lambda x: not self.buildings.find(string=x), buildings))
         tuple(map(lambda x: self.buildings.append(self._create_tag('building', x)), arg_tuple))
 
-    def removeBuildings(self, *args):
-        tuple(map(lambda x: self.buildings.find(string=x).find_parent('building').decompose(), args))
+    def removeBuildings(self, *buildings):
+        tuple(map(lambda x: self.buildings.find(string=x).find_parent('building').decompose(), buildings))
 
-    def addDepartments(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.departments.find(string=x), args))
+    def addDepartments(self, *departments):
+        arg_tuple = tuple(filter(lambda x: not self.departments.find(string=x), departments))
         tuple(map(lambda x: self.departments.append(self._create_tag('department', x)), arg_tuple))
 
-    def removeDepartments(self, *args):
-        tuple(map(lambda x: self.buildings.find(string=x).find_parent('department').decompose(), args))
+    def removeDepartments(self, *departments):
+        tuple(map(lambda x: self.buildings.find(string=x).find_parent('department').decompose(), departments))
 
-    def excludeComputers(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.exclusions.computers.find(string=x), args))
+    def excludeComputers(self, *computers):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.computers.find(string=x), computers))
         tuple(map(lambda x: self.exclusions.computers.append(self._create_tag('computer', x)), arg_tuple))
 
-    def removeExcludedComputers(self, *args):
-        tuple(map(lambda x: self.exclusions.computers.find(string=x).find_parent('computer').decompose(), args))
+    def removeExcludedComputers(self, *computers):
+        tuple(map(lambda x: self.exclusions.computers.find(string=x).find_parent('computer').decompose(), computers))
     
-    def excludeComputersGroups(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.exclusions.computergroups.find(string=x), args))
+    def excludeComputersGroups(self, *computersgroups):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.computergroups.find(string=x), computersgroups))
         tuple(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
 
-    def removeExcludedComputersGroups(self, *args):
-        tuple(map(lambda x: self.exclusions.computergroups.find(string=x).find_parent('computer_group').decompose(), args))
+    def removeExcludedComputersGroups(self, *computersgroups):
+        tuple(map(lambda x: self.exclusions.computergroups.find(string=x).find_parent('computer_group').decompose(), computersgroups))
 
-    def excludeBuildings(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.exclusions.buildings.find(string=x), args))
+    def excludeBuildings(self, *buildings):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.buildings.find(string=x), buildings))
         tuple(map(lambda x: self.exclusions.buildings.append(self._create_tag('building', x)), arg_tuple))
 
-    def removeExcludedBuildings(self, *args):
-        tuple(map(lambda x: self.exclusions.buildings.find(string=x).find_parent('building').decompose(), args))
+    def removeExcludedBuildings(self, *buildings):
+        tuple(map(lambda x: self.exclusions.buildings.find(string=x).find_parent('building').decompose(), buildings))
 
-    def excludeDepartments(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.exclusions.departments.find(string=x), args))
+    def excludeDepartments(self, *departments):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.departments.find(string=x), departments))
         tuple(map(lambda x: self.exclusions.departments.append(self._create_tag('department', x)), arg_tuple))
 
     def removeExcludedDepartments(self, *args):
         tuple(map(lambda x: self.exclusions.departments.find(string=x).find_parent('department').decompose(), args))
     
-    def clear_scope(self):
-        #To correct
-        return self.data.find('scope').replace_with(default_scope_template)
+    # def clear_scope(self):
+    #     #To correct
+    #     self.data.scope.clear()
+    #     default_scope = soup(default_scope_template, 'xml')
+    #     self.data.scope.append(default_scope)
+
     
-    def addScripts(self, **kwargs):
-        [ self.scripts.append(self._create_secondary_tag( 'script', 'priority', x,y)) for x, y in kwargs.items() ]
+    def addScripts(self, script=None, priority=None):
+        # [ self.scripts.append(self._create_secondary_tag( 'script', 'priority', x,y)) for x, y in scripts.items() ]
+        self.scripts.append(self._create_secondary_tag( 'script', 'priority', script, priority))
 
-    def removeScripts(self, *args):
-        tuple(map(lambda x: self.scripts.find(string=x).find_parent('script').decompose(), args))
+    def removeScripts(self, *scripts):
+        tuple(map(lambda x: self.scripts.find(string=x).find_parent('script').decompose(), scripts))
     
-    def addPackages(self, **kwargs):
-        [ self.packages.append(self._create_secondary_tag( 'package', 'action', x,y)) for x, y in kwargs.items() ]
+    def addPackages(self, package=None, action=None):
+        # [ self.packages.append(self._create_secondary_tag( 'package', 'action', x,y)) for x, y in packages.items() ]
+        self.packages.append(self._create_secondary_tag( 'package', 'action', package, action))
 
-    def removePackages(self, *args):
-        tuple(map(lambda x: self.scripts.find(string=x).find_parent('package').decompose(), args))
+    def removePackages(self, *packages):
+        tuple(map(lambda x: self.scripts.find(string=x).find_parent('package').decompose(), packages))
 
-    def mapPrinters(self, *args): 
-        arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), args))
+    def mapPrinters(self, *printers): 
+        arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), printers))
         tuple(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'install', x)), arg_tuple))
 
-    def unmapPrinters(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), args))
+    def unmapPrinters(self, *printers):
+        arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), printers))
         tuple(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'uninstall', x)), arg_tuple))
 
-    def removePrinters(self, *args):
-        tuple(map(lambda x: self.printers.find(string=x).find_parent('printer').decompose(), args))
+    def removePrinters(self, *printers):
+        tuple(map(lambda x: self.printers.find(string=x).find_parent('printer').decompose(), printers))
     
-    def addBinding(self, *args):
-        arg_tuple = tuple(filter(lambda x: not self.bindings.find(string=x), args))
+    def addBinding(self, *bindings):
+        arg_tuple = tuple(filter(lambda x: not self.bindings.find(string=x), bindings))
         tuple(map(lambda x: self.bindings.append(self._create_tag('binding', x)), arg_tuple))
 
-    def removeBindings(self, *args):
-        tuple(map(lambda x: self.bindings.find(string=x).find_parent('binding').decompose(), args))
+    def removeBindings(self, *bindings):
+        tuple(map(lambda x: self.bindings.find(string=x).find_parent('binding').decompose(), bindings))
 
     def update(self):
         return Policies.putById(str(self.id), str(self.data))
