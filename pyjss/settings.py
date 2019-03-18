@@ -38,7 +38,7 @@ def get_credentials(url, username):
         print(e)
         raise
     else:
-        if password != None:
+        if password is not None:
             print('A password has been successully retrieved')
             return Credentials(url, username, password)
         else:

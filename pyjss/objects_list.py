@@ -1,10 +1,10 @@
-from pyjss.api_calls import delete_call, get_call, post_call, put_call
+from pyjss.api_calls import fetch, delete_call, get_call, post_call, put_call
 from pyjss.templates import default_policy_template, default_scope_template
 from bs4 import BeautifulSoup as soup
 
 
 class Accounts():
-    
+
     @classmethod
     def get(cls):
         '''Return list of accounts'''
@@ -24,12 +24,12 @@ class Accounts():
 
     @classmethod
     def deleteBUserId(cls, useriD):
-        return delete_call(f'{__class__.__name__.lower()}/userid/{useriD}') 
+        return delete_call(f'{__class__.__name__.lower()}/userid/{useriD}')
 
     @classmethod
     def getByUserName(cls, userName):
         return get_call(f'{__class__.__name__.lower()}/username/{userName}')
-    
+
     @classmethod
     def putByUserName(cls, userName, payload):
         return put_call(f'{__class__.__name__.lower()}/username/{userName}', payload)
@@ -45,11 +45,11 @@ class Accounts():
     @classmethod
     def getByGroupId(cls, groupID):
         return get_call(f'{__class__.__name__.lower()}/groupid/{groupID}')
-    
+
     @classmethod
     def putByGroupId(cls, groupID, payload):
         return put_call(f'{__class__.__name__.lower()}/groupid/{groupID}', payload)
-    
+
     @classmethod
     def postByGroupId(cls, groupID, payload):
         return post_call(f'{__class__.__name__.lower()}/groupid/{groupID}', payload)
@@ -61,7 +61,7 @@ class Accounts():
     @classmethod
     def getByGroupName(cls, groupName):
         return get_call(f'{__class__.__name__.lower()}/groupname/{groupName}')
-    
+
     @classmethod
     def putByGroupName(cls, groupName, payload):
         return put_call(f'{__class__.__name__.lower()}/groupname/{groupName}', payload)
@@ -81,7 +81,7 @@ class ActivationCode():
     def get(cls):
         '''Return Activation Code'''
         return get_call(__class__.__name__.lower())
-    
+
     @classmethod
     def put(cls, activation_code):
         '''Return Activation Code'''
@@ -226,11 +226,11 @@ class AllowedFileExtension():
     @classmethod
     def deleteById(cls, id_item):
         return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
-    
+
     @classmethod
     def getByExtension(cls, extension):
         return get_call(f'{__class__.__name__.lower()}/extension/{extension}')
-    
+
     @classmethod
     def putByExtension(cls, id_item, data):
         return put_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
@@ -300,7 +300,7 @@ class ByoProfiles():
     @classmethod
     def postById(cls, id_item, data):
         return post_call(f'{__class__.__name__.lower()}/id/{id_item}', data)
-    
+
     @classmethod
     def deleteById(cls, id_item):
         return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
@@ -428,7 +428,7 @@ class CommandFlush():
 
 
 class ComputerApplications():
-    
+
     @classmethod
     def getApp(cls, application):
         '''Return Advanced searches'''
@@ -464,7 +464,7 @@ class ComputerApplicationUsage():
     def getByUdid(cls, udid_item, start_date, en_date):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}/{start_date}_{en_date}')
-    
+
     @classmethod
     def getBySerial(cls, serial_item, start_date, en_date):
         '''Return Advanced searches'''
@@ -630,7 +630,7 @@ class ComputerGroups():
 
 
 class ComputerHardwareSoftwareReports():
-    
+
     @classmethod
     def getById(cls, id_item, start_date, en_date):
         '''Return Advanced searches'''
@@ -650,7 +650,7 @@ class ComputerHardwareSoftwareReports():
     def getByUdid(cls, udid_item, start_date, en_date):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}/{start_date}_{en_date}')
-    
+
     @classmethod
     def getBySerial(cls, serial_item, start_date, en_date):
         '''Return Advanced searches'''
@@ -663,7 +663,7 @@ class ComputerHardwareSoftwareReports():
 
 
 class ComputerHistory():
-    
+
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
@@ -683,12 +683,12 @@ class ComputerHistory():
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}'.format(__class__.__name__.lower(), udid_item))
-    
+
     @classmethod
     def getBySerial(cls, serial_item):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial_item}')
-    
+
     @classmethod
     def getByMac(cls, mac_item):
         '''Return Advanced searches'''
@@ -741,7 +741,7 @@ class ComputerInvitations():
     @classmethod
     def getByInvitation(cls, invitation_item):
         return get_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}')
-    
+
     @classmethod
     def postByInvitation(cls, invitation_item, data):
         return post_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}', data)
@@ -752,7 +752,7 @@ class ComputerInvitations():
 
 
 class ComputerManagement():
-   
+
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
@@ -762,7 +762,7 @@ class ComputerManagement():
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
         return get_call(f'{__class__.__name__.lower()}/{item_type}/{item}/subset/{subset_items}')
-    
+
     @classmethod
     def getByIdUsername(cls, id_item, username):
         '''Return Advanced searches'''
@@ -772,7 +772,7 @@ class ComputerManagement():
     def getByIdPatchFilter(cls, id_item, filter_item):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/id/{id_item}/patchfilter/{filter_item}/')
-    
+
     @classmethod
     def getSubsetByUsername(cls, username, item_types, item, subset_items):
         '''Return Advanced searches'''
@@ -787,12 +787,12 @@ class ComputerManagement():
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
-    
+
     @classmethod
     def getBySerial(cls, serial):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/serialnumber/{serial}')
-    
+
     @classmethod
     def getByMac(cls, mac_address):
         '''Return Advanced searches'''
@@ -814,7 +814,7 @@ class ComputerReports():
 
 
 class Computers():
-    
+
     @classmethod
     def getListID(cls):
         '''Return list of accounts'''
@@ -823,10 +823,9 @@ class Computers():
         for computer in data['computers']:
             computer_list.append(computer['id'])
         return computer_list
-    
+
     @classmethod
     def get(cls):
-        # type: () -> object
         return get_call(__class__.__name__.lower())
 
     @classmethod
@@ -860,7 +859,7 @@ class Computers():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
-    
+
     @classmethod
     def getMoreInfo(cls):
         '''Return Advanced searches'''
@@ -943,10 +942,10 @@ class Computers():
 
 
 class Departments():
-
+    """Test"""
     @classmethod
     def get(cls):
-        return get_call(__class__.__name__.lower())
+        return fetch('get', [__class__.__name__.lower()])
 
     @classmethod
     def getById(cls, id_item):
@@ -1138,7 +1137,7 @@ class DockItems():
 
 
 class Ebooks():
-    
+
     @classmethod
     def get(cls):
         return get_call(__class__.__name__.lower())
@@ -1217,7 +1216,7 @@ class HealthCareListener():
 
 
 class HealthCareListenerRule():
-    
+
     @classmethod
     def get(cls):
         '''Return Advanced searches'''
@@ -1352,9 +1351,9 @@ class LdapServers():
     def getUser(cls, server_item, user_name):
         '''Return Advanced searches'''
         if type(server_item) == int:
-            return get_call('{__class__.__name__.lower()}/id/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
+            return get_call(f'{__class__.__name__.lower()}/id/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
         else:
-            return get_call('{__class__.__name__.lower()}/name/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
+            return get_call(f'{__class__.__name__.lower()}/name/{1}/user/{2}'.format(__class__.__name__.lower(), server_item, user_name))
 
     @classmethod
     def getByGroup(cls, server_item, group_name):
@@ -1418,7 +1417,7 @@ class LogFlush():
     def deleteAllPolicies(cls, interval):
         '''For interval the supported values are a combination of [Zero, One, Two, Three, Six] and [Days, Weeks, Months, Years].'''
         return delete_call(f'{__class__.__name__.lower()}/policy/interval/{interval}')
-    
+
     @classmethod
     def deletePolicy(cls, id_item, interval):
         '''For interval the supported values are a combination of [Zero, One, Two, Three, Six] and [Days, Weeks, Months, Years].'''
@@ -1506,7 +1505,6 @@ class ManagedPreferenceProfiles():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
-
 
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
@@ -1596,20 +1594,20 @@ class MobileDeviceApplications():
         '''Return Advanced searches'''
         return delete_call(f'{__class__.__name__.lower()}/bundleid/{id_item}/version/{version_item}')
 
+
 class MobileApplication:
 
-    def __init__(self,xml_data):
+    def __init__(self, xml_data):
         self.data = xml_data
         self._id = xml_data.mobile_device_application.general.find('id', recursive=False)
         self._name = xml_data.mobile_device_application.general.find('name', recursive=False)
-        self._site = xml_data.mobile_device_application.general.find('site',recursive=False)
+        self._site = xml_data.mobile_device_application.general.find('site', recursive=False)
         self._enabled = xml_data.mobile_device_application.general.find('enabled', recursive=False)
         self._version = xml_data.mobile_device_application.general.version
         self._free = xml_data.mobile_device_application.general.free
         self._bundle_id = xml_data.mobile_device_application.general.bundle_id
         self._itunes_store_url = xml_data.mobile_device_application.general.itunes_store_url
         self._category = xml_data.mobile_device_application.general.category
-        #Properties to do
         self._make_available_after_install = xml_data.mobile_device_application.general.make_available_after_install
         self._itunes_country_region = xml_data.mobile_device_application.general.itunes_country_region
         self._itunes_sync_time = xml_data.mobile_device_application.general.itunes_sync_time
@@ -1619,7 +1617,7 @@ class MobileApplication:
         self._remove_app_when_mdm_profile_is_removed = xml_data.mobile_device_application.general.remove_app_when_mdm_profile_is_removed
         self._prevent_backup_of_app_data = xml_data.mobile_device_application.general.prevent_backup_of_app_data
         self._keep_description_and_icon_up_to_date = xml_data.mobile_device_application.general.keep_description_and_icon_up_to_date
-        self._keep_app_updated_on_devices =  xml_data.mobile_device_application.general.keep_app_updated_on_devices
+        self._keep_app_updated_on_devices = xml_data.mobile_device_application.general.keep_app_updated_on_devices
         self._take_over_management = xml_data.mobile_device_application.general.take_over_management
         self._host_externally = xml_data.mobile_device_application.general.host_externally
         self._external_url = xml_data.mobile_device_application.general.external_url
@@ -1628,10 +1626,31 @@ class MobileApplication:
         self._feature_on_main_page = xml_data.mobile_device_application.self_service.feature_on_main_page
         self._self_service_categories = xml_data.mobile_device_application.self_service.self_service_categories
         self._notification = xml_data.mobile_device_application.self_service.notification
-        self._notification_subject =  xml_data.mobile_device_application.self_service.notification_subject
+        self._notification_subject = xml_data.mobile_device_application.self_service.notification_subject
         self._notification_message = xml_data.mobile_device_application.self_service.notification_message
         self._vpp = xml_data.mobile_device_application.vpp
-        
+        self._assign_vpp_device_based_licenses = xml_data.mobile_device_application.vpp.assign_vpp_device_based_licenses
+        self._vpp_admin_account_id = xml_data.mobile_device_application.vpp.vpp_admin_account_id
+        self.scope = xml_data.policy.scope
+        self.allcomputers = xml_data.policy.scope.all_computers
+        self.computers = xml_data.policy.scope.computers
+        self.computergroups = xml_data.policy.scope.computer_groups
+        self.buildings = xml_data.policy.scope.buildings
+        self.departments = xml_data.policy.scope.departments
+        self.limitations = xml_data.policy.scope.limitations
+        self.limitations_users = xml_data.policy.scope.limitations.users
+        self.limitations_usergroups = xml_data.policy.scope.limitations.user_groups
+        self.limitations.networksegments = xml_data.policy.scope.limitations.network_segments
+        self.limitations.ibeacons = xml_data.policy.scope.limitations.ibeacons
+        self.exclusions = xml_data.policy.scope.exclusions
+        self.exclusions.computers = xml_data.policy.scope.exclusions.computers
+        self.exclusions.computergroups = xml_data.policy.scope.exclusions.computer_groups
+        self.exclusions.buildings = xml_data.policy.scope.exclusions.buildings
+        self.exclusions.departments = xml_data.policy.scope.exclusions.departments
+        self.exclusions.users = xml_data.policy.scope.exclusions.users
+        self.exclusions.user_groups = xml_data.policy.scope.exclusions.user_groups
+        self.exclusions.network_segments = xml_data.policy.scope.exclusions.network_segments
+        self.exclusions.ibeacons = xml_data.policy.scope.exclusions.ibeacons
 
     def __repr__(self):
         return str(self.data.prettify())
@@ -1651,7 +1670,7 @@ class MobileApplication:
     @id.setter
     def id(self, value):
         self._id.string = str(value)
-    
+
     @property
     def enabled(self):
         return self._enabled.string
@@ -1745,6 +1764,91 @@ class MobileApplication:
     def itunes_store_url(self, value):
         self._itunes_store_url.string = str(value)
 
+    def _create_tag(self, tag_name, arg):
+        new_data_type = self.data.new_tag(tag_name)
+        if type(arg) == int:
+            new_sub_tag = self.data.new_tag('id')
+        elif type(arg) == str:
+            new_sub_tag = self.data.new_tag('name')
+        new_sub_tag.string = str(arg)
+        new_data_type.append(new_sub_tag)
+        return new_data_type
+
+    def _create_secondary_tag(self, tag_name, secondary_tag, secondary_arg, item):
+        new_data_type = self.data.new_tag(tag_name)
+        new_secondary_tag = self.data.new_tag(secondary_tag)
+        if type(item) == int:
+            new_sub_tag = self.data.new_tag('id')
+        elif type(item) == str:
+            new_sub_tag = self.data.new_tag('name')
+        new_sub_tag.string = str(item)
+        new_secondary_tag.string = str(secondary_arg)
+        new_data_type.append(new_sub_tag)
+        new_data_type.append(new_secondary_tag)
+        return new_data_type
+
+    def addComputers(self, *computers):
+        arg_tuple = tuple(filter(lambda x: not self.computers.find(string=x), computers))
+        tuple(map(lambda x: self.computers.append(self._create_tag('computer', x)), arg_tuple))
+
+    def removeComputers(self, *computers):
+        tuple(map(lambda x: self.computers.find(string=x).find_parent('computer').decompose(), computers))
+
+    def addComputersGroups(self, *computersgroups):
+        arg_tuple = tuple(filter(lambda x: not self.computergroups.find(string=x), computersgroups))
+        tuple(map(lambda x: self.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
+
+    def removeComputersGroups(self, *computersgroups):
+        tuple(map(lambda x: self.computergroups.find(string=x).find_parent('computer_group').decompose(), computersgroups))
+
+    def addBuildings(self, *buildings):
+        arg_tuple = tuple(filter(lambda x: not self.buildings.find(string=x), buildings))
+        tuple(map(lambda x: self.buildings.append(self._create_tag('building', x)), arg_tuple))
+
+    def removeBuildings(self, *buildings):
+        tuple(map(lambda x: self.buildings.find(string=x).find_parent('building').decompose(), buildings))
+
+    def addDepartments(self, *departments):
+        arg_tuple = tuple(filter(lambda x: not self.departments.find(string=x), departments))
+        tuple(map(lambda x: self.departments.append(self._create_tag('department', x)), arg_tuple))
+
+    def removeDepartments(self, *departments):
+        tuple(map(lambda x: self.buildings.find(string=x).find_parent('department').decompose(), departments))
+
+    def excludeComputers(self, *computers):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.computers.find(string=x), computers))
+        tuple(map(lambda x: self.exclusions.computers.append(self._create_tag('computer', x)), arg_tuple))
+
+    def removeExcludedComputers(self, *computers):
+        tuple(map(lambda x: self.exclusions.computers.find(string=x).find_parent('computer').decompose(), computers))
+
+    def excludeComputersGroups(self, *computersgroups):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.computergroups.find(string=x), computersgroups))
+        tuple(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
+
+    def removeExcludedComputersGroups(self, *computersgroups):
+        tuple(map(lambda x: self.exclusions.computergroups.find(string=x).find_parent('computer_group').decompose(), computersgroups))
+
+    def excludeBuildings(self, *buildings):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.buildings.find(string=x), buildings))
+        tuple(map(lambda x: self.exclusions.buildings.append(self._create_tag('building', x)), arg_tuple))
+
+    def removeExcludedBuildings(self, *buildings):
+        tuple(map(lambda x: self.exclusions.buildings.find(string=x).find_parent('building').decompose(), buildings))
+
+    def excludeDepartments(self, *departments):
+        arg_tuple = tuple(filter(lambda x: not self.exclusions.departments.find(string=x), departments))
+        tuple(map(lambda x: self.exclusions.departments.append(self._create_tag('department', x)), arg_tuple))
+
+    def removeExcludedDepartments(self, *args):
+        tuple(map(lambda x: self.exclusions.departments.find(string=x).find_parent('department').decompose(), args))
+
+    def update(self):
+        return MobileDeviceApplications.putById(str(self.id), str(self.data))
+
+    def delete(self):
+        return MobileDeviceApplications.deleteById(str(self.id))
+
 
 class MobileDeviceCommands():
     ''' post to be done '''
@@ -1816,7 +1920,7 @@ class MobileDeviceConfigurationProfiles():
 
 
 class MobileDeviceEnrollementProfiles():
-    
+
     @classmethod
     def get(cls):
         return get_call(__class__.__name__.lower())
@@ -1957,7 +2061,7 @@ class MobileDeviceGroups():
 
 
 class MobileDeviceHistory():
-    
+
     @classmethod
     def getById(cls, id_item):
         '''Return Advanced searches'''
@@ -1990,7 +2094,7 @@ class MobileDeviceHistory():
 
 
 class MobileDeviceInvitations():
-    
+
     @classmethod
     def get(cls):
         return get_call(__class__.__name__.lower())
@@ -2011,7 +2115,6 @@ class MobileDeviceInvitations():
     def deleteById(cls, id_item):
         return delete_call(f'{__class__.__name__.lower()}/id/{id_item}')
 
-
     @classmethod
     def getByInvitation(cls, invitation_item):
         return get_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}')
@@ -2019,7 +2122,7 @@ class MobileDeviceInvitations():
     @classmethod
     def putByInvitation(cls, invitation_item, data):
         return put_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}', data)
-    
+
     @classmethod
     def postByInvitation(cls, invitation_item, data):
         return post_call(f'{__class__.__name__.lower()}/invitation/{invitation_item}', data)
@@ -2071,7 +2174,7 @@ class MobileDeviceProvisionningProfiles():
     def getByUdid(cls, udid_item):
         '''Return Advanced searches'''
         return get_call(f'{__class__.__name__.lower()}/udid/{udid_item}')
-    
+
     @classmethod
     def putByUdid(cls, udid_item, data):
         '''Return Advanced searches'''
@@ -2130,7 +2233,7 @@ class MobileDevices():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
-    
+
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name/udid/serialnumber or macaddress'''
@@ -2320,7 +2423,7 @@ class OsxConfigurationProfiles():
 
 
 class Packages():
-   
+
     @classmethod
     def get(cls):
         return get_call(__class__.__name__.lower())
@@ -2359,7 +2462,7 @@ class Packages():
 
 
 class PatchAvailableTitles():
-    
+
     @classmethod
     def getById(cls, id_item):
         return get_call(f'{__class__.__name__.lower()}/sourceid/{id_item}')
@@ -2435,7 +2538,7 @@ class PatchReports():
 
 
 class PatchSoftwareTitles():
-    
+
     @classmethod
     def get(cls):
         return get_call(__class__.__name__.lower())
@@ -2521,13 +2624,13 @@ class PatchPolicies():
         return get_call(f'{__class__.__name__.lower()}/softwaretitleconfigid/id/{id_item}')
 
     @classmethod
-    #ToCorrect. Needs Data Verify API
+    # ToCorrect. Needs Data Verify API
     def postBySoftwareConfigId(cls, id_item):
         return get_call(f'{__class__.__name__.lower()}/softwaretitleconfigid/id/{id_item}')
 
 
 class Peripherals():
-    
+
     @classmethod
     def get(cls):
         '''Return list of accounts'''
@@ -2616,7 +2719,7 @@ class Policies():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
-        
+
     @classmethod
     def getSubset(cls, item_type, item, subset_items):
         '''Item_type could be id/name'''
@@ -2630,14 +2733,15 @@ class Policies():
     def getByCreator(cls, creator_name):
         return get_call(f'{__class__.__name__.lower()}/createdBy/{creator_name}')
 
+
 class Policy:
 
-    def __init__(self, xml_data ):
+    def __init__(self, xml_data):
         self.data = xml_data
         self._id = xml_data.policy.general.find('id', recursive=False)
         self._name = xml_data.policy.general.find('name', recursive=False)
         self._enabled = xml_data.policy.general.find('enabled', recursive=False)
-        self._site = xml_data.policy.general.find('site',recursive=False)
+        self._site = xml_data.policy.general.find('site', recursive=False)
         self._category = xml_data.policy.general.category
         self._trigger_checkin = xml_data.policy.general.find('trigger_checkin', recursive=False)
         self._trigger_enrollment_complete = xml_data.policy.general.find('trigger_enrollment_complete', recursive=False)
@@ -2663,12 +2767,12 @@ class Policy:
         self._fix_user_caches = xml_data.policy.find('maintenance').find('user_cache')
         self._verify_disk = xml_data.policy.find('maintenance').find('verify')
         self.files_processes = xml_data.policy.find('files_processes')
-        self._search_by_path =xml_data.policy.find('files_processes').find('search_by_path')
-        self._delete_file =xml_data.policy.find('files_processes').find('delete_file')
-        self._search_by_filename =xml_data.policy.find('files_processes').find('locate_file')
-        self._update_locate_database =xml_data.policy.find('files_processes').find('update_locate_database')
-        self._search_spotlight =xml_data.policy.find('files_processes').find('spotlight_search')
-        self._search_process =xml_data.policy.find('files_processes').find('search_for_process')
+        self._search_by_path = xml_data.policy.find('files_processes').find('search_by_path')
+        self._delete_file = xml_data.policy.find('files_processes').find('delete_file')
+        self._search_by_filename = xml_data.policy.find('files_processes').find('locate_file')
+        self._update_locate_database = xml_data.policy.find('files_processes').find('update_locate_database')
+        self._search_spotlight = xml_data.policy.find('files_processes').find('spotlight_search')
+        self._search_process = xml_data.policy.find('files_processes').find('search_for_process')
         self._kill_process = xml_data.policy.find('files_processes').find('kill_process')
         self._run_command = xml_data.policy.find('files_processes').find('run_command')
         self.scope = xml_data.policy.scope
@@ -2710,7 +2814,7 @@ class Policy:
     @id.setter
     def id(self, value):
         self._id.string = str(value)
-    
+
     @property
     def enabled(self):
         return self._enabled.string
@@ -2744,7 +2848,7 @@ class Policy:
     def category(self):
         self._category.find('id').string = '-1'
         self._category.find('name').string = 'None'
-    
+
     @property
     def trigger_checkin(self):
         return self._trigger_checkin.string
@@ -2768,7 +2872,7 @@ class Policy:
             raise ValueError
         else:
             self._trigger_enrollment_complete.string = value
-    
+
     @property
     def trigger_login(self):
         return self._trigger_login.string
@@ -2792,7 +2896,7 @@ class Policy:
             raise ValueError
         else:
             self._trigger_logout.string = value
-    
+
     @property
     def trigger_network_state_changed(self):
         return self._trigger_network_state_changed.string
@@ -2816,11 +2920,11 @@ class Policy:
             raise ValueError
         else:
             self._trigger_startup.string = value
-    
+
     @property
     def trigger_other(self):
         return self._trigger_other.string
-    
+
     @trigger_other.setter
     def trigger_other(self, value):
         self._trigger_other.string = value
@@ -2877,6 +2981,7 @@ class Policy:
                 new_tag = self.data.new_tag('name')
                 new_tag.string = value
                 self._site.append(new_tag)
+
     @site.deleter
     def site(self):
         self._site.find('id').string = '-1'
@@ -2893,7 +2998,7 @@ class Policy:
             raise ValueError
         else:
             self._update_inventory.string = value
-    
+
     @property
     def reset_computer_name(self):
         return self._reset_computer_name.string
@@ -3006,7 +3111,6 @@ class Policy:
     def search_by_filename(self, value):
         self._search_by_filename.string = value
 
-
     @property
     def update_locate_database(self):
         return self._update_locate_database.string
@@ -3046,7 +3150,7 @@ class Policy:
             raise ValueError
         else:
             self._kill_process.string = value
-    
+
     @property
     def run_command(self):
         return self._run_command.string
@@ -3064,7 +3168,7 @@ class Policy:
         new_sub_tag.string = str(arg)
         new_data_type.append(new_sub_tag)
         return new_data_type
-    
+
     def _create_secondary_tag(self, tag_name, secondary_tag, secondary_arg, item):
         new_data_type = self.data.new_tag(tag_name)
         new_secondary_tag = self.data.new_tag(secondary_tag)
@@ -3112,7 +3216,7 @@ class Policy:
 
     def removeExcludedComputers(self, *computers):
         tuple(map(lambda x: self.exclusions.computers.find(string=x).find_parent('computer').decompose(), computers))
-    
+
     def excludeComputersGroups(self, *computersgroups):
         arg_tuple = tuple(filter(lambda x: not self.exclusions.computergroups.find(string=x), computersgroups))
         tuple(map(lambda x: self.exclusions.computergroups.append(self._create_tag('computer_group', x)), arg_tuple))
@@ -3133,29 +3237,28 @@ class Policy:
 
     def removeExcludedDepartments(self, *args):
         tuple(map(lambda x: self.exclusions.departments.find(string=x).find_parent('department').decompose(), args))
-    
+
     # def clear_scope(self):
     #     #To correct
     #     self.data.scope.clear()
     #     default_scope = soup(default_scope_template, 'xml')
     #     self.data.scope.append(default_scope)
 
-    
     def addScripts(self, script=None, priority=None):
         # [ self.scripts.append(self._create_secondary_tag( 'script', 'priority', x,y)) for x, y in scripts.items() ]
-        self.scripts.append(self._create_secondary_tag( 'script', 'priority', script, priority))
+        self.scripts.append(self._create_secondary_tag('script', 'priority', script, priority))
 
     def removeScripts(self, *scripts):
         tuple(map(lambda x: self.scripts.find(string=x).find_parent('script').decompose(), scripts))
-    
+
     def addPackages(self, package=None, action=None):
         # [ self.packages.append(self._create_secondary_tag( 'package', 'action', x,y)) for x, y in packages.items() ]
-        self.packages.append(self._create_secondary_tag( 'package', 'action', package, action))
+        self.packages.append(self._create_secondary_tag('package', 'action', package, action))
 
     def removePackages(self, *packages):
         tuple(map(lambda x: self.scripts.find(string=x).find_parent('package').decompose(), packages))
 
-    def mapPrinters(self, *printers): 
+    def mapPrinters(self, *printers):
         arg_tuple = tuple(filter(lambda x: not self.printers.find(string=x), printers))
         tuple(map(lambda x: self.printers.append(self._create_secondary_tag('printer', 'action', 'install', x)), arg_tuple))
 
@@ -3165,7 +3268,7 @@ class Policy:
 
     def removePrinters(self, *printers):
         tuple(map(lambda x: self.printers.find(string=x).find_parent('printer').decompose(), printers))
-    
+
     def addBinding(self, *bindings):
         arg_tuple = tuple(filter(lambda x: not self.bindings.find(string=x), bindings))
         tuple(map(lambda x: self.bindings.append(self._create_tag('binding', x)), arg_tuple))
@@ -3175,7 +3278,7 @@ class Policy:
 
     def update(self):
         return Policies.putById(str(self.id), str(self.data))
-    
+
     def delete(self):
         return Policies.deleteById(str(self.id))
 
@@ -3542,7 +3645,7 @@ class Users():
     @classmethod
     def deleteByName(cls, name_item):
         return delete_call(f'{__class__.__name__.lower()}/name/{name_item}')
-    
+
     @classmethod
     def getByEmail(cls, email):
         return get_call(f'{__class__.__name__.lower()}/email/{email}')
